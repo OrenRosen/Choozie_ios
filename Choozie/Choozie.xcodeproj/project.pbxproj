@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8C247D6197AD74B006DA42E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D5197AD74B006DA42E /* Foundation.framework */; };
+		D8C247D8197AD74B006DA42E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D7197AD74B006DA42E /* CoreGraphics.framework */; };
+		D8C247DA197AD74B006DA42E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D9197AD74B006DA42E /* UIKit.framework */; };
+		D8C247E0197AD74B006DA42E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8C247DE197AD74B006DA42E /* InfoPlist.strings */; };
+		D8C247E2197AD74B006DA42E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C247E1197AD74B006DA42E /* main.m */; };
+		D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C247E5197AD74B006DA42E /* ChoozieAppDelegate.m */; };
+		D8C247E9197AD74B006DA42E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C247E7197AD74B006DA42E /* Main.storyboard */; };
+		D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C247EB197AD74B006DA42E /* ChoozieViewController.m */; };
+		D8C247EE197AD74B006DA42E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C247ED197AD74B006DA42E /* Images.xcassets */; };
+		D8C247F5197AD74B006DA42E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247F4197AD74B006DA42E /* XCTest.framework */; };
+		D8C247F6197AD74B006DA42E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D5197AD74B006DA42E /* Foundation.framework */; };
+		D8C247F7197AD74B006DA42E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D9197AD74B006DA42E /* UIKit.framework */; };
+		D8C247FF197AD74B006DA42E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8C247FD197AD74B006DA42E /* InfoPlist.strings */; };
+		D8C24801197AD74B006DA42E /* ChoozieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C24800197AD74B006DA42E /* ChoozieTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8C247F8197AD74B006DA42E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8C247CA197AD74B006DA42E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8C247D1197AD74B006DA42E;
+			remoteInfo = Choozie;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D8C247D2197AD74B006DA42E /* Choozie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Choozie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C247D5197AD74B006DA42E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D8C247D7197AD74B006DA42E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D8C247D9197AD74B006DA42E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D8C247DD197AD74B006DA42E /* Choozie-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Choozie-Info.plist"; sourceTree = "<group>"; };
+		D8C247DF197AD74B006DA42E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D8C247E1197AD74B006DA42E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8C247E3197AD74B006DA42E /* Choozie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Choozie-Prefix.pch"; sourceTree = "<group>"; };
+		D8C247E4197AD74B006DA42E /* ChoozieAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChoozieAppDelegate.h; sourceTree = "<group>"; };
+		D8C247E5197AD74B006DA42E /* ChoozieAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoozieAppDelegate.m; sourceTree = "<group>"; };
+		D8C247E8197AD74B006DA42E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8C247EA197AD74B006DA42E /* ChoozieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChoozieViewController.h; sourceTree = "<group>"; };
+		D8C247EB197AD74B006DA42E /* ChoozieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoozieViewController.m; sourceTree = "<group>"; };
+		D8C247ED197AD74B006DA42E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D8C247F3197AD74B006DA42E /* ChoozieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoozieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8C247F4197AD74B006DA42E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D8C247FC197AD74B006DA42E /* ChoozieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChoozieTests-Info.plist"; sourceTree = "<group>"; };
+		D8C247FE197AD74B006DA42E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D8C24800197AD74B006DA42E /* ChoozieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoozieTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8C247CF197AD74B006DA42E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C247D8197AD74B006DA42E /* CoreGraphics.framework in Frameworks */,
+				D8C247DA197AD74B006DA42E /* UIKit.framework in Frameworks */,
+				D8C247D6197AD74B006DA42E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C247F0197AD74B006DA42E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C247F5197AD74B006DA42E /* XCTest.framework in Frameworks */,
+				D8C247F7197AD74B006DA42E /* UIKit.framework in Frameworks */,
+				D8C247F6197AD74B006DA42E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8C247C9197AD74B006DA42E = {
+			isa = PBXGroup;
+			children = (
+				D8C247DB197AD74B006DA42E /* Choozie */,
+				D8C247FA197AD74B006DA42E /* ChoozieTests */,
+				D8C247D4197AD74B006DA42E /* Frameworks */,
+				D8C247D3197AD74B006DA42E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8C247D3197AD74B006DA42E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8C247D2197AD74B006DA42E /* Choozie.app */,
+				D8C247F3197AD74B006DA42E /* ChoozieTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8C247D4197AD74B006DA42E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8C247D5197AD74B006DA42E /* Foundation.framework */,
+				D8C247D7197AD74B006DA42E /* CoreGraphics.framework */,
+				D8C247D9197AD74B006DA42E /* UIKit.framework */,
+				D8C247F4197AD74B006DA42E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8C247DB197AD74B006DA42E /* Choozie */ = {
+			isa = PBXGroup;
+			children = (
+				D8C247E4197AD74B006DA42E /* ChoozieAppDelegate.h */,
+				D8C247E5197AD74B006DA42E /* ChoozieAppDelegate.m */,
+				D8C247E7197AD74B006DA42E /* Main.storyboard */,
+				D8C247EA197AD74B006DA42E /* ChoozieViewController.h */,
+				D8C247EB197AD74B006DA42E /* ChoozieViewController.m */,
+				D8C247ED197AD74B006DA42E /* Images.xcassets */,
+				D8C247DC197AD74B006DA42E /* Supporting Files */,
+			);
+			path = Choozie;
+			sourceTree = "<group>";
+		};
+		D8C247DC197AD74B006DA42E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8C247DD197AD74B006DA42E /* Choozie-Info.plist */,
+				D8C247DE197AD74B006DA42E /* InfoPlist.strings */,
+				D8C247E1197AD74B006DA42E /* main.m */,
+				D8C247E3197AD74B006DA42E /* Choozie-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8C247FA197AD74B006DA42E /* ChoozieTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8C24800197AD74B006DA42E /* ChoozieTests.m */,
+				D8C247FB197AD74B006DA42E /* Supporting Files */,
+			);
+			path = ChoozieTests;
+			sourceTree = "<group>";
+		};
+		D8C247FB197AD74B006DA42E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8C247FC197AD74B006DA42E /* ChoozieTests-Info.plist */,
+				D8C247FD197AD74B006DA42E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8C247D1197AD74B006DA42E /* Choozie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C24804197AD74B006DA42E /* Build configuration list for PBXNativeTarget "Choozie" */;
+			buildPhases = (
+				D8C247CE197AD74B006DA42E /* Sources */,
+				D8C247CF197AD74B006DA42E /* Frameworks */,
+				D8C247D0197AD74B006DA42E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Choozie;
+			productName = Choozie;
+			productReference = D8C247D2197AD74B006DA42E /* Choozie.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8C247F2197AD74B006DA42E /* ChoozieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8C24807197AD74B006DA42E /* Build configuration list for PBXNativeTarget "ChoozieTests" */;
+			buildPhases = (
+				D8C247EF197AD74B006DA42E /* Sources */,
+				D8C247F0197AD74B006DA42E /* Frameworks */,
+				D8C247F1197AD74B006DA42E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8C247F9197AD74B006DA42E /* PBXTargetDependency */,
+			);
+			name = ChoozieTests;
+			productName = ChoozieTests;
+			productReference = D8C247F3197AD74B006DA42E /* ChoozieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8C247CA197AD74B006DA42E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Choozie;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = ROKY;
+				TargetAttributes = {
+					D8C247F2197AD74B006DA42E = {
+						TestTargetID = D8C247D1197AD74B006DA42E;
+					};
+				};
+			};
+			buildConfigurationList = D8C247CD197AD74B006DA42E /* Build configuration list for PBXProject "Choozie" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8C247C9197AD74B006DA42E;
+			productRefGroup = D8C247D3197AD74B006DA42E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8C247D1197AD74B006DA42E /* Choozie */,
+				D8C247F2197AD74B006DA42E /* ChoozieTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8C247D0197AD74B006DA42E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C247EE197AD74B006DA42E /* Images.xcassets in Resources */,
+				D8C247E0197AD74B006DA42E /* InfoPlist.strings in Resources */,
+				D8C247E9197AD74B006DA42E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C247F1197AD74B006DA42E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C247FF197AD74B006DA42E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8C247CE197AD74B006DA42E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */,
+				D8C247E2197AD74B006DA42E /* main.m in Sources */,
+				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C247EF197AD74B006DA42E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C24801197AD74B006DA42E /* ChoozieTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8C247F9197AD74B006DA42E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8C247D1197AD74B006DA42E /* Choozie */;
+			targetProxy = D8C247F8197AD74B006DA42E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8C247DE197AD74B006DA42E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8C247DF197AD74B006DA42E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D8C247E7197AD74B006DA42E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8C247E8197AD74B006DA42E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8C247FD197AD74B006DA42E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8C247FE197AD74B006DA42E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8C24802197AD74B006DA42E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D8C24803197AD74B006DA42E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8C24805197AD74B006DA42E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
+				INFOPLIST_FILE = "Choozie/Choozie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D8C24806197AD74B006DA42E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
+				INFOPLIST_FILE = "Choozie/Choozie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D8C24808197AD74B006DA42E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Choozie.app/Choozie";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChoozieTests/ChoozieTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D8C24809197AD74B006DA42E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Choozie.app/Choozie";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
+				INFOPLIST_FILE = "ChoozieTests/ChoozieTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8C247CD197AD74B006DA42E /* Build configuration list for PBXProject "Choozie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C24802197AD74B006DA42E /* Debug */,
+				D8C24803197AD74B006DA42E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8C24804197AD74B006DA42E /* Build configuration list for PBXNativeTarget "Choozie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C24805197AD74B006DA42E /* Debug */,
+				D8C24806197AD74B006DA42E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D8C24807197AD74B006DA42E /* Build configuration list for PBXNativeTarget "ChoozieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8C24808197AD74B006DA42E /* Debug */,
+				D8C24809197AD74B006DA42E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8C247CA197AD74B006DA42E /* Project object */;
+}
