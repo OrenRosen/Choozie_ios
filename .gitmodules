@@ -1,0 +1,3 @@
+[submodule "3rdparty/jastor"]
+	path = 3rdparty/jastor
+	url = git@github.com:elado/jastor.git

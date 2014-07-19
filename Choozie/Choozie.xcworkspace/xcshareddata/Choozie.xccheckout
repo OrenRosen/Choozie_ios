@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>4E2523A2-ECFA-41C2-8E0B-F60AE90F2FF6</string>
+	<string>5F8247BA-3787-4859-9E12-FCE3635DA259</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Choozie</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -17,6 +17,8 @@
 	<string>Choozie/Choozie.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>D64218AF-740C-4C37-B185-4E8F9EFA1452</key>
+		<string>../../3rdparty/jastor</string>
 		<key>E382C85F-DB70-44B7-8E90-B7C3E719B627</key>
 		<string>../..</string>
 	</dict>
@@ -35,6 +37,14 @@
 			<string>E382C85F-DB70-44B7-8E90-B7C3E719B627</string>
 			<key>IDESourceControlWCCName</key>
 			<string>choozie_ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D64218AF-740C-4C37-B185-4E8F9EFA1452</string>
+			<key>IDESourceControlWCCName</key>
+			<string>jastor</string>
 		</dict>
 	</array>
 </dict>
