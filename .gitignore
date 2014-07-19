@@ -1,2 +1,7 @@
 Choozie/Choozie.xcodeproj/project.xcworkspace/xcuserdata/
 .DS_Store
+/Choozie/Pods/
+/Choozie/Podfile.lock
+Podfile
+Choozie.xcworkspace/xcshareddata/
+
