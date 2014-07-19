@@ -22,6 +22,14 @@
 		D8444D74197AF1A8005BF1F5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D8444D66197AF1A8005BF1F5 /* LICENSE */; };
 		D8444D75197AF1A8005BF1F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8444D67197AF1A8005BF1F5 /* README.md */; };
 		D8444D76197AF1A8005BF1F5 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = D8444D68197AF1A8005BF1F5 /* VERSION */; };
+		D8444D8C197AFAD0005BF1F5 /* backward in Resources */ = {isa = PBXBuildFile; fileRef = D8444D7E197AFAD0005BF1F5 /* backward */; };
+		D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */; };
+		D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D82197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m */; };
+		D8444D8F197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D84197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m */; };
+		D8444D90197AFAD0005BF1F5 /* UILabelImproved.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D86197AFAD0005BF1F5 /* UILabelImproved.m */; };
+		D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D88197AFAD0005BF1F5 /* UIView+Additions.m */; };
+		D8444D92197AFAD0005BF1F5 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D8A197AFAD0005BF1F5 /* UIView+Animation.m */; };
+		D8444D93197AFAD0005BF1F5 /* zone.tab in Resources */ = {isa = PBXBuildFile; fileRef = D8444D8B197AFAD0005BF1F5 /* zone.tab */; };
 		D8C247D6197AD74B006DA42E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D5197AD74B006DA42E /* Foundation.framework */; };
 		D8C247D8197AD74B006DA42E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D7197AD74B006DA42E /* CoreGraphics.framework */; };
 		D8C247DA197AD74B006DA42E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D9197AD74B006DA42E /* UIKit.framework */; };
@@ -86,6 +94,20 @@
 		D8444D66197AF1A8005BF1F5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D8444D67197AF1A8005BF1F5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		D8444D68197AF1A8005BF1F5 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		D8444D7E197AFAD0005BF1F5 /* backward */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = backward; sourceTree = "<group>"; };
+		D8444D7F197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ValueNotNull.h"; sourceTree = "<group>"; };
+		D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ValueNotNull.m"; sourceTree = "<group>"; };
+		D8444D81197AFAD0005BF1F5 /* NSTimeZone+abtz_location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimeZone+abtz_location.h"; sourceTree = "<group>"; };
+		D8444D82197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimeZone+abtz_location.m"; sourceTree = "<group>"; };
+		D8444D83197AFAD0005BF1F5 /* UIImage+MakeThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MakeThumbnail.h"; sourceTree = "<group>"; };
+		D8444D84197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MakeThumbnail.m"; sourceTree = "<group>"; };
+		D8444D85197AFAD0005BF1F5 /* UILabelImproved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelImproved.h; sourceTree = "<group>"; };
+		D8444D86197AFAD0005BF1F5 /* UILabelImproved.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelImproved.m; sourceTree = "<group>"; };
+		D8444D87197AFAD0005BF1F5 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		D8444D88197AFAD0005BF1F5 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		D8444D89197AFAD0005BF1F5 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
+		D8444D8A197AFAD0005BF1F5 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		D8444D8B197AFAD0005BF1F5 /* zone.tab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zone.tab; sourceTree = "<group>"; };
 		D8C247D2197AD74B006DA42E /* Choozie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Choozie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C247D5197AD74B006DA42E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8C247D7197AD74B006DA42E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -220,6 +242,27 @@
 			path = JSONKIT;
 			sourceTree = "<group>";
 		};
+		D8444D7D197AFAD0005BF1F5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D8444D7E197AFAD0005BF1F5 /* backward */,
+				D8444D7F197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.h */,
+				D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */,
+				D8444D81197AFAD0005BF1F5 /* NSTimeZone+abtz_location.h */,
+				D8444D82197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m */,
+				D8444D83197AFAD0005BF1F5 /* UIImage+MakeThumbnail.h */,
+				D8444D84197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m */,
+				D8444D85197AFAD0005BF1F5 /* UILabelImproved.h */,
+				D8444D86197AFAD0005BF1F5 /* UILabelImproved.m */,
+				D8444D87197AFAD0005BF1F5 /* UIView+Additions.h */,
+				D8444D88197AFAD0005BF1F5 /* UIView+Additions.m */,
+				D8444D89197AFAD0005BF1F5 /* UIView+Animation.h */,
+				D8444D8A197AFAD0005BF1F5 /* UIView+Animation.m */,
+				D8444D8B197AFAD0005BF1F5 /* zone.tab */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		D8C247C9197AD74B006DA42E = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +306,7 @@
 				D8C247EB197AD74B006DA42E /* ChoozieViewController.m */,
 				D8C247ED197AD74B006DA42E /* Images.xcassets */,
 				D8C247DC197AD74B006DA42E /* Supporting Files */,
+				D8444D7D197AFAD0005BF1F5 /* Categories */,
 			);
 			path = Choozie;
 			sourceTree = "<group>";
@@ -405,6 +449,8 @@
 				D8C247EE197AD74B006DA42E /* Images.xcassets in Resources */,
 				D8444D6A197AF1A8005BF1F5 /* .gitmodules in Resources */,
 				D8444D73197AF1A8005BF1F5 /* jastor.podspec in Resources */,
+				D8444D93197AFAD0005BF1F5 /* zone.tab in Resources */,
+				D8444D8C197AFAD0005BF1F5 /* backward in Resources */,
 				D8444D74197AF1A8005BF1F5 /* LICENSE in Resources */,
 				D8444D76197AF1A8005BF1F5 /* VERSION in Resources */,
 				D8C247E0197AD74B006DA42E /* InfoPlist.strings in Resources */,
@@ -460,14 +506,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8444D92197AFAD0005BF1F5 /* UIView+Animation.m in Sources */,
+				D8444D8F197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m in Sources */,
 				D8444D6F197AF1A8005BF1F5 /* JastorTests.m in Sources */,
 				D8444D72197AF1A8005BF1F5 /* ProductCategory.m in Sources */,
+				D8444D90197AFAD0005BF1F5 /* UILabelImproved.m in Sources */,
 				D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */,
 				D8444D70197AF1A8005BF1F5 /* Person.m in Sources */,
 				D8C247E2197AD74B006DA42E /* main.m in Sources */,
 				D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */,
 				D8444D71197AF1A8005BF1F5 /* Product.m in Sources */,
+				D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */,
+				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,
 				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
+				D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */,
 				D8444D6C197AF1A8005BF1F5 /* JastorRuntimeHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
