@@ -27,11 +27,15 @@
 		D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D96197AFB5A005BF1F5 /* ApiServices.m */; };
 		D8C08EE1197C33F400BA4439 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EE0197C33F400BA4439 /* Constants.m */; };
 		D8C08EE6197C346000BA4439 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EE5197C346000BA4439 /* Utils.m */; };
-		D8C08EEB197C399100BA4439 /* FeedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EEA197C399100BA4439 /* FeedResponse.m */; };
-		D8C08EEE197C3A1300BA4439 /* ChooziePost.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EED197C3A1300BA4439 /* ChooziePost.m */; };
-		D8C08EF1197C3AB700BA4439 /* ChoozieUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EF0197C3AB700BA4439 /* ChoozieUser.m */; };
-		D8C08EF5197C3B3000BA4439 /* ChoozieComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EF4197C3B3000BA4439 /* ChoozieComment.m */; };
-		D8C08EF8197C3BF700BA4439 /* ChoozieVote.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EF7197C3BF700BA4439 /* ChoozieVote.m */; };
+		D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EFE197C421A00BA4439 /* ChoozieComment.m */; };
+		D8C08F08197C421A00BA4439 /* ChooziePost.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08F00197C421A00BA4439 /* ChooziePost.m */; };
+		D8C08F09197C421A00BA4439 /* ChoozieUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08F02197C421A00BA4439 /* ChoozieUser.m */; };
+		D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08F04197C421A00BA4439 /* ChoozieVote.m */; };
+		D8C08F0B197C421A00BA4439 /* FeedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08F06197C421A00BA4439 /* FeedResponse.m */; };
+		D8C08F11197C428800BA4439 /* ChooziePostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08F10197C428800BA4439 /* ChooziePostCell.m */; };
+		D8C08F13197C42B900BA4439 /* ChooziePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C08F12197C42B900BA4439 /* ChooziePostCell.xib */; };
+		D8C08F15197C4A4300BA4439 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C08F14197C4A4300BA4439 /* Media.xcassets */; };
+		D8C08F18197C4E6200BA4439 /* MainFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08F17197C4E6200BA4439 /* MainFeedDataSource.m */; };
 		D8C247D6197AD74B006DA42E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D5197AD74B006DA42E /* Foundation.framework */; };
 		D8C247D8197AD74B006DA42E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D7197AD74B006DA42E /* CoreGraphics.framework */; };
 		D8C247DA197AD74B006DA42E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D9197AD74B006DA42E /* UIKit.framework */; };
@@ -106,16 +110,22 @@
 		D8C08EE0197C33F400BA4439 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D8C08EE4197C346000BA4439 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		D8C08EE5197C346000BA4439 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		D8C08EE9197C399100BA4439 /* FeedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedResponse.h; sourceTree = "<group>"; };
-		D8C08EEA197C399100BA4439 /* FeedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedResponse.m; sourceTree = "<group>"; };
-		D8C08EEC197C3A1300BA4439 /* ChooziePost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooziePost.h; sourceTree = "<group>"; };
-		D8C08EED197C3A1300BA4439 /* ChooziePost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooziePost.m; sourceTree = "<group>"; };
-		D8C08EEF197C3AB700BA4439 /* ChoozieUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieUser.h; sourceTree = "<group>"; };
-		D8C08EF0197C3AB700BA4439 /* ChoozieUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieUser.m; sourceTree = "<group>"; };
-		D8C08EF3197C3B3000BA4439 /* ChoozieComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieComment.h; sourceTree = "<group>"; };
-		D8C08EF4197C3B3000BA4439 /* ChoozieComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieComment.m; sourceTree = "<group>"; };
-		D8C08EF6197C3BF700BA4439 /* ChoozieVote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieVote.h; sourceTree = "<group>"; };
-		D8C08EF7197C3BF700BA4439 /* ChoozieVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieVote.m; sourceTree = "<group>"; };
+		D8C08EFD197C421A00BA4439 /* ChoozieComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoozieComment.h; path = "Choozie/screens/main feed/models/ChoozieComment.h"; sourceTree = SOURCE_ROOT; };
+		D8C08EFE197C421A00BA4439 /* ChoozieComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoozieComment.m; path = "Choozie/screens/main feed/models/ChoozieComment.m"; sourceTree = SOURCE_ROOT; };
+		D8C08EFF197C421A00BA4439 /* ChooziePost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooziePost.h; path = "Choozie/screens/main feed/models/ChooziePost.h"; sourceTree = SOURCE_ROOT; };
+		D8C08F00197C421A00BA4439 /* ChooziePost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooziePost.m; path = "Choozie/screens/main feed/models/ChooziePost.m"; sourceTree = SOURCE_ROOT; };
+		D8C08F01197C421A00BA4439 /* ChoozieUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoozieUser.h; path = "Choozie/screens/main feed/models/ChoozieUser.h"; sourceTree = SOURCE_ROOT; };
+		D8C08F02197C421A00BA4439 /* ChoozieUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoozieUser.m; path = "Choozie/screens/main feed/models/ChoozieUser.m"; sourceTree = SOURCE_ROOT; };
+		D8C08F03197C421A00BA4439 /* ChoozieVote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoozieVote.h; path = "Choozie/screens/main feed/models/ChoozieVote.h"; sourceTree = SOURCE_ROOT; };
+		D8C08F04197C421A00BA4439 /* ChoozieVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoozieVote.m; path = "Choozie/screens/main feed/models/ChoozieVote.m"; sourceTree = SOURCE_ROOT; };
+		D8C08F05197C421A00BA4439 /* FeedResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedResponse.h; path = "Choozie/screens/main feed/models/FeedResponse.h"; sourceTree = SOURCE_ROOT; };
+		D8C08F06197C421A00BA4439 /* FeedResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedResponse.m; path = "Choozie/screens/main feed/models/FeedResponse.m"; sourceTree = SOURCE_ROOT; };
+		D8C08F0F197C428800BA4439 /* ChooziePostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooziePostCell.h; path = "Choozie/screens/main feed/views/ChooziePostCell.h"; sourceTree = SOURCE_ROOT; };
+		D8C08F10197C428800BA4439 /* ChooziePostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooziePostCell.m; path = "Choozie/screens/main feed/views/ChooziePostCell.m"; sourceTree = SOURCE_ROOT; };
+		D8C08F12197C42B900BA4439 /* ChooziePostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChooziePostCell.xib; path = "Choozie/screens/main feed/views/ChooziePostCell.xib"; sourceTree = SOURCE_ROOT; };
+		D8C08F14197C4A4300BA4439 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		D8C08F16197C4E6200BA4439 /* MainFeedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainFeedDataSource.h; path = "Choozie/screens/main feed/MainFeedDataSource.h"; sourceTree = SOURCE_ROOT; };
+		D8C08F17197C4E6200BA4439 /* MainFeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainFeedDataSource.m; path = "Choozie/screens/main feed/MainFeedDataSource.m"; sourceTree = SOURCE_ROOT; };
 		D8C247D2197AD74B006DA42E /* Choozie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Choozie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C247D5197AD74B006DA42E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8C247D7197AD74B006DA42E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -250,42 +260,56 @@
 			path = "Global-App-Classes";
 			sourceTree = "<group>";
 		};
-		D8C08EE7197C396500BA4439 /* screens */ = {
+		D8C08EF9197C416600BA4439 /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				D8C08EE8197C397000BA4439 /* main feed */,
+				D8C08EFA197C418600BA4439 /* main feed */,
 			);
-			name = screens;
+			path = screens;
+			sourceTree = SOURCE_ROOT;
+		};
+		D8C08EFA197C418600BA4439 /* main feed */ = {
+			isa = PBXGroup;
+			children = (
+				D8C08EFC197C41A400BA4439 /* views */,
+				D8C08EFB197C419900BA4439 /* models */,
+				D8C08F16197C4E6200BA4439 /* MainFeedDataSource.h */,
+				D8C08F17197C4E6200BA4439 /* MainFeedDataSource.m */,
+			);
+			path = "main feed";
 			sourceTree = "<group>";
 		};
-		D8C08EE8197C397000BA4439 /* main feed */ = {
+		D8C08EFB197C419900BA4439 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				D8C08EF2197C3B0000BA4439 /* Models */,
+				D8C08EFD197C421A00BA4439 /* ChoozieComment.h */,
+				D8C08EFE197C421A00BA4439 /* ChoozieComment.m */,
+				D8C08EFF197C421A00BA4439 /* ChooziePost.h */,
+				D8C08F00197C421A00BA4439 /* ChooziePost.m */,
+				D8C08F01197C421A00BA4439 /* ChoozieUser.h */,
+				D8C08F02197C421A00BA4439 /* ChoozieUser.m */,
+				D8C08F03197C421A00BA4439 /* ChoozieVote.h */,
+				D8C08F04197C421A00BA4439 /* ChoozieVote.m */,
+				D8C08F05197C421A00BA4439 /* FeedResponse.h */,
+				D8C08F06197C421A00BA4439 /* FeedResponse.m */,
 			);
-			name = "main feed";
+			path = models;
 			sourceTree = "<group>";
 		};
-		D8C08EF2197C3B0000BA4439 /* Models */ = {
+		D8C08EFC197C41A400BA4439 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				D8C08EE9197C399100BA4439 /* FeedResponse.h */,
-				D8C08EEA197C399100BA4439 /* FeedResponse.m */,
-				D8C08EEC197C3A1300BA4439 /* ChooziePost.h */,
-				D8C08EED197C3A1300BA4439 /* ChooziePost.m */,
-				D8C08EEF197C3AB700BA4439 /* ChoozieUser.h */,
-				D8C08EF0197C3AB700BA4439 /* ChoozieUser.m */,
-				D8C08EF3197C3B3000BA4439 /* ChoozieComment.h */,
-				D8C08EF4197C3B3000BA4439 /* ChoozieComment.m */,
-				D8C08EF6197C3BF700BA4439 /* ChoozieVote.h */,
-				D8C08EF7197C3BF700BA4439 /* ChoozieVote.m */,
+				D8C08F0F197C428800BA4439 /* ChooziePostCell.h */,
+				D8C08F10197C428800BA4439 /* ChooziePostCell.m */,
+				D8C08F12197C42B900BA4439 /* ChooziePostCell.xib */,
 			);
-			name = Models;
+			path = views;
 			sourceTree = "<group>";
 		};
 		D8C247C9197AD74B006DA42E = {
 			isa = PBXGroup;
 			children = (
+				D8C08F14197C4A4300BA4439 /* Media.xcassets */,
 				D8444D49197AF1A8005BF1F5 /* 3rdparty */,
 				D8C247DB197AD74B006DA42E /* Choozie */,
 				D8C247FA197AD74B006DA42E /* ChoozieTests */,
@@ -319,7 +343,7 @@
 		D8C247DB197AD74B006DA42E /* Choozie */ = {
 			isa = PBXGroup;
 			children = (
-				D8C08EE7197C396500BA4439 /* screens */,
+				D8C08EF9197C416600BA4439 /* screens */,
 				D8C247E4197AD74B006DA42E /* ChoozieAppDelegate.h */,
 				D8C247E5197AD74B006DA42E /* ChoozieAppDelegate.m */,
 				D8C247E7197AD74B006DA42E /* Main.storyboard */,
@@ -466,7 +490,9 @@
 			files = (
 				D8444D69197AF1A8005BF1F5 /* .gitignore in Resources */,
 				D8444D75197AF1A8005BF1F5 /* README.md in Resources */,
+				D8C08F15197C4A4300BA4439 /* Media.xcassets in Resources */,
 				D8C247EE197AD74B006DA42E /* Images.xcassets in Resources */,
+				D8C08F13197C42B900BA4439 /* ChooziePostCell.xib in Resources */,
 				D8444D6A197AF1A8005BF1F5 /* .gitmodules in Resources */,
 				D8444D73197AF1A8005BF1F5 /* jastor.podspec in Resources */,
 				D8444D93197AFAD0005BF1F5 /* zone.tab in Resources */,
@@ -527,24 +553,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8444D92197AFAD0005BF1F5 /* UIView+Animation.m in Sources */,
-				D8C08EF5197C3B3000BA4439 /* ChoozieComment.m in Sources */,
 				D8444D8F197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m in Sources */,
 				D8444D90197AFAD0005BF1F5 /* UILabelImproved.m in Sources */,
+				D8C08F11197C428800BA4439 /* ChooziePostCell.m in Sources */,
 				D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */,
-				D8C08EF1197C3AB700BA4439 /* ChoozieUser.m in Sources */,
+				D8C08F09197C421A00BA4439 /* ChoozieUser.m in Sources */,
+				D8C08F18197C4E6200BA4439 /* MainFeedDataSource.m in Sources */,
 				D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */,
+				D8C08F0B197C421A00BA4439 /* FeedResponse.m in Sources */,
 				D8C08EE6197C346000BA4439 /* Utils.m in Sources */,
 				D8C247E2197AD74B006DA42E /* main.m in Sources */,
 				D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */,
-				D8C08EEB197C399100BA4439 /* FeedResponse.m in Sources */,
 				D8C08EE1197C33F400BA4439 /* Constants.m in Sources */,
 				D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */,
+				D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */,
+				D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */,
 				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,
-				D8C08EF8197C3BF700BA4439 /* ChoozieVote.m in Sources */,
 				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
 				D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */,
 				D8444D6C197AF1A8005BF1F5 /* JastorRuntimeHelper.m in Sources */,
-				D8C08EEE197C3A1300BA4439 /* ChooziePost.m in Sources */,
+				D8C08F08197C421A00BA4439 /* ChooziePost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
