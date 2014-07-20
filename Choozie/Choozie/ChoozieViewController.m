@@ -7,6 +7,9 @@
 //
 
 #import "ChoozieViewController.h"
+#import "ApiServices.h"
+#import "Constants.h"
+#import "FeedResponse.h"
 
 @interface ChoozieViewController ()
 
@@ -17,6 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self getDataFromServer];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,6 +29,22 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void)getDataFromServer
+{
+    
+    [[ApiServices sharedInstance] callService:kFeedUrl withSuccessBlock:^(NSDictionary *json) {
+        FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+        
+        NSLog(@"Success");
+        
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Failed;");
+    }];
+    
+    
 }
 
 @end
