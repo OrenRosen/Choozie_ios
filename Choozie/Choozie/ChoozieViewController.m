@@ -10,8 +10,12 @@
 #import "ApiServices.h"
 #import "Constants.h"
 #import "FeedResponse.h"
+#import "MainFeedDataSource.h"
 
 @interface ChoozieViewController ()
+
+@property (nonatomic, strong) MainFeedDataSource *mainFeedDataSource;
+@property (weak, nonatomic) IBOutlet UITableView *feedTableView;
 
 @end
 
@@ -20,6 +24,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.mainFeedDataSource = [[MainFeedDataSource alloc] init];
+    self.feedTableView.delegate = self.mainFeedDataSource;
+    self.feedTableView.dataSource = self.mainFeedDataSource;
+    
+    [self.feedTableView registerNib:[UINib nibWithNibName:@"ChooziePostCell" bundle:nil] forCellReuseIdentifier:@"ChooziePostCell"];
     
     [self getDataFromServer];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -37,6 +47,9 @@
     
     [[ApiServices sharedInstance] callService:kFeedUrl withSuccessBlock:^(NSDictionary *json) {
         FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+        
+        self.mainFeedDataSource.feed = response.feed;
+        [self.feedTableView reloadData];
         
         NSLog(@"Success");
         

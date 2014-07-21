@@ -14,4 +14,8 @@
 + (id)sharedInstance;
 
 
+
+
+- (void) setImageforView:(id)genericView withCachedImageFromURL:(NSString *)imageUrl;
+
 @end

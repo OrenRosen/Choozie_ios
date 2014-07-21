@@ -31,4 +31,13 @@
     // Configure the view for the selected state
 }
 
+
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    
+    [self.photo1ImageView prepareForReuse];
+    [self.photo2ImageView prepareForReuse];
+}
+
 @end
