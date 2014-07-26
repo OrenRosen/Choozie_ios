@@ -42,7 +42,8 @@
     [cell.photo1ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
     [cell.photo2ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo2]];
     
-    
+    cell.votes1Label.text = [NSString stringWithFormat:@"%d", post.votes1.count];
+    cell.votes2Label.text = [NSString stringWithFormat:@"%d", post.votes2.count];
     
     return cell;
 }

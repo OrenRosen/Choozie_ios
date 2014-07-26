@@ -17,7 +17,9 @@
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *created_at;
 @property (nonatomic, strong) NSString *question;
-@property (nonatomic, strong) NSArray *votes;
 @property (nonatomic, strong) NSArray *comments;
+
+@property (nonatomic, strong) NSArray *votes1;
+@property (nonatomic, strong) NSArray *votes2;
 
 @end
