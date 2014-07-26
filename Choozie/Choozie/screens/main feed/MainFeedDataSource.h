@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "TTTAttributedLabel.h"
+#import "ChooziePostCell.h"
 
-@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate>
+@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate, ChooziePostCellDelegate>
 
 
 @property (nonatomic, strong) NSArray *feed;

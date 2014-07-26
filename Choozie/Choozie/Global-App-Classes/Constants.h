@@ -13,5 +13,5 @@
 
 FOUNDATION_EXPORT NSString *const kBaseUrl;
 FOUNDATION_EXPORT NSString *const kFeedUrl;
-
+FOUNDATION_EXPORT NSString *const kVoteUrl;
 @end

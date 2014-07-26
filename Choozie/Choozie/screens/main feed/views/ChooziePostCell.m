@@ -40,4 +40,15 @@
     [self.photo2ImageView prepareForReuse];
 }
 
+- (IBAction)voted1:(id)sender
+{
+    [self.delegate chooziePostCell:self didVoteOnPhotoNumber:1];
+}
+
+- (IBAction)voted2:(id)sender
+{
+    [self.delegate chooziePostCell:self didVoteOnPhotoNumber:2];
+}
+
+
 @end

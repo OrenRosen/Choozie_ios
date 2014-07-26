@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="width" secondItem="Aet-e2-b5e" secondAttribute="height" multiplier="1:1" id="MoJ-50-wrs"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tqh-wA-EWA" userLabel="centerPhoto" customClass="NINetworkImageView">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tqh-wA-EWA" userLabel="centerPhoto" customClass="NINetworkImageView">
                                 <rect key="frame" x="5" y="58" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -150,6 +150,44 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u45-NF-5V5" userLabel="voteLeftButton">
+                                <rect key="frame" x="10" y="63" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.3439993079" green="0.89099526070000001" blue="0.27410533949999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="LZz-OS-0ev"/>
+                                    <constraint firstAttribute="height" constant="25" id="XZb-tC-a3o"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="vote_left">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="12"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="voted1:" destination="GpG-iP-sR1" eventType="touchUpInside" id="VCw-uV-ZTx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-1w-sSW" userLabel="voteLeftButton">
+                                <rect key="frame" x="275" y="63" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.3439993079" green="0.89099526070000001" blue="0.27410533949999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="XGD-U3-e5M"/>
+                                    <constraint firstAttribute="height" constant="25" id="wXD-N4-gEl"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="vote_right">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="12"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="voted2:" destination="GpG-iP-sR1" eventType="touchUpInside" id="0ku-Ce-N55"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90047393364928907" green="0.89101728121551038" blue="0.83495295103876344" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -157,6 +195,7 @@
                             <constraint firstItem="DyO-28-d7H" firstAttribute="leading" secondItem="j9C-qy-PLG" secondAttribute="leading" id="1yH-Ic-JYI"/>
                             <constraint firstItem="TbU-T7-N29" firstAttribute="centerY" secondItem="9Yf-LC-IZX" secondAttribute="centerY" id="4M7-Vc-dog"/>
                             <constraint firstItem="Aet-e2-b5e" firstAttribute="trailing" secondItem="j9C-qy-PLG" secondAttribute="trailing" id="6Gl-cg-IM0"/>
+                            <constraint firstItem="Hln-1w-sSW" firstAttribute="top" secondItem="Aet-e2-b5e" secondAttribute="top" constant="5" id="9CX-jY-8PR"/>
                             <constraint firstItem="icz-QK-2e7" firstAttribute="top" secondItem="M08-5V-1fC" secondAttribute="bottom" id="9xU-SP-Fk2"/>
                             <constraint firstItem="lX0-gl-fdo" firstAttribute="top" secondItem="1lJ-gu-j0U" secondAttribute="bottom" id="BnQ-8n-bqk"/>
                             <constraint firstItem="1lJ-gu-j0U" firstAttribute="trailing" secondItem="Aet-e2-b5e" secondAttribute="trailing" id="FDf-ma-84s"/>
@@ -172,8 +211,10 @@
                             <constraint firstItem="Aet-e2-b5e" firstAttribute="width" secondItem="8BZ-we-VQN" secondAttribute="width" id="Lrz-tE-W7T"/>
                             <constraint firstItem="Wbb-5X-4s0" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" constant="5" id="MKe-Dc-QST"/>
                             <constraint firstItem="1lJ-gu-j0U" firstAttribute="top" secondItem="j9C-qy-PLG" secondAttribute="bottom" constant="2" id="OPy-bw-6b1"/>
+                            <constraint firstItem="Hln-1w-sSW" firstAttribute="trailing" secondItem="Aet-e2-b5e" secondAttribute="trailing" constant="-5" id="OcP-2g-n64"/>
                             <constraint firstItem="8xF-qG-eFL" firstAttribute="top" secondItem="8BZ-we-VQN" secondAttribute="bottom" priority="750" constant="3" id="Qnj-lC-I4r"/>
                             <constraint firstItem="j9C-qy-PLG" firstAttribute="leading" secondItem="1lJ-gu-j0U" secondAttribute="leading" id="RAe-qb-y4S"/>
+                            <constraint firstItem="8BZ-we-VQN" firstAttribute="top" secondItem="u45-NF-5V5" secondAttribute="top" constant="-5" id="RZh-Hx-g6a"/>
                             <constraint firstItem="Wbb-5X-4s0" firstAttribute="leading" secondItem="8BZ-we-VQN" secondAttribute="leading" id="SGU-Gy-KlH"/>
                             <constraint firstItem="8xF-qG-eFL" firstAttribute="centerY" secondItem="Gsk-vT-gyB" secondAttribute="centerY" id="U9E-NY-axd"/>
                             <constraint firstItem="hHe-WP-bJ2" firstAttribute="leading" secondItem="yrH-NM-yhN" secondAttribute="trailing" constant="4" id="XEA-aT-Qka"/>
@@ -188,6 +229,7 @@
                             <constraint firstItem="Aet-e2-b5e" firstAttribute="trailing" secondItem="DyO-28-d7H" secondAttribute="trailing" id="kBE-pg-wsN"/>
                             <constraint firstItem="8xF-qG-eFL" firstAttribute="top" secondItem="tqh-wA-EWA" secondAttribute="bottom" priority="250" constant="3" id="kjr-3u-DVz"/>
                             <constraint firstItem="tqh-wA-EWA" firstAttribute="top" secondItem="8BZ-we-VQN" secondAttribute="top" id="lMe-vv-chb"/>
+                            <constraint firstItem="8BZ-we-VQN" firstAttribute="leading" secondItem="u45-NF-5V5" secondAttribute="leading" constant="-5" id="pQU-Li-6pL"/>
                             <constraint firstItem="icz-QK-2e7" firstAttribute="leading" secondItem="M08-5V-1fC" secondAttribute="leading" id="pS1-ai-GWt"/>
                             <constraint firstItem="lX0-gl-fdo" firstAttribute="leading" secondItem="1lJ-gu-j0U" secondAttribute="leading" id="taR-UQ-YNp"/>
                             <constraint firstItem="yrH-NM-yhN" firstAttribute="centerX" secondItem="8xF-qG-eFL" secondAttribute="centerX" id="unV-Pg-PWZ"/>
@@ -224,7 +266,7 @@
     </objects>
     <resources>
         <image name="comment" width="25" height="25"/>
-        <image name="vote_left" width="256" height="256"/>
-        <image name="vote_right" width="256" height="256"/>
+        <image name="vote_left" width="25" height="25"/>
+        <image name="vote_right" width="25" height="25"/>
     </resources>
 </document>

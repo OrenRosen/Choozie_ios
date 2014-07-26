@@ -10,6 +10,16 @@
 #import "NINetworkImageView.h"
 #import "TTTAttributedLabel.h"
 
+
+@class ChooziePostCell;
+
+@protocol ChooziePostCellDelegate <NSObject>
+
+- (void)chooziePostCell:(ChooziePostCell *)cell didVoteOnPhotoNumber:(NSInteger)number;
+
+@end
+
+
 @interface ChooziePostCell : UITableViewCell
 
 
@@ -31,6 +41,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *seeAllCommentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *writeCommentButton;
+
+@property (nonatomic, strong) id<ChooziePostCellDelegate> delegate;
 
 
 @end

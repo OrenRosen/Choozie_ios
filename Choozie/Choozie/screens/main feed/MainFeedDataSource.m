@@ -8,10 +8,11 @@
 
 #import "MainFeedDataSource.h"
 #import "ChooziePost.h"
-#import "ChooziePostCell.h"
 #import "Utils.h"
 #import "Constants.h"
 #import "ChoozieComment.h"
+#import "ApiServices.h"
+
 
 @implementation MainFeedDataSource
 
@@ -66,6 +67,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChooziePostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChooziePostCell"];
+    
+    if (!cell.delegate) {
+        cell.delegate = self;
+    }
     
     ChooziePost *post = [self.feed objectAtIndex:indexPath.row];
     
@@ -124,7 +129,7 @@
     }
     
     
-    
+    cell.tag = indexPath.row;
     return cell;
 }
 
@@ -198,5 +203,15 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
 }
 
 
+
+#pragma mark - ChoozoePostCellDelegate Methods
+
+- (void)chooziePostCell:(ChooziePostCell *)cell didVoteOnPhotoNumber:(NSInteger)number
+{
+    ChooziePost *post = [self.feed objectAtIndex:cell.tag];
+    NSString *voteUrl = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:kVoteUrl, @"100004161394098", number, post.key]];
+    
+    [[ApiServices sharedInstance] callHttpGetForUrl:voteUrl withSuccessBlock:nil failureBlock:nil];
+}
 
 @end

@@ -116,12 +116,12 @@
     [request setCachePolicy:cachePolicy];
     [request setTimeoutInterval:timeoutInterval];
 
-//    CLS_LOG(@"callHttpGetForUrl: %@", [[request URL] absoluteString]);
+    NSLog(@"callHttpGetForUrl: %@", [[request URL] absoluteString]);
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-//        CLS_LOG(@"callHttpGetForUrl Success: %@", [request URL].absoluteString);
+        NSLog(@"callHttpGetForUrl Success: %@", [request URL].absoluteString);
         self.currentOperation = nil;
         if (onSuccess) {
             onSuccess(responseObject);
@@ -131,7 +131,7 @@
         if (onFailure) {
             onFailure(error);
         }
-//        CLS_LOG(@"Error: %@", [error localizedDescription]);
+        NSLog(@"Error: %@", [error localizedDescription]);
     }];
     self.currentOperation = operation;
     [operation start];
