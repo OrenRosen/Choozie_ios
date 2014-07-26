@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		78697EF570C64857860090CC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71613A80FFD043C68656E75E /* libPods.a */; };
+		D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D817EDEE19841B5100EEB25E /* UserProfileViewController.m */; };
 		D8444D69197AF1A8005BF1F5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D8444D4B197AF1A8005BF1F5 /* .gitignore */; };
 		D8444D6A197AF1A8005BF1F5 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = D8444D4C197AF1A8005BF1F5 /* .gitmodules */; };
 		D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D51197AF1A8005BF1F5 /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -78,6 +79,8 @@
 
 /* Begin PBXFileReference section */
 		71613A80FFD043C68656E75E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D817EDED19841B5100EEB25E /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		D817EDEE19841B5100EEB25E /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		D8444D4B197AF1A8005BF1F5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D8444D4C197AF1A8005BF1F5 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
 		D8444D4F197AF1A8005BF1F5 /* Jastor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Jastor-Prefix.pch"; sourceTree = "<group>"; };
@@ -173,6 +176,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D817EDEA1983F0A700EEB25E /* userProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D817EDED19841B5100EEB25E /* UserProfileViewController.h */,
+				D817EDEE19841B5100EEB25E /* UserProfileViewController.m */,
+			);
+			name = userProfile;
+			path = Choozie/screens/userProfile;
+			sourceTree = SOURCE_ROOT;
+		};
 		D8444D49197AF1A8005BF1F5 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +276,7 @@
 		D8C08EF9197C416600BA4439 /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				D817EDEA1983F0A700EEB25E /* userProfile */,
 				D8C08EFA197C418600BA4439 /* main feed */,
 			);
 			path = screens;
@@ -559,6 +573,7 @@
 				D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */,
 				D8C08F09197C421A00BA4439 /* ChoozieUser.m in Sources */,
 				D8C08F18197C4E6200BA4439 /* MainFeedDataSource.m in Sources */,
+				D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */,
 				D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */,
 				D8C08F0B197C421A00BA4439 /* FeedResponse.m in Sources */,
 				D8C08EE6197C346000BA4439 /* Utils.m in Sources */,
