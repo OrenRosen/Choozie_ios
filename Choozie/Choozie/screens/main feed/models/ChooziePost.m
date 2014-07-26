@@ -7,7 +7,20 @@
 //
 
 #import "ChooziePost.h"
+#import "ChoozieComment.h"
+#import "ChoozieVote.h"
 
 @implementation ChooziePost
+
++ (Class)comments_class
+{
+    return [ChoozieComment class];
+}
+
++ (Class)votes_class
+{
+    return [ChoozieVote class];
+}
+
 
 @end
