@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *created_at;
 @property (nonatomic, strong) NSString *question;
 @property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSNumber *post_type;
 
 @property (nonatomic, strong) NSArray *votes1;
 @property (nonatomic, strong) NSArray *votes2;

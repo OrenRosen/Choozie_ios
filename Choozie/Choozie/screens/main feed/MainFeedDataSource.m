@@ -27,7 +27,14 @@
 {
     ChooziePost *post = [self.feed objectAtIndex:indexPath.row];
     
-    CGFloat heightToRet = 234.0;
+    CGFloat heightToRet;
+    if ([post.post_type integerValue] == 2) {
+        // One photo
+        heightToRet = 390.0;
+    } else {
+        // Two photos
+        heightToRet = 234.0;
+    }
     
     if (post.comments.count == 0) {
         heightToRet += 40;
@@ -67,8 +74,26 @@
     cell.userNameLabel.text = post.user.display_name;
     cell.userQuestionLabel.text = post.question;
     
-    [cell.photo1ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
-    [cell.photo2ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo2]];
+    if ([post.post_type integerValue] == 2) {
+        // One photo
+        cell.centerPhotoImageView.hidden = NO;
+        cell.photo1ImageView.hidden = YES;
+        cell.photo2ImageView.hidden = YES;
+        cell.constraintVoteLeftToCenterImageView.priority = 750;
+        cell.constraintVoteLeftToLeftImageView.priority = 250;
+        [cell.centerPhotoImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
+    } else {
+        // Two photos
+        cell.centerPhotoImageView.hidden = YES;
+        cell.photo1ImageView.hidden = NO;
+        cell.photo2ImageView.hidden = NO;
+        cell.constraintVoteLeftToCenterImageView.priority = 250;
+        cell.constraintVoteLeftToLeftImageView.priority = 750;
+        [cell.photo1ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
+        [cell.photo2ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo2]];
+    }
+    
+
     
     cell.votes1Label.text = [NSString stringWithFormat:@"%d", post.votes1.count];
     cell.votes2Label.text = [NSString stringWithFormat:@"%d", post.votes2.count];

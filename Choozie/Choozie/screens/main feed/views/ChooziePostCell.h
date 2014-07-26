@@ -19,12 +19,15 @@
 
 @property (weak, nonatomic) IBOutlet NINetworkImageView *photo1ImageView;
 @property (weak, nonatomic) IBOutlet NINetworkImageView *photo2ImageView;
+@property (weak, nonatomic) IBOutlet NINetworkImageView *centerPhotoImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *votes1Label;
 @property (weak, nonatomic) IBOutlet UILabel *votes2Label;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *comment1;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *comment2;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *comment3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintVoteLeftToCenterImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintVoteLeftToLeftImageView;
 
 @property (weak, nonatomic) IBOutlet UIButton *seeAllCommentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *writeCommentButton;
