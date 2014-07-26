@@ -30,7 +30,7 @@
     CGFloat heightToRet = 234.0;
     
     if (post.comments.count == 0) {
-        heightToRet += 30;
+        heightToRet += 40;
     }
     
     if (post.comments.count >= 1) {
