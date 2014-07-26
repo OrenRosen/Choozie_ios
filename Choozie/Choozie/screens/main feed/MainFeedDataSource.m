@@ -75,7 +75,7 @@
     ChooziePost *post = [self.feed objectAtIndex:indexPath.row];
     
     // User
-    [[Utils sharedInstance] setImageforView:cell.userImageView withCachedImageFromURL:post.user.avatar];
+    [[Utils sharedInstance] setImageforView:cell.userImageButton withCachedImageFromURL:post.user.avatar];
     cell.userNameLabel.text = post.user.display_name;
     cell.userQuestionLabel.text = post.question;
     
@@ -223,6 +223,14 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
 //    [UIView animateWithDuration:0.2 delay:0.3 options:0 animations:^{
 //        cell.leftVoteButton.alpha = 0;
 //    } completion:nil];
+}
+
+
+- (void)chooziePostCelldidClickOnUserImageView:(ChooziePostCell *)cell
+{
+    ChooziePost *post = [self.feed objectAtIndex:cell.tag];
+    
+    
 }
 
 @end

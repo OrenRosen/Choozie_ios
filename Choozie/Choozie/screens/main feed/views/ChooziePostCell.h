@@ -16,6 +16,7 @@
 @protocol ChooziePostCellDelegate <NSObject>
 
 - (void)chooziePostCell:(ChooziePostCell *)cell didVoteOnPhotoNumber:(NSInteger)number;
+- (void)chooziePostCelldidClickOnUserImageView:(ChooziePostCell *)cell;
 
 @end
 
@@ -23,7 +24,7 @@
 @interface ChooziePostCell : UITableViewCell
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UIButton *userImageButton;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userQuestionLabel;
 

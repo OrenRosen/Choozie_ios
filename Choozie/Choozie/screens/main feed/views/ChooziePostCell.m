@@ -50,5 +50,9 @@
     [self.delegate chooziePostCell:self didVoteOnPhotoNumber:2];
 }
 
+- (IBAction)userImageClicked:(id)sender
+{
+    [self.delegate chooziePostCelldidClickOnUserImageView:self];
+}
 
 @end
