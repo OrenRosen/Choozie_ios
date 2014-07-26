@@ -38,11 +38,15 @@
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *comment3;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintVoteLeftToCenterImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintVoteLeftToLeftImageView;
+@property (weak, nonatomic) IBOutlet UIButton *leftVoteButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightVoteButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *seeAllCommentsButton;
 @property (weak, nonatomic) IBOutlet UIButton *writeCommentButton;
 
 @property (nonatomic, strong) id<ChooziePostCellDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintLeftVoteHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintRightVoteHeight;
 
 @end

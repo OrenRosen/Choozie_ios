@@ -155,8 +155,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3439993079" green="0.89099526070000001" blue="0.27410533949999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="LZz-OS-0ev"/>
                                     <constraint firstAttribute="height" constant="25" id="XZb-tC-a3o"/>
+                                    <constraint firstAttribute="width" secondItem="u45-NF-5V5" secondAttribute="height" multiplier="1:1" id="yO9-1I-YOE"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" image="vote_left">
@@ -174,7 +174,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3439993079" green="0.89099526070000001" blue="0.27410533949999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="XGD-U3-e5M"/>
+                                    <constraint firstAttribute="width" secondItem="Hln-1w-sSW" secondAttribute="height" multiplier="1:1" id="CyA-3e-f22"/>
                                     <constraint firstAttribute="height" constant="25" id="wXD-N4-gEl"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
@@ -250,10 +250,14 @@
                 <outlet property="comment1" destination="DyO-28-d7H" id="b8W-sj-Ais"/>
                 <outlet property="comment2" destination="j9C-qy-PLG" id="yNA-7e-o7v"/>
                 <outlet property="comment3" destination="1lJ-gu-j0U" id="Cun-6u-jyF"/>
+                <outlet property="constraintLeftVoteHeight" destination="XZb-tC-a3o" id="9CM-eY-mxd"/>
+                <outlet property="constraintRightVoteHeight" destination="wXD-N4-gEl" id="aGJ-uu-XmO"/>
                 <outlet property="constraintVoteLeftToCenterImageView" destination="kjr-3u-DVz" id="R8i-z6-MSk"/>
                 <outlet property="constraintVoteLeftToLeftImageView" destination="Qnj-lC-I4r" id="GeQ-hA-bEy"/>
+                <outlet property="leftVoteButton" destination="u45-NF-5V5" id="TnF-sf-gzQ"/>
                 <outlet property="photo1ImageView" destination="8BZ-we-VQN" id="3Dy-dn-MBu"/>
                 <outlet property="photo2ImageView" destination="Aet-e2-b5e" id="AcI-fy-R8s"/>
+                <outlet property="rightVoteButton" destination="Hln-1w-sSW" id="FFz-2A-bbN"/>
                 <outlet property="seeAllCommentsButton" destination="lX0-gl-fdo" id="nrp-FR-WtB"/>
                 <outlet property="userImageView" destination="Wbb-5X-4s0" id="cSj-Ua-v2A"/>
                 <outlet property="userNameLabel" destination="M08-5V-1fC" id="6fF-XV-kWR"/>

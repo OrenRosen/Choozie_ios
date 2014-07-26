@@ -128,7 +128,7 @@
         cell.seeAllCommentsButton.hidden = NO;
     }
     
-    
+    cell.leftVoteButton.transform = CGAffineTransformIdentity;
     cell.tag = indexPath.row;
     return cell;
 }
@@ -212,6 +212,17 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
     NSString *voteUrl = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:kVoteUrl, @"100004161394098", number, post.key]];
     
     [[ApiServices sharedInstance] callHttpGetForUrl:voteUrl withSuccessBlock:nil failureBlock:nil];
+    
+////    cell.constraintLeftVoteHeight.constant = 50;
+//    [UIView animateWithDuration:0.5 animations:^{
+//        cell.leftVoteButton.center = cell.photo1ImageView.center;
+//        cell.leftVoteButton.transform = CGAffineTransformMakeScale(5, 5);
+////        [cell layoutIfNeeded];
+//    }];
+//    
+//    [UIView animateWithDuration:0.2 delay:0.3 options:0 animations:^{
+//        cell.leftVoteButton.alpha = 0;
+//    } completion:nil];
 }
 
 @end
