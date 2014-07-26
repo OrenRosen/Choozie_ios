@@ -60,7 +60,8 @@
         return;
     }
     
-    NSString *imgName = [[[imageUrl lastPathComponent] componentsSeparatedByString:@"?"] objectAtIndex:0];
+    NSArray *comps = [imageUrl componentsSeparatedByString:@"/"];
+    NSString *imgName = [comps objectAtIndex:comps.count - 2];
     
     if (isArticleImageURL) {
         // Make a unique image name
