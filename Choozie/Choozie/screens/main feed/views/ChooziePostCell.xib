@@ -69,86 +69,87 @@
                                     <constraint firstAttribute="height" constant="20" id="z70-V8-avi"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNi-Ft-BVu">
-                                <rect key="frame" x="27" y="172" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Mr rushsh:">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtB-KW-ZeH">
-                                <rect key="frame" x="27" y="210" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Mr rushsh:">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIn-Ha-Ulm">
-                                <rect key="frame" x="27" y="248" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Mr rushsh:">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wowowowowowowowow sdsdsdsdsd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="201" translatesAutoresizingMaskIntoConstraints="NO" id="CO4-Pd-UCF">
-                                <rect key="frame" x="104" y="177" width="201" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wowowowowowowowow sdsdsdsdsd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="201" translatesAutoresizingMaskIntoConstraints="NO" id="zbP-dl-g7q">
-                                <rect key="frame" x="104" y="215" width="201" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wowowowowowowowow sdsdsdsdsd" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="201" translatesAutoresizingMaskIntoConstraints="NO" id="A6U-bj-WP0">
-                                <rect key="frame" x="104" y="253" width="201" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX0-gl-fdo">
-                                <rect key="frame" x="27" y="294" width="123" height="30"/>
+                                <rect key="frame" x="27" y="241" width="123" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="See all comments">
                                     <color key="titleColor" red="0.30196078430000001" green="0.3411764706" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="DyO-28-d7H" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="27" y="177" width="273" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Orieuaa:  Wowwww and anf a that!!">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orieuaa:  Wowwww and anf a that!!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="j9C-qy-PLG" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="27" y="199" width="273" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="273" translatesAutoresizingMaskIntoConstraints="NO" id="1lJ-gu-j0U" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="27" y="221" width="273" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Orieuaa:  Wowwww and anf a that!!">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHe-WP-bJ2">
+                                <rect key="frame" x="27" y="173" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Write a comment">
+                                    <color key="titleColor" red="0.21960784310000001" green="0.25098039220000001" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.7843137255" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YtB-KW-ZeH" firstAttribute="leading" secondItem="DIn-Ha-Ulm" secondAttribute="leading" id="1o5-5e-rVp"/>
+                            <constraint firstItem="DyO-28-d7H" firstAttribute="leading" secondItem="yrH-NM-yhN" secondAttribute="trailing" constant="4" id="1FD-Ac-Vjk"/>
+                            <constraint firstItem="DyO-28-d7H" firstAttribute="leading" secondItem="j9C-qy-PLG" secondAttribute="leading" id="1yH-Ic-JYI"/>
                             <constraint firstItem="TbU-T7-N29" firstAttribute="centerY" secondItem="9Yf-LC-IZX" secondAttribute="centerY" id="4M7-Vc-dog"/>
-                            <constraint firstItem="DIn-Ha-Ulm" firstAttribute="leading" secondItem="lX0-gl-fdo" secondAttribute="leading" id="6jB-af-Nje"/>
-                            <constraint firstItem="A6U-bj-WP0" firstAttribute="top" secondItem="DIn-Ha-Ulm" secondAttribute="top" constant="5" id="7QN-Rl-Xrf"/>
-                            <constraint firstItem="A6U-bj-WP0" firstAttribute="leading" secondItem="DIn-Ha-Ulm" secondAttribute="trailing" constant="4" id="AhY-ho-Q6V"/>
-                            <constraint firstItem="zbP-dl-g7q" firstAttribute="leading" secondItem="YtB-KW-ZeH" secondAttribute="trailing" constant="4" id="Aoh-Ew-rfT"/>
                             <constraint firstItem="8BZ-we-VQN" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" id="B4o-dx-Amd"/>
-                            <constraint firstAttribute="height" constant="320" id="CPv-ha-jfb"/>
-                            <constraint firstItem="iNi-Ft-BVu" firstAttribute="centerY" secondItem="yrH-NM-yhN" secondAttribute="centerY" id="Ev2-Ko-LFR"/>
+                            <constraint firstItem="lX0-gl-fdo" firstAttribute="top" secondItem="1lJ-gu-j0U" secondAttribute="bottom" id="BnQ-8n-bqk"/>
+                            <constraint firstItem="yrH-NM-yhN" firstAttribute="top" secondItem="DyO-28-d7H" secondAttribute="top" id="FF6-ah-aln"/>
                             <constraint firstItem="8BZ-we-VQN" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="HIS-xS-XKP"/>
+                            <constraint firstItem="j9C-qy-PLG" firstAttribute="top" secondItem="DyO-28-d7H" secondAttribute="bottom" constant="2" id="HJX-nm-Mqa"/>
                             <constraint firstItem="yrH-NM-yhN" firstAttribute="top" secondItem="8xF-qG-eFL" secondAttribute="bottom" constant="4" id="He1-l0-nVM"/>
                             <constraint firstItem="8BZ-we-VQN" firstAttribute="width" secondItem="duW-qO-mwU" secondAttribute="width" multiplier="0.5" constant="-5" id="JcI-Yl-Opa"/>
                             <constraint firstItem="Aet-e2-b5e" firstAttribute="width" secondItem="8BZ-we-VQN" secondAttribute="width" id="Lrz-tE-W7T"/>
+                            <constraint firstItem="1lJ-gu-j0U" firstAttribute="top" secondItem="j9C-qy-PLG" secondAttribute="bottom" constant="2" id="OPy-bw-6b1"/>
                             <constraint firstAttribute="trailing" secondItem="9Yf-LC-IZX" secondAttribute="trailing" id="OgI-Dz-ebw"/>
                             <constraint firstItem="8xF-qG-eFL" firstAttribute="top" secondItem="8BZ-we-VQN" secondAttribute="bottom" constant="3" id="Qnj-lC-I4r"/>
+                            <constraint firstItem="j9C-qy-PLG" firstAttribute="leading" secondItem="1lJ-gu-j0U" secondAttribute="leading" id="RAe-qb-y4S"/>
                             <constraint firstItem="8xF-qG-eFL" firstAttribute="centerY" secondItem="Gsk-vT-gyB" secondAttribute="centerY" id="U9E-NY-axd"/>
-                            <constraint firstItem="YtB-KW-ZeH" firstAttribute="leading" secondItem="iNi-Ft-BVu" secondAttribute="leading" id="W6r-5V-K2H"/>
-                            <constraint firstItem="YtB-KW-ZeH" firstAttribute="top" secondItem="zbP-dl-g7q" secondAttribute="top" constant="-5" id="Wr5-q5-2b6"/>
-                            <constraint firstItem="iNi-Ft-BVu" firstAttribute="top" secondItem="CO4-Pd-UCF" secondAttribute="top" constant="-5" id="YGp-4S-Of2"/>
+                            <constraint firstAttribute="trailing" secondItem="j9C-qy-PLG" secondAttribute="trailing" id="VTn-1U-W64"/>
+                            <constraint firstItem="hHe-WP-bJ2" firstAttribute="leading" secondItem="yrH-NM-yhN" secondAttribute="trailing" constant="4" id="XEA-aT-Qka"/>
                             <constraint firstItem="Aet-e2-b5e" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" id="bdf-33-dZ1"/>
                             <constraint firstAttribute="trailing" secondItem="Aet-e2-b5e" secondAttribute="trailing" id="cow-hg-LXe"/>
-                            <constraint firstItem="iNi-Ft-BVu" firstAttribute="leading" secondItem="yrH-NM-yhN" secondAttribute="trailing" constant="4" id="cvH-OV-DOG"/>
-                            <constraint firstItem="DIn-Ha-Ulm" firstAttribute="top" secondItem="zbP-dl-g7q" secondAttribute="bottom" constant="-8" id="der-qw-7Th"/>
+                            <constraint firstAttribute="trailing" secondItem="DyO-28-d7H" secondAttribute="trailing" id="e1d-33-rH6"/>
                             <constraint firstItem="Gsk-vT-gyB" firstAttribute="leading" secondItem="8xF-qG-eFL" secondAttribute="trailing" constant="2" id="eJR-lT-BRy"/>
+                            <constraint firstItem="hHe-WP-bJ2" firstAttribute="top" secondItem="yrH-NM-yhN" secondAttribute="top" constant="-4" id="eU3-K1-45K"/>
                             <constraint firstItem="8xF-qG-eFL" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="fGD-05-x07"/>
                             <constraint firstItem="9Yf-LC-IZX" firstAttribute="centerY" secondItem="8xF-qG-eFL" secondAttribute="centerY" id="gkx-CE-w0T"/>
-                            <constraint firstItem="lX0-gl-fdo" firstAttribute="top" secondItem="A6U-bj-WP0" secondAttribute="bottom" id="tDc-E6-kP4"/>
+                            <constraint firstAttribute="trailing" secondItem="1lJ-gu-j0U" secondAttribute="trailing" id="os9-RX-8l3"/>
+                            <constraint firstItem="lX0-gl-fdo" firstAttribute="leading" secondItem="1lJ-gu-j0U" secondAttribute="leading" id="taR-UQ-YNp"/>
                             <constraint firstItem="yrH-NM-yhN" firstAttribute="centerX" secondItem="8xF-qG-eFL" secondAttribute="centerX" id="unV-Pg-PWZ"/>
-                            <constraint firstItem="YtB-KW-ZeH" firstAttribute="top" secondItem="CO4-Pd-UCF" secondAttribute="bottom" constant="-8" id="vRe-qO-OjR"/>
-                            <constraint firstItem="CO4-Pd-UCF" firstAttribute="leading" secondItem="iNi-Ft-BVu" secondAttribute="trailing" constant="4" id="yeV-d8-nTY"/>
                             <constraint firstItem="9Yf-LC-IZX" firstAttribute="leading" secondItem="TbU-T7-N29" secondAttribute="trailing" constant="2" id="zkn-vG-rs5"/>
                         </constraints>
                     </view>
@@ -179,6 +180,7 @@
                     <constraint firstItem="icz-QK-2e7" firstAttribute="top" secondItem="M08-5V-1fC" secondAttribute="bottom" constant="-2" id="8af-9s-xNq"/>
                     <constraint firstItem="duW-qO-mwU" firstAttribute="leading" secondItem="Wbb-5X-4s0" secondAttribute="leading" id="ELM-0n-W9A"/>
                     <constraint firstAttribute="trailing" secondItem="duW-qO-mwU" secondAttribute="trailing" constant="10" id="Etk-PT-lUy"/>
+                    <constraint firstAttribute="bottom" secondItem="duW-qO-mwU" secondAttribute="bottom" constant="2" id="Gi1-Kz-bcH"/>
                     <constraint firstItem="M08-5V-1fC" firstAttribute="top" secondItem="Wbb-5X-4s0" secondAttribute="top" id="OKn-Z3-27R"/>
                     <constraint firstItem="duW-qO-mwU" firstAttribute="leading" secondItem="JXw-NG-v1i" secondAttribute="leading" constant="10" id="SYX-fp-LVF"/>
                     <constraint firstItem="Wbb-5X-4s0" firstAttribute="top" secondItem="JXw-NG-v1i" secondAttribute="top" constant="5" id="Wb1-Mo-Zeh"/>
@@ -188,12 +190,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="commentName1" destination="iNi-Ft-BVu" id="HiV-SY-Klq"/>
-                <outlet property="commentName2" destination="YtB-KW-ZeH" id="Qft-Tb-mxM"/>
-                <outlet property="commentName3" destination="DIn-Ha-Ulm" id="2jh-21-8gx"/>
-                <outlet property="commentTest1" destination="CO4-Pd-UCF" id="T7R-ns-TyY"/>
-                <outlet property="commentTest2" destination="zbP-dl-g7q" id="0Dr-bb-4bs"/>
-                <outlet property="commentTest3" destination="A6U-bj-WP0" id="aLY-qk-yOf"/>
+                <outlet property="comment1" destination="DyO-28-d7H" id="b8W-sj-Ais"/>
+                <outlet property="comment2" destination="j9C-qy-PLG" id="yNA-7e-o7v"/>
+                <outlet property="comment3" destination="1lJ-gu-j0U" id="Cun-6u-jyF"/>
                 <outlet property="photo1ImageView" destination="8BZ-we-VQN" id="3Dy-dn-MBu"/>
                 <outlet property="photo2ImageView" destination="Aet-e2-b5e" id="AcI-fy-R8s"/>
                 <outlet property="seeAllCommentsButton" destination="lX0-gl-fdo" id="nrp-FR-WtB"/>
@@ -202,6 +201,7 @@
                 <outlet property="userQuestionLabel" destination="icz-QK-2e7" id="abk-2i-0Ud"/>
                 <outlet property="votes1Label" destination="Gsk-vT-gyB" id="9Vf-vb-9Eb"/>
                 <outlet property="votes2Label" destination="TbU-T7-N29" id="y0y-zq-q7D"/>
+                <outlet property="writeCommentButton" destination="hHe-WP-bJ2" id="g5U-HO-GLD"/>
             </connections>
         </tableViewCell>
     </objects>

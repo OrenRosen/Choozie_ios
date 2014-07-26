@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TTTAttributedLabel.h"
 
-@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate>
 
 
 @property (nonatomic, strong) NSArray *feed;

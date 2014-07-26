@@ -17,4 +17,7 @@
 @property (nonatomic, strong) ChoozieUser *user;
 
 
+- (NSString *)getBasicCommentString;
+- (NSString *)getFullCommentString;
+
 @end

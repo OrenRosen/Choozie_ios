@@ -25,7 +25,34 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 380;
+    ChooziePost *post = [self.feed objectAtIndex:indexPath.row];
+    
+    CGFloat heightToRet = 234.0;
+    
+    if (post.comments.count == 0) {
+        heightToRet += 30;
+    }
+    
+    if (post.comments.count >= 1) {
+        heightToRet += [self getHeightForComment:post.comments[0]];
+    }
+    
+    if (post.comments.count >= 2) {
+        heightToRet += [self getHeightForComment:post.comments[1]];
+    }
+    
+    if (post.comments.count >= 3) {
+        heightToRet += [self getHeightForComment:post.comments[2]];
+    }
+    
+    if (post.comments.count >= 4) {
+        heightToRet += 20;
+    }
+    
+    
+    
+    
+    return heightToRet;
 }
 
 
@@ -46,39 +73,25 @@
     cell.votes1Label.text = [NSString stringWithFormat:@"%d", post.votes1.count];
     cell.votes2Label.text = [NSString stringWithFormat:@"%d", post.votes2.count];
     
-    cell.commentName1.hidden = YES;
-    cell.commentName2.hidden = YES;
-    cell.commentName3.hidden = YES;
-    cell.commentTest1.hidden = YES;
-    cell.commentTest2.hidden = YES;
-    cell.commentTest3.hidden = YES;
+    cell.comment1.hidden = YES;
+    cell.comment2.hidden = YES;
+    cell.comment3.hidden = YES;
     cell.seeAllCommentsButton.hidden = YES;
+    cell.writeCommentButton.hidden = (post.comments.count > 0);
     
     if (post.comments.count >= 1) {
-        cell.commentName1.hidden = NO;
-        cell.commentTest1.hidden = NO;
-        
-        ChoozieComment *comment = [post.comments objectAtIndex:0];
-        cell.commentName1.titleLabel.text = comment.user.first_name;
-        cell.commentTest1.text = comment.text;
+        cell.comment1.hidden = NO;
+        [self configureAttributedLabel:cell.comment1 withComment:[post.comments objectAtIndex:0]];
     }
     
     if (post.comments.count >= 2) {
-        cell.commentName2.hidden = NO;
-        cell.commentTest2.hidden = NO;
-        
-        ChoozieComment *comment = [post.comments objectAtIndex:1];
-        cell.commentName2.titleLabel.text = comment.user.first_name;
-        cell.commentTest2.text = comment.text;
+        cell.comment2.hidden = NO;
+        [self configureAttributedLabel:cell.comment2 withComment:[post.comments objectAtIndex:1]];
     }
     
     if (post.comments.count >= 3) {
-        cell.commentName3.hidden = NO;
-        cell.commentTest3.hidden = NO;
-        
-        ChoozieComment *comment = [post.comments objectAtIndex:2];
-        cell.commentName3.titleLabel.text = comment.user.first_name;
-        cell.commentTest3.text = comment.text;
+        cell.comment3.hidden = NO;
+        [self configureAttributedLabel:cell.comment3 withComment:[post.comments objectAtIndex:2]];
     }
     
     if (post.comments.count >= 4) {
@@ -89,6 +102,76 @@
     
     return cell;
 }
+
+
+
+
+- (void)configureAttributedLabel:(TTTAttributedLabel *)label withComment:(ChoozieComment *)comment
+{
+    NSString *text = [comment getBasicCommentString];
+    
+    NSRange userNameRange = [text rangeOfString: comment.user.first_name];
+    
+    label.linkAttributes = [self _getLinkAttributes];
+    label.activeLinkAttributes = [self _getActiveLinkAttributes];
+    label.delegate = self;
+    
+    [label setText: text];
+    
+    [label addLinkToAddress: @{@"user": comment.user}
+                  withRange: userNameRange];
+}
+
+
+- (NSDictionary *)_getLinkAttributes
+{
+    NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
+    
+    [mutableActiveLinkAttributes setValue: [UIFont boldSystemFontOfSize: 15]
+                                   forKey: (NSString *) kCTFontAttributeName];
+    
+    [mutableActiveLinkAttributes setValue: [UIColor blueColor]
+                                   forKey: (NSString *) kCTForegroundColorAttributeName];
+    
+    [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
+                                   forKey: (NSString *) kCTUnderlineStyleAttributeName];
+    
+    return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
+}
+
+- (NSDictionary *)_getActiveLinkAttributes
+{
+    NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
+    
+    [mutableActiveLinkAttributes setValue: [UIColor purpleColor]
+                                   forKey: (NSString *) kCTForegroundColorAttributeName];
+    
+    [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
+                                   forKey: (NSString *) kCTUnderlineStyleAttributeName];
+    
+    return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
+}
+
+
+
+- (CGFloat)getHeightForComment:(ChoozieComment *)comment
+{
+    CGFloat maxWidth = 273;
+    
+    CGFloat height = [[Utils sharedInstance] getHeightForString:[comment getBasicCommentString] withMaxWidth:maxWidth maxHeight:100 font:[UIFont systemFontOfSize:15.0]];
+    
+    return height;
+}
+
+
+#pragma mark - TTTAttributedLabelDelegate
+
+- (void) attributedLabel: (TTTAttributedLabel *)label
+didSelectLinkWithAddress: (NSDictionary *)addressComponents
+{
+    ChoozieUser *user = [addressComponents objectForKey:@"user"];
+}
+
 
 
 @end

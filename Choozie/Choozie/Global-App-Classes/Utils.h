@@ -14,7 +14,7 @@
 + (id)sharedInstance;
 
 
-
+- (CGFloat)getHeightForString:(NSString *)headlineString withMaxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight font:(UIFont *)font;
 
 - (void) setImageforView:(id)genericView withCachedImageFromURL:(NSString *)imageUrl;
 

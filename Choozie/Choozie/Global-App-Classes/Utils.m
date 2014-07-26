@@ -133,6 +133,25 @@
 
 
 
+- (CGFloat)getHeightForString:(NSString *)headlineString withMaxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight font:(UIFont *)font
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    CGFloat height = 0;
+    CGRect rect =  [headlineString boundingRectWithSize:CGSizeMake(maxWidth, maxHeight)
+                                                options:NSStringDrawingUsesLineFragmentOrigin
+                                             attributes:@{NSFontAttributeName:font, NSParagraphStyleAttributeName: paragraphStyle}
+                                                context:nil];
+    height = rect.size.height;
+    
+    return height + 10;
+}
+
+
+
+
 
 
 @end
