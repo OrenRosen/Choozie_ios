@@ -10,7 +10,7 @@
 #import "ApiServices.h"
 #import "Constants.h"
 #import "FeedResponse.h"
-#import "MainFeedDataSource.h"
+#import "UserProfileViewController.h"
 
 @interface ChoozieViewController ()
 
@@ -26,10 +26,12 @@
     [super viewDidLoad];
     
     self.mainFeedDataSource = [[MainFeedDataSource alloc] init];
+    self.mainFeedDataSource.mainFeedDataSourceDelegate = self;
     self.feedTableView.delegate = self.mainFeedDataSource;
     self.feedTableView.dataSource = self.mainFeedDataSource;
     
-    [self.feedTableView registerNib:[UINib nibWithNibName:@"ChooziePostCell" bundle:nil] forCellReuseIdentifier:@"ChooziePostCell"];
+    [self.feedTableView registerNib:[UINib nibWithNibName:@"ChoozieFeedPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieFeedPostCell"];
+    [self.feedTableView registerNib:[UINib nibWithNibName:@"ChoozieHeaderPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieHeaderPostCell"];
     
     [self getDataFromServer];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -60,5 +62,23 @@
     
 }
 
+
+#pragma mark - MainFeedDataSourceDelegate Methods
+
+- (void)didClickToShowProfileForUser:(ChoozieUser *)user
+{
+    [self performSegueWithIdentifier:@"UserProfileSegue" sender:user];
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"UserProfileSegue"]) {
+        UserProfileViewController *userProfileViewController = segue.destinationViewController;
+        
+        userProfileViewController.user = (ChoozieUser *)sender;
+    }
+}
 
 @end

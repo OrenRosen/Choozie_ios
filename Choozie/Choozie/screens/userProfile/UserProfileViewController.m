@@ -7,8 +7,11 @@
 //
 
 #import "UserProfileViewController.h"
+#import "Utils.h"
 
 @interface UserProfileViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
 
 @end
 
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[Utils sharedInstance] setImageforView:self.userProfileImageView withCachedImageFromURL:self.user.avatar];
     // Do any additional setup after loading the view.
 }
 

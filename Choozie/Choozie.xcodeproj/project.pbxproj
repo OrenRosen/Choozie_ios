@@ -51,6 +51,10 @@
 		D8C247F7197AD74B006DA42E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C247D9197AD74B006DA42E /* UIKit.framework */; };
 		D8C247FF197AD74B006DA42E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8C247FD197AD74B006DA42E /* InfoPlist.strings */; };
 		D8C24801197AD74B006DA42E /* ChoozieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C24800197AD74B006DA42E /* ChoozieTests.m */; };
+		D8CD1B2F19861F34005B5A22 /* ChoozieFeedPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD1B2E19861F34005B5A22 /* ChoozieFeedPostCell.xib */; };
+		D8CD1B3319862021005B5A22 /* ChoozieHeaderPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8CD1B3219862021005B5A22 /* ChoozieHeaderPostCell.xib */; };
+		D8CD1B3619862084005B5A22 /* ChoozieHeaderPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD1B3519862084005B5A22 /* ChoozieHeaderPostCell.m */; };
+		D8CD1B39198620CF005B5A22 /* ChoozieFeedPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CD1B38198620CF005B5A22 /* ChoozieFeedPostCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +152,12 @@
 		D8C247FC197AD74B006DA42E /* ChoozieTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChoozieTests-Info.plist"; sourceTree = "<group>"; };
 		D8C247FE197AD74B006DA42E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8C24800197AD74B006DA42E /* ChoozieTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoozieTests.m; sourceTree = "<group>"; };
+		D8CD1B2E19861F34005B5A22 /* ChoozieFeedPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChoozieFeedPostCell.xib; path = "Choozie/screens/main feed/views/ChoozieFeedPostCell.xib"; sourceTree = SOURCE_ROOT; };
+		D8CD1B3219862021005B5A22 /* ChoozieHeaderPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChoozieHeaderPostCell.xib; path = "Choozie/screens/main feed/views/ChoozieHeaderPostCell.xib"; sourceTree = SOURCE_ROOT; };
+		D8CD1B3419862084005B5A22 /* ChoozieHeaderPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieHeaderPostCell.h; sourceTree = SOURCE_ROOT; };
+		D8CD1B3519862084005B5A22 /* ChoozieHeaderPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieHeaderPostCell.m; sourceTree = SOURCE_ROOT; };
+		D8CD1B37198620CF005B5A22 /* ChoozieFeedPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieFeedPostCell.h; sourceTree = SOURCE_ROOT; };
+		D8CD1B38198620CF005B5A22 /* ChoozieFeedPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieFeedPostCell.m; sourceTree = SOURCE_ROOT; };
 		F94137B92BC14B27AF89FF6B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -315,7 +325,13 @@
 			children = (
 				D8C08F0F197C428800BA4439 /* ChooziePostCell.h */,
 				D8C08F10197C428800BA4439 /* ChooziePostCell.m */,
+				D8CD1B3219862021005B5A22 /* ChoozieHeaderPostCell.xib */,
 				D8C08F12197C42B900BA4439 /* ChooziePostCell.xib */,
+				D8CD1B3419862084005B5A22 /* ChoozieHeaderPostCell.h */,
+				D8CD1B3519862084005B5A22 /* ChoozieHeaderPostCell.m */,
+				D8CD1B37198620CF005B5A22 /* ChoozieFeedPostCell.h */,
+				D8CD1B38198620CF005B5A22 /* ChoozieFeedPostCell.m */,
+				D8CD1B2E19861F34005B5A22 /* ChoozieFeedPostCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -503,8 +519,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8444D69197AF1A8005BF1F5 /* .gitignore in Resources */,
+				D8CD1B3319862021005B5A22 /* ChoozieHeaderPostCell.xib in Resources */,
 				D8444D75197AF1A8005BF1F5 /* README.md in Resources */,
 				D8C08F15197C4A4300BA4439 /* Media.xcassets in Resources */,
+				D8CD1B2F19861F34005B5A22 /* ChoozieFeedPostCell.xib in Resources */,
 				D8C247EE197AD74B006DA42E /* Images.xcassets in Resources */,
 				D8C08F13197C42B900BA4439 /* ChooziePostCell.xib in Resources */,
 				D8444D6A197AF1A8005BF1F5 /* .gitmodules in Resources */,
@@ -571,6 +589,7 @@
 				D8444D90197AFAD0005BF1F5 /* UILabelImproved.m in Sources */,
 				D8C08F11197C428800BA4439 /* ChooziePostCell.m in Sources */,
 				D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */,
+				D8CD1B3619862084005B5A22 /* ChoozieHeaderPostCell.m in Sources */,
 				D8C08F09197C421A00BA4439 /* ChoozieUser.m in Sources */,
 				D8C08F18197C4E6200BA4439 /* MainFeedDataSource.m in Sources */,
 				D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */,
@@ -584,6 +603,7 @@
 				D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */,
 				D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */,
 				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,
+				D8CD1B39198620CF005B5A22 /* ChoozieFeedPostCell.m in Sources */,
 				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
 				D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */,
 				D8444D6C197AF1A8005BF1F5 /* JastorRuntimeHelper.m in Sources */,

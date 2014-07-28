@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChoozieUser.h"
 
 @interface UserProfileViewController : UIViewController
+
+@property (nonatomic, strong) ChoozieUser *user;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainFeedDataSource.h"
 
-@interface ChoozieViewController : UIViewController
+@interface ChoozieViewController : UIViewController <MainFeedDataSourceDelegate>
 
 @end

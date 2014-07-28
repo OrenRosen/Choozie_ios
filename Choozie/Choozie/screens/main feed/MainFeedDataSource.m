@@ -12,29 +12,36 @@
 #import "Constants.h"
 #import "ChoozieComment.h"
 #import "ApiServices.h"
+#import "ChoozieHeaderPostCell.h"
 
 
 @implementation MainFeedDataSource
 
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.feed.count;
 }
 
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChooziePost *post = [self.feed objectAtIndex:indexPath.row];
+    ChooziePost *post = [self.feed objectAtIndex:indexPath.section];
     
     CGFloat heightToRet;
     if ([post.post_type integerValue] == 2) {
         // One photo
-        heightToRet = 390.0;
+        heightToRet = 360.0;
     } else {
         // Two photos
-        heightToRet = 234.0;
+        heightToRet = 180;
     }
     
     if (post.comments.count == 0) {
@@ -64,20 +71,53 @@
 }
 
 
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    ChoozieHeaderPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChoozieHeaderPostCell"];
+    
+    ChooziePost *post = [self.feed objectAtIndex:section];
+    
+    // User
+    [[Utils sharedInstance] setImageforView:cell.userImageButton withCachedImageFromURL:post.user.avatar];
+    cell.userNameLabel.text = post.user.display_name;
+    cell.userQuestion.text = post.question;
+    
+
+    return cell;
+    
+    
+//    
+//    UILabel *l = [[UILabel alloc] init];
+//    l.text = @"HIIIII";
+//    l.backgroundColor = [UIColor redColor];
+//    
+//    return l;
+}
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 60;
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChooziePostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChooziePostCell"];
+    ChoozieFeedPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChoozieFeedPostCell"];
     
     if (!cell.delegate) {
         cell.delegate = self;
     }
     
-    ChooziePost *post = [self.feed objectAtIndex:indexPath.row];
+    ChooziePost *post = [self.feed objectAtIndex:indexPath.section];
     
     // User
-    [[Utils sharedInstance] setImageforView:cell.userImageButton withCachedImageFromURL:post.user.avatar];
-    cell.userNameLabel.text = post.user.display_name;
-    cell.userQuestionLabel.text = post.question;
+//    [[Utils sharedInstance] setImageforView:cell.userImageButton withCachedImageFromURL:post.user.avatar];
+//    cell.userNameLabel.text = post.user.display_name;
+//    cell.userQuestionLabel.text = post.question;
     
     if ([post.post_type integerValue] == 2) {
         // One photo
@@ -206,7 +246,7 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
 
 #pragma mark - ChoozoePostCellDelegate Methods
 
-- (void)chooziePostCell:(ChooziePostCell *)cell didVoteOnPhotoNumber:(NSInteger)number
+- (void)chooziePostCell:(ChoozieFeedPostCell *)cell didVoteOnPhotoNumber:(NSInteger)number
 {
     ChooziePost *post = [self.feed objectAtIndex:cell.tag];
     NSString *voteUrl = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:kVoteUrl, @"100004161394098", number, post.key]];
@@ -226,11 +266,10 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
 }
 
 
-- (void)chooziePostCelldidClickOnUserImageView:(ChooziePostCell *)cell
-{
-    ChooziePost *post = [self.feed objectAtIndex:cell.tag];
-    
-    
-}
+//- (void)chooziePostCelldidClickOnUserImageView:(ChooziePostCell *)cell
+//{
+//    ChooziePost *post = [self.feed objectAtIndex:cell.tag];
+//    [self.mainFeedDataSourceDelegate didClickToShowProfileForUser:post.user];
+//}
 
 @end

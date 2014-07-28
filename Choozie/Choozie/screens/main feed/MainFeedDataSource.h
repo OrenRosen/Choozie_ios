@@ -8,12 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "TTTAttributedLabel.h"
-#import "ChooziePostCell.h"
+#import "ChoozieFeedPostCell.h"
+#import "ChoozieUser.h"
 
-@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate, ChooziePostCellDelegate>
+
+@protocol MainFeedDataSourceDelegate <NSObject>
+
+- (void)didClickToShowProfileForUser:(ChoozieUser *)user;
+
+@end
+
+
+@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate, ChoozieFeedPostCellDelegate>
 
 
 @property (nonatomic, strong) NSArray *feed;
-
+@property (nonatomic, strong) id<MainFeedDataSourceDelegate> mainFeedDataSourceDelegate;
 
 @end
