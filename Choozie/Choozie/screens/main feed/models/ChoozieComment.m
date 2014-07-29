@@ -15,7 +15,7 @@
 
 - (NSString *)getBasicCommentString
 {
-    return [NSString stringWithFormat: @"%@: %@",
+    return [NSString stringWithFormat: @"%@ %@",
      self.user.first_name,
      self.text];
 }
@@ -23,7 +23,7 @@
 
 - (NSString *)getFullCommentString
 {
-    return [NSString stringWithFormat: @"%@ %@: %@",
+    return [NSString stringWithFormat: @"%@ %@ %@",
             self.user.first_name, self.user.last_name,
             self.text];
 }

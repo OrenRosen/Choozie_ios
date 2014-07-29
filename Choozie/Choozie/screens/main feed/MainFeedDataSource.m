@@ -140,8 +140,8 @@
     
 
     
-    cell.votes1Label.text = [NSString stringWithFormat:@"%d", post.votes1.count];
-    cell.votes2Label.text = [NSString stringWithFormat:@"%d", post.votes2.count];
+    cell.votes1Label.text = [NSString stringWithFormat:@"%d votes", post.votes1.count];
+    cell.votes2Label.text = [NSString stringWithFormat:@"%d votes", post.votes2.count];
     
     cell.comment1.hidden = YES;
     cell.comment2.hidden = YES;
@@ -197,8 +197,8 @@
 {
     NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
     
-    [mutableActiveLinkAttributes setValue: [UIFont boldSystemFontOfSize: 15]
-                                   forKey: (NSString *) kCTFontAttributeName];
+//    [mutableActiveLinkAttributes setValue: [UIFont systemFontOfSize: 15]
+//                                   forKey: (NSString *) kCTFontAttributeName];
     
     [mutableActiveLinkAttributes setValue: [UIColor blueColor]
                                    forKey: (NSString *) kCTForegroundColorAttributeName];
