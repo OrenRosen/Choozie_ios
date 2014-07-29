@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TTTAttributedLabel.h"
 #import "ChoozieFeedPostCell.h"
+#import "ChoozieHeaderPostCell.h"
 #import "ChoozieUser.h"
 
 
@@ -19,7 +20,7 @@
 @end
 
 
-@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate, ChoozieFeedPostCellDelegate>
+@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, TTTAttributedLabelDelegate, ChoozieFeedPostCellDelegate, ChoozieHeaderPostCellDelegate>
 
 
 @property (nonatomic, strong) NSArray *feed;

@@ -76,6 +76,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     ChoozieHeaderPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChoozieHeaderPostCell"];
+    cell.tag = section;
+    if (!cell.delegate) {
+        cell.delegate = self;
+    }
     
     ChooziePost *post = [self.feed objectAtIndex:section];
     
@@ -266,10 +270,10 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
 }
 
 
-//- (void)chooziePostCelldidClickOnUserImageView:(ChooziePostCell *)cell
-//{
-//    ChooziePost *post = [self.feed objectAtIndex:cell.tag];
-//    [self.mainFeedDataSourceDelegate didClickToShowProfileForUser:post.user];
-//}
+- (void)choozieHeaderPostCelldidClickOnUserImageView:(ChoozieHeaderPostCell *)cell
+{
+    ChooziePost *post = [self.feed objectAtIndex:cell.tag];
+    [self.mainFeedDataSourceDelegate didClickToShowProfileForUser:post.user];
+}
 
 @end

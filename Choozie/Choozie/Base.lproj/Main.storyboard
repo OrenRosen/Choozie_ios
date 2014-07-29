@@ -52,29 +52,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iqz-yz-pJu">
-                                <rect key="frame" x="10" y="10" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iqz-yz-pJu">
+                                <rect key="frame" x="10" y="69" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="5p1-lI-XqL"/>
-                                    <constraint firstAttribute="height" constant="100" id="G5W-AA-qY1"/>
+                                    <constraint firstAttribute="width" constant="64" id="5p1-lI-XqL"/>
+                                    <constraint firstAttribute="height" constant="64" id="G5W-AA-qY1"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="32"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-sk-j9X">
-                                <rect key="frame" x="0.0" y="135" width="320" height="433"/>
+                                <rect key="frame" x="0.0" y="216" width="320" height="352"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr some name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7A-2M-ayg">
+                                <rect key="frame" x="82" y="69" width="111" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is mr some what name description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="k1N-tb-TdE">
+                                <rect key="frame" x="82" y="89" width="225" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Iqz-yz-pJu" firstAttribute="top" secondItem="NAa-7t-5t9" secondAttribute="top" constant="10" id="7nD-0a-VfF"/>
+                            <constraint firstItem="x7A-2M-ayg" firstAttribute="leading" secondItem="Iqz-yz-pJu" secondAttribute="trailing" constant="8" id="8o6-my-K1H"/>
+                            <constraint firstItem="x7A-2M-ayg" firstAttribute="leading" secondItem="k1N-tb-TdE" secondAttribute="leading" id="ExQ-FJ-PhF"/>
+                            <constraint firstItem="Iqz-yz-pJu" firstAttribute="top" secondItem="peA-Zw-dBF" secondAttribute="bottom" constant="5" id="His-wE-zoc"/>
+                            <constraint firstItem="x7A-2M-ayg" firstAttribute="top" secondItem="Iqz-yz-pJu" secondAttribute="top" id="LOZ-jK-tP4"/>
                             <constraint firstItem="Iqz-yz-pJu" firstAttribute="leading" secondItem="NAa-7t-5t9" secondAttribute="leading" constant="10" id="LZT-aO-pBw"/>
+                            <constraint firstItem="k1N-tb-TdE" firstAttribute="top" secondItem="x7A-2M-ayg" secondAttribute="bottom" id="MAD-d9-zpF"/>
+                            <constraint firstAttribute="trailing" secondItem="k1N-tb-TdE" secondAttribute="trailing" constant="13" id="o1q-lf-1K2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pl6-tN-DzP"/>
                     <connections>
                         <outlet property="tableView" destination="XCk-sk-j9X" id="agq-hf-ZbW"/>
+                        <outlet property="userDescriptionLabel" destination="k1N-tb-TdE" id="LOr-Xi-aPz"/>
+                        <outlet property="userNameLabel" destination="x7A-2M-ayg" id="Bdt-yc-Zac"/>
                         <outlet property="userProfileImageView" destination="Iqz-yz-pJu" id="suJ-AD-XEx"/>
                     </connections>
                 </viewController>

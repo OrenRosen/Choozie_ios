@@ -31,4 +31,11 @@
     // Configure the view for the selected state
 }
 
+
+- (IBAction)userImageClicked:(id)sender
+{
+    [self.delegate choozieHeaderPostCelldidClickOnUserImageView:self];
+}
+
+
 @end
