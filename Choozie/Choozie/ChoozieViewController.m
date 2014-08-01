@@ -59,6 +59,20 @@
 
 
 
+- (NSString *)getFeedUrlForInfScrollWithCurrentCursor:(NSString *)curser
+{
+    return [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kCurserAdditionToFeedUrl, curser]];
+}
+
+
+
+
+
+
+
+#pragma mark - Navigation
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"UserProfileSegue"]) {
@@ -67,5 +81,7 @@
         userProfileViewController.user = (ChoozieUser *)sender;
     }
 }
+
+
 
 @end
