@@ -26,6 +26,7 @@
 		D8444D92197AFAD0005BF1F5 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D8A197AFAD0005BF1F5 /* UIView+Animation.m */; };
 		D8444D93197AFAD0005BF1F5 /* zone.tab in Resources */ = {isa = PBXBuildFile; fileRef = D8444D8B197AFAD0005BF1F5 /* zone.tab */; };
 		D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D96197AFB5A005BF1F5 /* ApiServices.m */; };
+		D853AE66198BF79400C0C256 /* FeedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D853AE65198BF79400C0C256 /* FeedTableView.m */; };
 		D8C08EE1197C33F400BA4439 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EE0197C33F400BA4439 /* Constants.m */; };
 		D8C08EE6197C346000BA4439 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EE5197C346000BA4439 /* Utils.m */; };
 		D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EFE197C421A00BA4439 /* ChoozieComment.m */; };
@@ -113,6 +114,8 @@
 		D8444D8B197AFAD0005BF1F5 /* zone.tab */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zone.tab; sourceTree = "<group>"; };
 		D8444D95197AFB5A005BF1F5 /* ApiServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiServices.h; sourceTree = "<group>"; };
 		D8444D96197AFB5A005BF1F5 /* ApiServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiServices.m; sourceTree = "<group>"; };
+		D853AE64198BF79400C0C256 /* FeedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableView.h; sourceTree = SOURCE_ROOT; };
+		D853AE65198BF79400C0C256 /* FeedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableView.m; sourceTree = SOURCE_ROOT; };
 		D8C08EDF197C33F400BA4439 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D8C08EE0197C33F400BA4439 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D8C08EE4197C346000BA4439 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -299,6 +302,8 @@
 				D8C08EFB197C419900BA4439 /* models */,
 				D8C08F16197C4E6200BA4439 /* MainFeedDataSource.h */,
 				D8C08F17197C4E6200BA4439 /* MainFeedDataSource.m */,
+				D853AE64198BF79400C0C256 /* FeedTableView.h */,
+				D853AE65198BF79400C0C256 /* FeedTableView.m */,
 			);
 			path = "main feed";
 			sourceTree = "<group>";
@@ -600,6 +605,7 @@
 				D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */,
 				D8C08EE1197C33F400BA4439 /* Constants.m in Sources */,
 				D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */,
+				D853AE66198BF79400C0C256 /* FeedTableView.m in Sources */,
 				D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */,
 				D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */,
 				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,

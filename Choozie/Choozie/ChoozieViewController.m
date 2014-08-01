@@ -14,8 +14,7 @@
 
 @interface ChoozieViewController ()
 
-@property (nonatomic, strong) MainFeedDataSource *mainFeedDataSource;
-@property (weak, nonatomic) IBOutlet UITableView *feedTableView;
+@property (weak, nonatomic) IBOutlet FeedTableView *feedTableView;
 
 @end
 
@@ -25,14 +24,7 @@
 {
     [super viewDidLoad];
     
-    self.mainFeedDataSource = [[MainFeedDataSource alloc] init];
-    self.mainFeedDataSource.mainFeedDataSourceDelegate = self;
-    self.feedTableView.delegate = self.mainFeedDataSource;
-    self.feedTableView.dataSource = self.mainFeedDataSource;
-    
-    [self.feedTableView registerNib:[UINib nibWithNibName:@"ChoozieFeedPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieFeedPostCell"];
-    [self.feedTableView registerNib:[UINib nibWithNibName:@"ChoozieHeaderPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieHeaderPostCell"];
-    
+    self.feedTableView.feedTableViewDelegate = self;
     [self getDataFromServer];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -50,20 +42,15 @@
     [[ApiServices sharedInstance] callService:kFeedUrl withSuccessBlock:^(NSDictionary *json) {
         FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
         
-        self.mainFeedDataSource.feed = response.feed;
-        [self.feedTableView reloadData];
-        
-        NSLog(@"Success");
-        
+        self.feedTableView.feedResponse = response;
     } failureBlock:^(NSError *error) {
-        NSLog(@"Failed;");
     }];
     
     
 }
 
 
-#pragma mark - MainFeedDataSourceDelegate Methods
+#pragma mark - FeedTableViewDelegate Methods
 
 - (void)didClickToShowProfileForUser:(ChoozieUser *)user
 {

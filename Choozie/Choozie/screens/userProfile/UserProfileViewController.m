@@ -8,12 +8,18 @@
 
 #import "UserProfileViewController.h"
 #import "Utils.h"
+#import "Constants.h"
+#import "ApiServices.h"
+#import "FeedResponse.h"
+#import "MainFeedDataSource.h"
+#import "FeedTableView.h"
 
 @interface UserProfileViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet FeedTableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userDescriptionLabel;
+@property (nonatomic, strong) MainFeedDataSource *mainFeedDataSource;
 
 @end
 
@@ -33,6 +39,7 @@
     [super viewDidLoad];
     
     [[Utils sharedInstance] setImageforView:self.userProfileImageView withCachedImageFromURL:self.user.avatar];
+    [self getDataFromServer];
     // Do any additional setup after loading the view.
 }
 
@@ -52,5 +59,25 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+#pragma mark - Private Methods
+
+- (void)getDataFromServer
+{
+    NSString *userProfileUrl = [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kUserProfileAdditionToFeedUrl, self.user.fb_uid]];
+    
+    [[ApiServices sharedInstance] callService:userProfileUrl withSuccessBlock:^(NSDictionary *json) {
+        FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+        self.tableView.feedResponse = response;
+        
+    } failureBlock:^(NSError *error) {
+    }];
+
+                     
+}
+
+
 
 @end
