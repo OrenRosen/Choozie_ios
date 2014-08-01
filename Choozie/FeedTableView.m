@@ -8,6 +8,8 @@
 
 #import "FeedTableView.h"
 #import "MainFeedDataSource.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
+#import "ApiServices.h"
 
 
 @interface FeedTableView()
@@ -40,6 +42,8 @@
     
     [self registerNib:[UINib nibWithNibName:@"ChoozieFeedPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieFeedPostCell"];
     [self registerNib:[UINib nibWithNibName:@"ChoozieHeaderPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieHeaderPostCell"];
+    
+    [self addInfScroll];
 }
 
 
@@ -60,6 +64,56 @@
     // Drawing code
 }
 */
+
+
+
+#pragma mark - Private Methods
+
+- (void)addInfScroll
+{
+    __weak FeedTableView *weakSelf = self;
+    [self addInfiniteScrollingWithActionHandler:^{
+        
+        
+        NSString *feedUrl = [weakSelf.feedTableViewDelegate getFeedUrlForInfScrollWithCurrentCursor:weakSelf.feedResponse.cursor];
+        [[ApiServices sharedInstance] callService:feedUrl withSuccessBlock:^(NSDictionary *json) {
+            
+            FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+            
+            if (response.feed.count == 0) {
+                return;
+            }
+            
+            weakSelf.feedResponse.cursor = response.cursor;
+            NSInteger before = weakSelf.feedResponse.feed.count;
+            NSMutableArray *feed = [weakSelf.feedResponse.feed mutableCopy];
+            [feed addObjectsFromArray:response.feed];
+            weakSelf.feedResponse.feed = [feed copy];
+            
+            weakSelf.mainFeedDataSource.feed = weakSelf.feedResponse.feed;
+            
+            [weakSelf reloadData];
+//            
+//            [weakSelf beginUpdates];
+//            
+//            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, weakSelf.feedResponse.feed.count - before)];
+//            
+//            [weakSelf insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+//            
+//            [weakSelf endUpdates];
+            
+            [[weakSelf infiniteScrollingView] stopAnimating];
+            
+            
+        } failureBlock:^(NSError *error) {
+            
+        }];
+        
+        
+    }];
+
+}
+
 
 
 #pragma mark - MainFeedDataSourceSelegate Methods

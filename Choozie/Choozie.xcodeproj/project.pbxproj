@@ -27,6 +27,9 @@
 		D8444D93197AFAD0005BF1F5 /* zone.tab in Resources */ = {isa = PBXBuildFile; fileRef = D8444D8B197AFAD0005BF1F5 /* zone.tab */; };
 		D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D96197AFB5A005BF1F5 /* ApiServices.m */; };
 		D853AE66198BF79400C0C256 /* FeedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D853AE65198BF79400C0C256 /* FeedTableView.m */; };
+		D853AE70198C00C500C0C256 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D853AE6C198C00C500C0C256 /* ODRefreshControl.m */; };
+		D853AE71198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = D853AE6F198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m */; };
+		D853AE74198C049A00C0C256 /* UserProfileFeedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D853AE73198C049A00C0C256 /* UserProfileFeedTableView.m */; };
 		D8C08EE1197C33F400BA4439 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EE0197C33F400BA4439 /* Constants.m */; };
 		D8C08EE6197C346000BA4439 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EE5197C346000BA4439 /* Utils.m */; };
 		D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C08EFE197C421A00BA4439 /* ChoozieComment.m */; };
@@ -116,6 +119,12 @@
 		D8444D96197AFB5A005BF1F5 /* ApiServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiServices.m; sourceTree = "<group>"; };
 		D853AE64198BF79400C0C256 /* FeedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedTableView.h; sourceTree = SOURCE_ROOT; };
 		D853AE65198BF79400C0C256 /* FeedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedTableView.m; sourceTree = SOURCE_ROOT; };
+		D853AE6B198C00C500C0C256 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		D853AE6C198C00C500C0C256 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		D853AE6E198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		D853AE6F198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		D853AE72198C049A00C0C256 /* UserProfileFeedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileFeedTableView.h; path = "Choozie/screens/main feed/UserProfileFeedTableView.h"; sourceTree = SOURCE_ROOT; };
+		D853AE73198C049A00C0C256 /* UserProfileFeedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileFeedTableView.m; path = "Choozie/screens/main feed/UserProfileFeedTableView.m"; sourceTree = SOURCE_ROOT; };
 		D8C08EDF197C33F400BA4439 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		D8C08EE0197C33F400BA4439 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D8C08EE4197C346000BA4439 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
@@ -286,6 +295,33 @@
 			path = "Global-App-Classes";
 			sourceTree = "<group>";
 		};
+		D853AE69198C00C500C0C256 /* 3rd_libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D853AE6A198C00C500C0C256 /* ODRefreshControl */,
+				D853AE6D198C00C500C0C256 /* SVInfiniteScrolling */,
+			);
+			path = 3rd_libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		D853AE6A198C00C500C0C256 /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				D853AE6B198C00C500C0C256 /* ODRefreshControl.h */,
+				D853AE6C198C00C500C0C256 /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
+		D853AE6D198C00C500C0C256 /* SVInfiniteScrolling */ = {
+			isa = PBXGroup;
+			children = (
+				D853AE6E198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.h */,
+				D853AE6F198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m */,
+			);
+			path = SVInfiniteScrolling;
+			sourceTree = "<group>";
+		};
 		D8C08EF9197C416600BA4439 /* screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +340,8 @@
 				D8C08F17197C4E6200BA4439 /* MainFeedDataSource.m */,
 				D853AE64198BF79400C0C256 /* FeedTableView.h */,
 				D853AE65198BF79400C0C256 /* FeedTableView.m */,
+				D853AE72198C049A00C0C256 /* UserProfileFeedTableView.h */,
+				D853AE73198C049A00C0C256 /* UserProfileFeedTableView.m */,
 			);
 			path = "main feed";
 			sourceTree = "<group>";
@@ -378,6 +416,7 @@
 		D8C247DB197AD74B006DA42E /* Choozie */ = {
 			isa = PBXGroup;
 			children = (
+				D853AE69198C00C500C0C256 /* 3rd_libraries */,
 				D8C08EF9197C416600BA4439 /* screens */,
 				D8C247E4197AD74B006DA42E /* ChoozieAppDelegate.h */,
 				D8C247E5197AD74B006DA42E /* ChoozieAppDelegate.m */,
@@ -600,15 +639,18 @@
 				D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */,
 				D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */,
 				D8C08F0B197C421A00BA4439 /* FeedResponse.m in Sources */,
+				D853AE71198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				D8C08EE6197C346000BA4439 /* Utils.m in Sources */,
 				D8C247E2197AD74B006DA42E /* main.m in Sources */,
 				D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */,
 				D8C08EE1197C33F400BA4439 /* Constants.m in Sources */,
+				D853AE74198C049A00C0C256 /* UserProfileFeedTableView.m in Sources */,
 				D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */,
 				D853AE66198BF79400C0C256 /* FeedTableView.m in Sources */,
 				D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */,
 				D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */,
 				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,
+				D853AE70198C00C500C0C256 /* ODRefreshControl.m in Sources */,
 				D8CD1B39198620CF005B5A22 /* ChoozieFeedPostCell.m in Sources */,
 				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
 				D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */,

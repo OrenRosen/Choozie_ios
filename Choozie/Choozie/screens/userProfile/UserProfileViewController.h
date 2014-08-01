@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ChoozieUser.h"
+#import "FeedTableView.h"
 
-@interface UserProfileViewController : UIViewController
+@interface UserProfileViewController : UIViewController <FeedTableViewDelegate>
 
 @property (nonatomic, strong) ChoozieUser *user;
 

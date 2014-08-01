@@ -13,6 +13,8 @@
 
 @protocol FeedTableViewDelegate <NSObject>
 
+- (NSString *)getFeedUrlForInfScrollWithCurrentCursor:(NSString *)curser;
+
 @optional
 - (void)didClickToShowProfileForUser:(ChoozieUser *)user;
 

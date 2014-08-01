@@ -39,6 +39,7 @@
     [super viewDidLoad];
     
     [[Utils sharedInstance] setImageforView:self.userProfileImageView withCachedImageFromURL:self.user.avatar];
+    self.tableView.feedTableViewDelegate = self;
     [self getDataFromServer];
     // Do any additional setup after loading the view.
 }
@@ -76,6 +77,17 @@
     }];
 
                      
+}
+
+
+#pragma mark - FeedTableViewDelegate Methods
+
+- (NSString *)getFeedUrlForInfScrollWithCurrentCursor:(NSString *)curser
+{
+    NSString *userProfileUrl = [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kCurserAdditionToFeedUrl, curser]];
+    userProfileUrl = [userProfileUrl stringByAppendingString:[NSString stringWithFormat:kUserProfileAdditionToFeedUrl, self.user.fb_uid]];
+    
+    return userProfileUrl;
 }
 
 

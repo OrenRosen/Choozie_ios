@@ -15,6 +15,7 @@ NSString *const kBaseUrl = @"http://choosie-dev.appspot.com";
 
 NSString *const kFeedUrl = @"/feed?limit=8";
 NSString *const kUserProfileAdditionToFeedUrl = @"&fb_uid=%@";
+NSString *const kCurserAdditionToFeedUrl = @"&cursor=%@";
 NSString *const kVoteUrl = @"/votes/new?fb_uid=%@&which_photo=%d&post_key=%@";
 
 
