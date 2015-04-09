@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ROKY. All rights reserved.
 //
 
-#import "Jastor.h"
+#import "ChoozieMantle.h"
 
-@interface FeedResponse : Jastor
+@interface FeedResponse : ChoozieMantle
 
 @property (nonatomic, strong) NSArray *feed;
 @property (nonatomic, strong) NSString *cursor;

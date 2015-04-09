@@ -40,7 +40,9 @@
 {
     
     [[ApiServices sharedInstance] callService:kFeedUrl withSuccessBlock:^(NSDictionary *json) {
-        FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+        
+        NSError *error = nil;
+        FeedResponse *response = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
         
         self.feedTableView.feedResponse = response;
     } failureBlock:^(NSError *error) {

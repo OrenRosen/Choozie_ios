@@ -6,10 +6,11 @@
 //  Copyright (c) 2014 ROKY. All rights reserved.
 //
 
-#import "Jastor.h"
-#import "ChoozieUser.h"
+#import "ChoozieMantle.h"
 
-@interface ChoozieComment : Jastor
+@class ChoozieUser;
+
+@interface ChoozieComment : ChoozieMantle
 
 
 @property (nonatomic, strong) NSString *text;

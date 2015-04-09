@@ -9,6 +9,7 @@
 #import "ChooziePost.h"
 #import "ChoozieComment.h"
 #import "ChoozieVote.h"
+#import "ChoozieUser.h"
 
 
 @interface ChooziePost()
@@ -31,14 +32,19 @@
 }
 
 
-+ (Class)comments_class
-{
-    return [ChoozieComment class];
+
++ (NSValueTransformer *)userJSONTransformer {
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[ChoozieUser class]];
 }
 
-+ (Class)votes_class
++ (NSValueTransformer *)commentsJSONTransformer
 {
-    return [ChoozieVote class];
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[ChoozieComment class]];
+}
+
++ (NSValueTransformer *)votesJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[ChoozieVote class]];
 }
 
 

@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		78697EF570C64857860090CC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71613A80FFD043C68656E75E /* libPods.a */; };
+		843DF1BD1AD68715000570F4 /* ChoozieMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843DF1BC1AD68715000570F4 /* ChoozieMantle.m */; };
+		849417F51ACEC50A00EF24CC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 849417F41ACEC50A00EF24CC /* Podfile */; };
+		8CB4A3A65E31D3FE20712D22 /* libPods-Choozie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 431984A942672DC14CA8A3AD /* libPods-Choozie.a */; };
 		D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D817EDEE19841B5100EEB25E /* UserProfileViewController.m */; };
-		D8444D69197AF1A8005BF1F5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D8444D4B197AF1A8005BF1F5 /* .gitignore */; };
-		D8444D6A197AF1A8005BF1F5 /* .gitmodules in Resources */ = {isa = PBXBuildFile; fileRef = D8444D4C197AF1A8005BF1F5 /* .gitmodules */; };
-		D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D51197AF1A8005BF1F5 /* Jastor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D8444D6C197AF1A8005BF1F5 /* JastorRuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D53197AF1A8005BF1F5 /* JastorRuntimeHelper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		D8444D73197AF1A8005BF1F5 /* jastor.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D8444D65197AF1A8005BF1F5 /* jastor.podspec */; };
-		D8444D74197AF1A8005BF1F5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D8444D66197AF1A8005BF1F5 /* LICENSE */; };
-		D8444D75197AF1A8005BF1F5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8444D67197AF1A8005BF1F5 /* README.md */; };
-		D8444D76197AF1A8005BF1F5 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = D8444D68197AF1A8005BF1F5 /* VERSION */; };
 		D8444D8C197AFAD0005BF1F5 /* backward in Resources */ = {isa = PBXBuildFile; fileRef = D8444D7E197AFAD0005BF1F5 /* backward */; };
 		D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */; };
 		D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D82197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m */; };
@@ -62,20 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D8444D79197AF1A8005BF1F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8444D54197AF1A8005BF1F5 /* Jastor.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4E480DF1499B821009C36D8;
-			remoteInfo = Jastor;
-		};
-		D8444D7B197AF1A8005BF1F5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D8444D54197AF1A8005BF1F5 /* Jastor.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4E480EF1499B821009C36D8;
-			remoteInfo = JastorTests;
-		};
 		D8C247F8197AD74B006DA42E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D8C247CA197AD74B006DA42E /* Project object */;
@@ -86,21 +67,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B509B1388320662A88993D9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		431984A942672DC14CA8A3AD /* libPods-Choozie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Choozie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		549A6B30FA457C3BE4945C55 /* Pods-Choozie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Choozie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Choozie/Pods-Choozie.release.xcconfig"; sourceTree = "<group>"; };
 		71613A80FFD043C68656E75E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		843DF1BB1AD68715000570F4 /* ChoozieMantle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieMantle.h; sourceTree = "<group>"; };
+		843DF1BC1AD68715000570F4 /* ChoozieMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieMantle.m; sourceTree = "<group>"; };
+		849417F41ACEC50A00EF24CC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BF592018828816B372C97C96 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D5281C9E456F8FC95AABEB65 /* Pods-Choozie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Choozie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Choozie/Pods-Choozie.debug.xcconfig"; sourceTree = "<group>"; };
 		D817EDED19841B5100EEB25E /* UserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		D817EDEE19841B5100EEB25E /* UserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
-		D8444D4B197AF1A8005BF1F5 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		D8444D4C197AF1A8005BF1F5 /* .gitmodules */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
-		D8444D4F197AF1A8005BF1F5 /* Jastor-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Jastor-Prefix.pch"; sourceTree = "<group>"; };
-		D8444D50197AF1A8005BF1F5 /* Jastor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jastor.h; sourceTree = "<group>"; };
-		D8444D51197AF1A8005BF1F5 /* Jastor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Jastor.m; sourceTree = "<group>"; };
-		D8444D52197AF1A8005BF1F5 /* JastorRuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JastorRuntimeHelper.h; sourceTree = "<group>"; };
-		D8444D53197AF1A8005BF1F5 /* JastorRuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JastorRuntimeHelper.m; sourceTree = "<group>"; };
-		D8444D54197AF1A8005BF1F5 /* Jastor.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Jastor.xcodeproj; sourceTree = "<group>"; };
-		D8444D65197AF1A8005BF1F5 /* jastor.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = jastor.podspec; sourceTree = "<group>"; };
-		D8444D66197AF1A8005BF1F5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D8444D67197AF1A8005BF1F5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		D8444D68197AF1A8005BF1F5 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
 		D8444D7E197AFAD0005BF1F5 /* backward */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = backward; sourceTree = "<group>"; };
 		D8444D7F197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ValueNotNull.h"; sourceTree = "<group>"; };
 		D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ValueNotNull.m"; sourceTree = "<group>"; };
@@ -170,7 +147,6 @@
 		D8CD1B3519862084005B5A22 /* ChoozieHeaderPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieHeaderPostCell.m; sourceTree = SOURCE_ROOT; };
 		D8CD1B37198620CF005B5A22 /* ChoozieFeedPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieFeedPostCell.h; sourceTree = SOURCE_ROOT; };
 		D8CD1B38198620CF005B5A22 /* ChoozieFeedPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieFeedPostCell.m; sourceTree = SOURCE_ROOT; };
-		F94137B92BC14B27AF89FF6B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +158,7 @@
 				D8C247DA197AD74B006DA42E /* UIKit.framework in Frameworks */,
 				D8C247D6197AD74B006DA42E /* Foundation.framework in Frameworks */,
 				78697EF570C64857860090CC /* libPods.a in Frameworks */,
+				8CB4A3A65E31D3FE20712D22 /* libPods-Choozie.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +175,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		774832F4CD9D80D797B66148 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5281C9E456F8FC95AABEB65 /* Pods-Choozie.debug.xcconfig */,
+				549A6B30FA457C3BE4945C55 /* Pods-Choozie.release.xcconfig */,
+				BF592018828816B372C97C96 /* Pods.debug.xcconfig */,
+				2B509B1388320662A88993D9 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D817EDEA1983F0A700EEB25E /* userProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,54 +199,11 @@
 		D8444D49197AF1A8005BF1F5 /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
-				D8444D4A197AF1A8005BF1F5 /* jastor */,
+				843DF1BB1AD68715000570F4 /* ChoozieMantle.h */,
+				843DF1BC1AD68715000570F4 /* ChoozieMantle.m */,
 			);
 			name = 3rdparty;
 			path = ../3rdparty;
-			sourceTree = "<group>";
-		};
-		D8444D4A197AF1A8005BF1F5 /* jastor */ = {
-			isa = PBXGroup;
-			children = (
-				D8444D4B197AF1A8005BF1F5 /* .gitignore */,
-				D8444D4C197AF1A8005BF1F5 /* .gitmodules */,
-				D8444D4D197AF1A8005BF1F5 /* Jastor */,
-				D8444D65197AF1A8005BF1F5 /* jastor.podspec */,
-				D8444D66197AF1A8005BF1F5 /* LICENSE */,
-				D8444D67197AF1A8005BF1F5 /* README.md */,
-				D8444D68197AF1A8005BF1F5 /* VERSION */,
-			);
-			path = jastor;
-			sourceTree = "<group>";
-		};
-		D8444D4D197AF1A8005BF1F5 /* Jastor */ = {
-			isa = PBXGroup;
-			children = (
-				D8444D4E197AF1A8005BF1F5 /* Jastor */,
-				D8444D54197AF1A8005BF1F5 /* Jastor.xcodeproj */,
-			);
-			path = Jastor;
-			sourceTree = "<group>";
-		};
-		D8444D4E197AF1A8005BF1F5 /* Jastor */ = {
-			isa = PBXGroup;
-			children = (
-				D8444D4F197AF1A8005BF1F5 /* Jastor-Prefix.pch */,
-				D8444D50197AF1A8005BF1F5 /* Jastor.h */,
-				D8444D51197AF1A8005BF1F5 /* Jastor.m */,
-				D8444D52197AF1A8005BF1F5 /* JastorRuntimeHelper.h */,
-				D8444D53197AF1A8005BF1F5 /* JastorRuntimeHelper.m */,
-			);
-			path = Jastor;
-			sourceTree = "<group>";
-		};
-		D8444D55197AF1A8005BF1F5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D8444D7A197AF1A8005BF1F5 /* libJastor.a */,
-				D8444D7C197AF1A8005BF1F5 /* JastorTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D8444D7D197AFAD0005BF1F5 /* Categories */ = {
@@ -382,13 +327,14 @@
 		D8C247C9197AD74B006DA42E = {
 			isa = PBXGroup;
 			children = (
+				849417F41ACEC50A00EF24CC /* Podfile */,
 				D8C08F14197C4A4300BA4439 /* Media.xcassets */,
 				D8444D49197AF1A8005BF1F5 /* 3rdparty */,
 				D8C247DB197AD74B006DA42E /* Choozie */,
 				D8C247FA197AD74B006DA42E /* ChoozieTests */,
 				D8C247D4197AD74B006DA42E /* Frameworks */,
 				D8C247D3197AD74B006DA42E /* Products */,
-				F94137B92BC14B27AF89FF6B /* Pods.xcconfig */,
+				774832F4CD9D80D797B66148 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,6 +355,7 @@
 				D8C247D9197AD74B006DA42E /* UIKit.framework */,
 				D8C247F4197AD74B006DA42E /* XCTest.framework */,
 				71613A80FFD043C68656E75E /* libPods.a */,
+				431984A942672DC14CA8A3AD /* libPods-Choozie.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -526,12 +473,6 @@
 			mainGroup = D8C247C9197AD74B006DA42E;
 			productRefGroup = D8C247D3197AD74B006DA42E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D8444D55197AF1A8005BF1F5 /* Products */;
-					ProjectRef = D8444D54197AF1A8005BF1F5 /* Jastor.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				D8C247D1197AD74B006DA42E /* Choozie */,
@@ -540,41 +481,19 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		D8444D7A197AF1A8005BF1F5 /* libJastor.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libJastor.a;
-			remoteRef = D8444D79197AF1A8005BF1F5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D8444D7C197AF1A8005BF1F5 /* JastorTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = JastorTests.octest;
-			remoteRef = D8444D7B197AF1A8005BF1F5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		D8C247D0197AD74B006DA42E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8444D69197AF1A8005BF1F5 /* .gitignore in Resources */,
 				D8CD1B3319862021005B5A22 /* ChoozieHeaderPostCell.xib in Resources */,
-				D8444D75197AF1A8005BF1F5 /* README.md in Resources */,
 				D8C08F15197C4A4300BA4439 /* Media.xcassets in Resources */,
 				D8CD1B2F19861F34005B5A22 /* ChoozieFeedPostCell.xib in Resources */,
 				D8C247EE197AD74B006DA42E /* Images.xcassets in Resources */,
 				D8C08F13197C42B900BA4439 /* ChooziePostCell.xib in Resources */,
-				D8444D6A197AF1A8005BF1F5 /* .gitmodules in Resources */,
-				D8444D73197AF1A8005BF1F5 /* jastor.podspec in Resources */,
 				D8444D93197AFAD0005BF1F5 /* zone.tab in Resources */,
+				849417F51ACEC50A00EF24CC /* Podfile in Resources */,
 				D8444D8C197AFAD0005BF1F5 /* backward in Resources */,
-				D8444D74197AF1A8005BF1F5 /* LICENSE in Resources */,
-				D8444D76197AF1A8005BF1F5 /* VERSION in Resources */,
 				D8C247E0197AD74B006DA42E /* InfoPlist.strings in Resources */,
 				D8C247E9197AD74B006DA42E /* Main.storyboard in Resources */,
 			);
@@ -603,7 +522,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D5B3716D3645432B80FCF696 /* Check Pods Manifest.lock */ = {
@@ -630,6 +549,7 @@
 			files = (
 				D8444D92197AFAD0005BF1F5 /* UIView+Animation.m in Sources */,
 				D8444D8F197AFAD0005BF1F5 /* UIImage+MakeThumbnail.m in Sources */,
+				843DF1BD1AD68715000570F4 /* ChoozieMantle.m in Sources */,
 				D8444D90197AFAD0005BF1F5 /* UILabelImproved.m in Sources */,
 				D8C08F11197C428800BA4439 /* ChooziePostCell.m in Sources */,
 				D8C247E6197AD74B006DA42E /* ChoozieAppDelegate.m in Sources */,
@@ -642,7 +562,6 @@
 				D853AE71198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				D8C08EE6197C346000BA4439 /* Utils.m in Sources */,
 				D8C247E2197AD74B006DA42E /* main.m in Sources */,
-				D8444D6B197AF1A8005BF1F5 /* Jastor.m in Sources */,
 				D8C08EE1197C33F400BA4439 /* Constants.m in Sources */,
 				D853AE74198C049A00C0C256 /* UserProfileFeedTableView.m in Sources */,
 				D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */,
@@ -654,7 +573,6 @@
 				D8CD1B39198620CF005B5A22 /* ChoozieFeedPostCell.m in Sources */,
 				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
 				D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */,
-				D8444D6C197AF1A8005BF1F5 /* JastorRuntimeHelper.m in Sources */,
 				D8C08F08197C421A00BA4439 /* ChooziePost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,28 +695,32 @@
 		};
 		D8C24805197AD74B006DA42E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F94137B92BC14B27AF89FF6B /* Pods.xcconfig */;
+			baseConfigurationReference = BF592018828816B372C97C96 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
 				INFOPLIST_FILE = "Choozie/Choozie-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		D8C24806197AD74B006DA42E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F94137B92BC14B27AF89FF6B /* Pods.xcconfig */;
+			baseConfigurationReference = 2B509B1388320662A88993D9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
 				INFOPLIST_FILE = "Choozie/Choozie-Info.plist";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

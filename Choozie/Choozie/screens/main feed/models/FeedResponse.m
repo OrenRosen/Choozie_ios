@@ -12,10 +12,11 @@
 @implementation FeedResponse
 
 
-
-+(Class)feed_class {
-    return [ChooziePost class];
++ (NSValueTransformer *)feedJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[ChooziePost class]];
 }
+
 
 
 

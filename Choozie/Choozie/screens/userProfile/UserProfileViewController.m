@@ -70,7 +70,8 @@
     NSString *userProfileUrl = [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kUserProfileAdditionToFeedUrl, self.user.fb_uid]];
     
     [[ApiServices sharedInstance] callService:userProfileUrl withSuccessBlock:^(NSDictionary *json) {
-        FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+        NSError *error = nil;
+        FeedResponse *response = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
         self.tableView.feedResponse = response;
         
     } failureBlock:^(NSError *error) {

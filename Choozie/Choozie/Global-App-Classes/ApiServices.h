@@ -9,26 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-@protocol ApiServicesDelegate <NSObject>
 
-
-
-@end
-
-@interface ApiServices : AFHTTPClient
+@interface ApiServices : AFHTTPSessionManager
 
 + (id)sharedInstance;
 
-- (AFJSONRequestOperation *) callService:(NSString *)serviceUrl withSuccessBlock:(void(^)(NSDictionary *json))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
+- (NSURLSessionDataTask *) callService:(NSString *)serviceUrl withSuccessBlock:(void(^)(NSDictionary *json))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
 
 // Call to service with different cache policy or timeout
-- (AFJSONRequestOperation *) callService:(NSString *)serviceUrl withCachePolicy:(NSURLRequestCachePolicy)cachePolicy timoutInterval:(NSTimeInterval)timeoutInterval withSuccessBlock:(void(^)(NSDictionary *json))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
+- (NSURLSessionDataTask *) callService:(NSString *)serviceUrl timoutInterval:(NSTimeInterval)timeoutInterval withSuccessBlock:(void(^)(NSDictionary *json))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
 
 
-- (AFHTTPRequestOperation *) callHttpGetForUrl:(NSString *)urlString withSuccessBlock:(void(^)(id responseObject))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
+- (NSURLSessionDataTask *) callHttpGetForUrl:(NSString *)urlString withSuccessBlock:(void(^)(NSDictionary * responseObject))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
 
 // Call to HTTP GET with different cache policy or timeout
-- (AFHTTPRequestOperation *) callHttpGetForUrl:(NSString *)urlString withCachePolicy:(NSURLCacheStoragePolicy)cachePolicy timoutInterval:(NSTimeInterval)timeoutInterval withSuccessBlock:(void(^)(id responseObject))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
+- (NSURLSessionDataTask *) callHttpGetForUrl:(NSString *)urlString timoutInterval:(NSTimeInterval)timeoutInterval withSuccessBlock:(void(^)(NSDictionary * responseObject))onSuccess failureBlock:(void(^)(NSError *error))onFailure;
 
+- (void) callHttpPostToUrl:(NSString *)postPath withDictionary:(NSDictionary *)data;
 
 @end

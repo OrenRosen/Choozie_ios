@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ROKY. All rights reserved.
 //
 
-#import "Jastor.h"
+#import "ChoozieMantle.h"
 
-@interface ChoozieUser : Jastor
+@interface ChoozieUser : ChoozieMantle
 
 
 @property (nonatomic, strong) NSString *fb_uid;

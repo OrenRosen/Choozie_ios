@@ -7,10 +7,13 @@
 //
 
 #import "ChoozieComment.h"
+#import "ChoozieUser.h"
 
 @implementation ChoozieComment
 
-
++ (NSValueTransformer *)userJSONTransformer {
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[ChoozieUser class]];
+}
 
 
 - (NSString *)getBasicCommentString

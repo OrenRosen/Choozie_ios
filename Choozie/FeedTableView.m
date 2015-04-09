@@ -78,7 +78,9 @@
         NSString *feedUrl = [weakSelf.feedTableViewDelegate getFeedUrlForInfScrollWithCurrentCursor:weakSelf.feedResponse.cursor];
         [[ApiServices sharedInstance] callService:feedUrl withSuccessBlock:^(NSDictionary *json) {
             
-            FeedResponse *response = [[FeedResponse alloc] initWithDictionary:json];
+            
+            NSError *error = nil;
+            FeedResponse *response = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
             
             if (response.feed.count == 0) {
                 return;

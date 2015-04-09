@@ -7,7 +7,14 @@
 //
 
 #import "ChoozieVote.h"
+#import "ChoozieUser.h"
 
 @implementation ChoozieVote
+
+
++ (NSValueTransformer *)userJSONTransformer {
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[ChoozieUser class]];
+}
+
 
 @end
