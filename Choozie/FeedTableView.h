@@ -7,24 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FeedResponse.h"
-#import "MainFeedDataSource.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
 
-
+@class FeedTableView;
 @protocol FeedTableViewDelegate <NSObject>
 
-- (NSString *)getFeedUrlForInfScrollWithCurrentCursor:(NSString *)curser;
-
-@optional
-- (void)didClickToShowProfileForUser:(ChoozieUser *)user;
+- (void)feedTableViewDidDropForInfScroll:(FeedTableView *)feedTableView;
 
 @end
 
 
 
-@interface FeedTableView : UITableView <MainFeedDataSourceDelegate>
+@interface FeedTableView : UITableView
 
-@property (nonatomic, strong) FeedResponse *feedResponse;
 @property (nonatomic, weak) id<FeedTableViewDelegate> feedTableViewDelegate;
 
 @end

@@ -72,7 +72,6 @@
     [[ApiServices sharedInstance] callService:userProfileUrl withSuccessBlock:^(NSDictionary *json) {
         NSError *error = nil;
         FeedResponse *response = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
-        self.tableView.feedResponse = response;
         
     } failureBlock:^(NSError *error) {
     }];
@@ -82,14 +81,6 @@
 
 
 #pragma mark - FeedTableViewDelegate Methods
-
-- (NSString *)getFeedUrlForInfScrollWithCurrentCursor:(NSString *)curser
-{
-    NSString *userProfileUrl = [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kCurserAdditionToFeedUrl, curser]];
-    userProfileUrl = [userProfileUrl stringByAppendingString:[NSString stringWithFormat:kUserProfileAdditionToFeedUrl, self.user.fb_uid]];
-    
-    return userProfileUrl;
-}
 
 
 

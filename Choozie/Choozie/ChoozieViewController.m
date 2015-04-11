@@ -12,11 +12,14 @@
 #import "FeedResponse.h"
 #import "UserProfileViewController.h"
 #import "FXBlurView.h"
+#import "MainFeedDataSource.h"
 
-@interface ChoozieViewController ()
+@interface ChoozieViewController () <MainFeedDataSourceDelegate>
 
 @property (weak, nonatomic) IBOutlet FeedTableView *feedTableView;
 @property (nonatomic, weak) IBOutlet FXBlurView *topBar;
+@property (nonatomic, strong) MainFeedDataSource *mainFeedDataSource;
+@property (nonatomic, strong) FeedResponse *feedResponse;
 
 @end
 
@@ -31,9 +34,7 @@
     self.feedTableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     
     UIToolbar *tb = [[UIToolbar alloc] initWithFrame:self.topBar.frame];
-//    [self.topBar addSubview:tb];
     tb.barTintColor = [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
-//    [UIColor colorWithRed:139/255.0 green:166/255.0 blue:255/255.0 alpha:0.0];
     tb.alpha = 0.8;
     tb.translucent = YES;
     
@@ -41,15 +42,12 @@
     self.topBar.blurRadius = 50;
     self.topBar.backgroundColor = [UIColor clearColor];
     
-    
-//    tb.barTintColor = [UIColor clearColor];
-//    tb.tintColor = [UIColor clearColor];
-//    tb.backgroundColor = [UIColor redColor];
-//    [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
-//    tb.alpha = 0.5;
+    self.mainFeedDataSource = [[MainFeedDataSource alloc] init];
+    self.mainFeedDataSource.mainFeedDataSourceDelegate = self;
+    self.feedTableView.delegate = self.mainFeedDataSource;
+    self.feedTableView.dataSource = self.mainFeedDataSource;
     
     [self getDataFromServer];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,36 +59,41 @@
 
 - (void)getDataFromServer
 {
-    
     [[ApiServices sharedInstance] callService:kFeedUrl withSuccessBlock:^(NSDictionary *json) {
         
         NSError *error = nil;
-        FeedResponse *response = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
-        
-        self.feedTableView.feedResponse = response;
+        self.feedResponse = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
+        self.mainFeedDataSource.feed = self.feedResponse.feed;
+        [self.feedTableView reloadData];
     } failureBlock:^(NSError *error) {
-    }];
-    
-    
-}
+    }];}
 
 
 #pragma mark - FeedTableViewDelegate Methods
 
-- (void)didClickToShowProfileForUser:(ChoozieUser *)user
+- (void)feedTableViewDidDropForInfScroll:(FeedTableView *)feedTableView
 {
-    [self performSegueWithIdentifier:@"UserProfileSegue" sender:user];
+    NSString *feedUrl = [self getFeedUrlForInfScrollWithCurrentCursor];
+    [[ApiServices sharedInstance] callService:feedUrl withSuccessBlock:^(NSDictionary *json) {
+        
+        
+        NSError *error = nil;
+        FeedResponse *response = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
+        
+        if (response.feed.count == 0) {
+            return;
+        }
+        
+        [self updateNewFeedResponse:response];
+        self.mainFeedDataSource.feed = self.feedResponse.feed;
+        [feedTableView reloadData];
+        [[feedTableView infiniteScrollingView] stopAnimating];
+        
+    } failureBlock:^(NSError *error) {
+        
+        [[feedTableView infiniteScrollingView] stopAnimating];
+    }];
 }
-
-
-
-- (NSString *)getFeedUrlForInfScrollWithCurrentCursor:(NSString *)curser
-{
-    return [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kCurserAdditionToFeedUrl, curser]];
-}
-
-
-
 
 
 
@@ -105,6 +108,37 @@
         
         userProfileViewController.user = (ChoozieUser *)sender;
     }
+}
+
+
+#pragma mark - MainFeedDataSourceDelegate Methods
+
+- (void)didClickToShowProfileForUser:(ChoozieUser *)user
+{
+    [self performSegueWithIdentifier:@"UserProfileSegue" sender:user];
+}
+
+
+#pragma mark - Private Methods
+
+- (void)updateNewFeedResponse:(FeedResponse *)newFeedResponse
+{
+    self.feedResponse.cursor = newFeedResponse.cursor;
+    self.feedResponse.feed = [self getFeedWithNewResponse:newFeedResponse];
+}
+
+
+- (NSArray *)getFeedWithNewResponse:(FeedResponse *)newFeedResponse
+{
+    NSMutableArray *newFeed = [self.feedResponse.feed mutableCopy];
+    [newFeed addObjectsFromArray:newFeedResponse.feed];
+    return [newFeed copy];
+}
+
+
+- (NSString *)getFeedUrlForInfScrollWithCurrentCursor
+{
+    return [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kCurserAdditionToFeedUrl, self.feedResponse.cursor]];
 }
 
 
