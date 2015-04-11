@@ -17,16 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duW-qO-mwU">
-                        <rect key="frame" x="0.0" y="5" width="320" height="316"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8BZ-we-VQN" userLabel="photo1" customClass="NINetworkImageView">
                                 <rect key="frame" x="5" y="0.0" width="153" height="153"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8BZ-we-VQN" secondAttribute="height" multiplier="1:1" id="YB5-uU-Fu1"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="0.5"/>
-                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aet-e2-b5e" userLabel="photo2" customClass="NINetworkImageView">
                                 <rect key="frame" x="162" y="0.0" width="153" height="153"/>
@@ -143,7 +140,7 @@
                     <constraint firstAttribute="trailing" secondItem="duW-qO-mwU" secondAttribute="trailing" id="Etk-PT-lUy"/>
                     <constraint firstAttribute="bottom" secondItem="duW-qO-mwU" secondAttribute="bottom" constant="2" id="Gi1-Kz-bcH"/>
                     <constraint firstItem="duW-qO-mwU" firstAttribute="leading" secondItem="JXw-NG-v1i" secondAttribute="leading" id="SYX-fp-LVF"/>
-                    <constraint firstItem="duW-qO-mwU" firstAttribute="top" secondItem="JXw-NG-v1i" secondAttribute="top" constant="5" id="nPl-oJ-7qp"/>
+                    <constraint firstItem="duW-qO-mwU" firstAttribute="top" secondItem="JXw-NG-v1i" secondAttribute="top" id="nPl-oJ-7qp"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

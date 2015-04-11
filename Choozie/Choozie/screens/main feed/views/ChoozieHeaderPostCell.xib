@@ -41,8 +41,15 @@
                                 <color key="textColor" red="0.20342092803030298" green="0.20342092803030298" blue="0.20342092803030298" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg8-fs-0Rj">
-                                <rect key="frame" x="0.0" y="49" width="320" height="1"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQH-Ct-ixX" userLabel="top seperation">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="cte-fV-Jxp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg8-fs-0Rj" userLabel="bottom seperation">
+                                <rect key="frame" x="5" y="49" width="310" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ISK-Ne-x8r"/>
@@ -53,13 +60,16 @@
                         <color key="tintColor" red="1" green="0.063204622447067815" blue="0.51431306763157458" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="M08-5V-1fC" firstAttribute="leading" secondItem="HHf-Fp-5a8" secondAttribute="trailing" constant="5" id="08u-nY-tfo"/>
-                            <constraint firstItem="rg8-fs-0Rj" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="9xv-mS-Szo"/>
+                            <constraint firstItem="VQH-Ct-ixX" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" id="8nb-6r-OOh"/>
+                            <constraint firstItem="rg8-fs-0Rj" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" constant="5" id="9xv-mS-Szo"/>
                             <constraint firstItem="HHf-Fp-5a8" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" constant="5" id="LxB-SW-ujE"/>
                             <constraint firstItem="M08-5V-1fC" firstAttribute="centerY" secondItem="HHf-Fp-5a8" secondAttribute="centerY" id="NpO-gm-PbF"/>
                             <constraint firstAttribute="bottom" secondItem="rg8-fs-0Rj" secondAttribute="bottom" id="QIW-d7-P3i"/>
-                            <constraint firstAttribute="trailing" secondItem="rg8-fs-0Rj" secondAttribute="trailing" id="WmC-Tx-ljW"/>
+                            <constraint firstAttribute="trailing" secondItem="VQH-Ct-ixX" secondAttribute="trailing" id="UtF-Mx-apB"/>
+                            <constraint firstAttribute="trailing" secondItem="rg8-fs-0Rj" secondAttribute="trailing" constant="5" id="WmC-Tx-ljW"/>
                             <constraint firstItem="HHf-Fp-5a8" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" constant="5" id="cV4-zD-yix"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M08-5V-1fC" secondAttribute="trailing" constant="5" id="esg-0D-CLB"/>
+                            <constraint firstItem="VQH-Ct-ixX" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="fvP-aa-fjN"/>
                             <constraint firstAttribute="width" constant="320" id="vcC-eK-958"/>
                         </constraints>
                     </view>

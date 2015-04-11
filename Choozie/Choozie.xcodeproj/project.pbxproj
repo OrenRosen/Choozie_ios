@@ -10,6 +10,7 @@
 		78697EF570C64857860090CC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71613A80FFD043C68656E75E /* libPods.a */; };
 		843DF1BD1AD68715000570F4 /* ChoozieMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843DF1BC1AD68715000570F4 /* ChoozieMantle.m */; };
 		8493665A1AD938CE00190D08 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849366591AD938CE00190D08 /* FXBlurView.m */; };
+		8493665E1AD9B8DF00190D08 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493665D1AD9B8DF00190D08 /* UIView+Borders.m */; };
 		849417F51ACEC50A00EF24CC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 849417F41ACEC50A00EF24CC /* Podfile */; };
 		8CB4A3A65E31D3FE20712D22 /* libPods-Choozie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 431984A942672DC14CA8A3AD /* libPods-Choozie.a */; };
 		D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D817EDEE19841B5100EEB25E /* UserProfileViewController.m */; };
@@ -76,6 +77,8 @@
 		843DF1BC1AD68715000570F4 /* ChoozieMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieMantle.m; sourceTree = "<group>"; };
 		849366581AD938CE00190D08 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		849366591AD938CE00190D08 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		8493665C1AD9B8DF00190D08 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
+		8493665D1AD9B8DF00190D08 /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
 		849417F41ACEC50A00EF24CC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF592018828816B372C97C96 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D5281C9E456F8FC95AABEB65 /* Pods-Choozie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Choozie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Choozie/Pods-Choozie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +201,15 @@
 			name = FXBlurView;
 			sourceTree = "<group>";
 		};
+		8493665B1AD9B8C300190D08 /* UIView_Border */ = {
+			isa = PBXGroup;
+			children = (
+				8493665C1AD9B8DF00190D08 /* UIView+Borders.h */,
+				8493665D1AD9B8DF00190D08 /* UIView+Borders.m */,
+			);
+			name = UIView_Border;
+			sourceTree = "<group>";
+		};
 		D817EDEA1983F0A700EEB25E /* userProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +234,7 @@
 		D8444D7D197AFAD0005BF1F5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				8493665B1AD9B8C300190D08 /* UIView_Border */,
 				D8444D7E197AFAD0005BF1F5 /* backward */,
 				D8444D7F197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.h */,
 				D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */,
@@ -582,6 +595,7 @@
 				D853AE66198BF79400C0C256 /* FeedTableView.m in Sources */,
 				D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */,
 				D8C08F07197C421A00BA4439 /* ChoozieComment.m in Sources */,
+				8493665E1AD9B8DF00190D08 /* UIView+Borders.m in Sources */,
 				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,
 				D853AE70198C00C500C0C256 /* ODRefreshControl.m in Sources */,
 				D8CD1B39198620CF005B5A22 /* ChoozieFeedPostCell.m in Sources */,

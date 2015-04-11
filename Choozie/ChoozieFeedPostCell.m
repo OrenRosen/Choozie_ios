@@ -7,6 +7,7 @@
 //
 
 #import "ChoozieFeedPostCell.h"
+#import "UIView+Borders.h"
 
 @implementation ChoozieFeedPostCell
 
@@ -22,6 +23,9 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    for (UIView *view in @[self.photo1ImageView, self.photo2ImageView, self.centerPhotoImageView]) {
+        [self addBordersToView:view];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -50,6 +54,15 @@
     [self.delegate chooziePostCell:self didVoteOnPhotoNumber:2];
 }
 
+
+#pragma mak - Private Methods
+
+- (void)addBordersToView:(UIView *)view
+{
+    [view addBottomBorderWithHeight:1.0 andColor:[UIColor blackColor]];
+    [view addLeftBorderWithWidth:1.0 andColor:[UIColor blackColor]];
+    [view addRightBorderWithWidth:1.0 andColor:[UIColor blackColor]];
+}
 
 
 
