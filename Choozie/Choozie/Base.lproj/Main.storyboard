@@ -24,23 +24,29 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-cg-YKL" customClass="FXBlurView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                <color key="backgroundColor" red="0.94947522095959591" green="0.048451249040850311" blue="0.76765569900788766" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="0.090197819205283802" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4SL-I3-gR9"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-wg-qGx">
-                                <rect key="frame" x="0.0" y="55" width="320" height="10"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="h4l-Nw-8A0"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="seD-D4-eNk">
                                 <rect key="frame" x="114" y="25" width="92" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="1v5-Sd-EfT"/>
                                     <constraint firstAttribute="height" constant="48" id="vBi-lr-XEF"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Rl-YQ-DlI" userLabel="seperation line">
+                                <rect key="frame" x="0.0" y="59" width="320" height="1"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="HDi-ky-TPb"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popup_top_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-wg-qGx">
+                                <rect key="frame" x="0.0" y="60" width="320" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="h4l-Nw-8A0"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -52,11 +58,14 @@
                             <constraint firstAttribute="trailing" secondItem="Yrr-wg-qGx" secondAttribute="trailing" id="Ifi-38-K8P"/>
                             <constraint firstItem="seD-D4-eNk" firstAttribute="bottom" secondItem="HI5-cg-YKL" secondAttribute="bottom" constant="13" id="S9J-xW-3lZ"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="X5c-ox-MO3"/>
+                            <constraint firstAttribute="trailing" secondItem="4Rl-YQ-DlI" secondAttribute="trailing" id="Ym3-tT-qJb"/>
+                            <constraint firstItem="Yrr-wg-qGx" firstAttribute="top" secondItem="4Rl-YQ-DlI" secondAttribute="bottom" id="ZZt-72-FJF"/>
                             <constraint firstItem="seD-D4-eNk" firstAttribute="centerX" secondItem="HI5-cg-YKL" secondAttribute="centerX" id="ZuZ-6y-dnj"/>
-                            <constraint firstItem="Yrr-wg-qGx" firstAttribute="top" secondItem="HI5-cg-YKL" secondAttribute="bottom" constant="-5" id="biU-GW-8IC"/>
+                            <constraint firstItem="HI5-cg-YKL" firstAttribute="bottom" secondItem="4Rl-YQ-DlI" secondAttribute="bottom" id="agN-5K-9uO"/>
                             <constraint firstAttribute="trailing" secondItem="9CD-T9-GH0" secondAttribute="trailing" id="dev-y1-nPs"/>
                             <constraint firstAttribute="trailing" secondItem="HI5-cg-YKL" secondAttribute="trailing" id="dxJ-To-JHa"/>
                             <constraint firstAttribute="bottom" secondItem="9CD-T9-GH0" secondAttribute="bottom" id="gnq-dy-au2"/>
+                            <constraint firstItem="4Rl-YQ-DlI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="smT-pm-dSR"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tH2-OE-o5d"/>
                         </constraints>
                     </view>
@@ -162,7 +171,7 @@
     </scenes>
     <resources>
         <image name="logo" width="292" height="158"/>
-        <image name="top_shadow" width="1000" height="10"/>
+        <image name="popup_top_shadow" width="320" height="4"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

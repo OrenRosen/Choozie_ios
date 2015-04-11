@@ -169,6 +169,13 @@
     
     [mutableActiveLinkAttributes setValue: [UIColor colorWithRed:90/255.0 green:129/255.0 blue:255/255.0 alpha:1.0] forKey: (NSString *) kCTForegroundColorAttributeName];
     
+//    [mutableActiveLinkAttributes setValue:[NSNumber numberWithFloat:1.0] forKey: (NSString *) kCTStrokeWidthAttributeName];
+    
+//    [mutableActiveLinkAttributes setValue:[UIColor colorWithRed:250/255.0 green:235/255.0 blue:215/255.0 alpha:1.0] forKey: (NSString *) kCTStrokeColorAttributeName];
+
+    [mutableActiveLinkAttributes setValue:[UIColor blackColor] forKey: (NSString *) kCTStrokeColorAttributeName];
+    
+    
     [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
                                    forKey: (NSString *) kCTUnderlineStyleAttributeName];
     

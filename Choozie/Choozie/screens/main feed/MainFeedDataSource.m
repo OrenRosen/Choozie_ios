@@ -92,12 +92,13 @@
     FXBlurView *l = [[FXBlurView alloc] initWithFrame:header.frame];
     [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
     [l addSubview:header];
-    header.backgroundColor = [UIColor clearColor];
+//    header.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.9];
     header.backgroundView.backgroundColor = [UIColor clearColor];
     l.backgroundColor = [UIColor clearColor];
-    l.tintColor = [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
+    l.tintColor = [UIColor blackColor];
+//    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
     l.blurRadius = 50;
-    return l;
+//    return l;
     
 //    [header addSubview:[[UIToolbar alloc] initWithFrame:header.frame]];
     return header;

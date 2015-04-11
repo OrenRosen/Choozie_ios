@@ -60,7 +60,7 @@
                     <constraint firstItem="duW-qO-mwU" firstAttribute="top" secondItem="JXw-NG-v1i" secondAttribute="top" id="nPl-oJ-7qp"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="blurView" destination="duW-qO-mwU" id="DCS-4s-trQ"/>
                 <outlet property="userImageButton" destination="HHf-Fp-5a8" id="U6N-Zj-D1E"/>
