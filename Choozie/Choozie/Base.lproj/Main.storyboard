@@ -24,21 +24,24 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-cg-YKL" customClass="FXBlurView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTa-dF-qVF">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                        <color key="backgroundColor" red="0.30227085040000001" green="0.50612522959999995" blue="0.94947522100000004" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="4SL-I3-gR9"/>
+                                    <constraint firstItem="OTa-dF-qVF" firstAttribute="leading" secondItem="HI5-cg-YKL" secondAttribute="leading" id="4Wx-wu-khg"/>
+                                    <constraint firstAttribute="bottom" secondItem="OTa-dF-qVF" secondAttribute="bottom" id="Vvs-Aw-x0p"/>
+                                    <constraint firstItem="OTa-dF-qVF" firstAttribute="top" secondItem="HI5-cg-YKL" secondAttribute="top" id="dfj-tN-BcL"/>
+                                    <constraint firstAttribute="trailing" secondItem="OTa-dF-qVF" secondAttribute="trailing" id="rGf-QA-7yN"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="seD-D4-eNk">
-                                <rect key="frame" x="114" y="25" width="92" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="92" id="1v5-Sd-EfT"/>
-                                    <constraint firstAttribute="height" constant="48" id="vBi-lr-XEF"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Rl-YQ-DlI" userLabel="seperation line">
                                 <rect key="frame" x="0.0" y="59" width="320" height="1"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.30227085040000001" green="0.50612522959999995" blue="0.94947522100000004" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="HDi-ky-TPb"/>
                                 </constraints>
@@ -47,6 +50,13 @@
                                 <rect key="frame" x="0.0" y="60" width="320" height="4"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="h4l-Nw-8A0"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="seD-D4-eNk">
+                                <rect key="frame" x="114" y="25" width="92" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="1v5-Sd-EfT"/>
+                                    <constraint firstAttribute="height" constant="48" id="vBi-lr-XEF"/>
                                 </constraints>
                             </imageView>
                         </subviews>
