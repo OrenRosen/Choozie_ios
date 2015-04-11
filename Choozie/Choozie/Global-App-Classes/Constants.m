@@ -10,8 +10,8 @@
 
 @implementation Constants
 
-//NSString *const kBaseUrl = @"http://choosieapp.appspot.com";
-NSString *const kBaseUrl = @"http://choosie-dev.appspot.com";
+NSString *const kBaseUrl = @"http://choosieapp.appspot.com";
+//NSString *const kBaseUrl = @"http://choosie-dev.appspot.com";
 
 NSString *const kFeedUrl = @"/feed?limit=8";
 NSString *const kUserProfileAdditionToFeedUrl = @"&fb_uid=%@";

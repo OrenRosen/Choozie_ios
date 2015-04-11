@@ -11,10 +11,12 @@
 #import "Constants.h"
 #import "FeedResponse.h"
 #import "UserProfileViewController.h"
+#import "FXBlurView.h"
 
 @interface ChoozieViewController ()
 
 @property (weak, nonatomic) IBOutlet FeedTableView *feedTableView;
+@property (nonatomic, weak) IBOutlet FXBlurView *topBar;
 
 @end
 
@@ -25,6 +27,27 @@
     [super viewDidLoad];
     
     self.feedTableView.feedTableViewDelegate = self;
+    
+    self.feedTableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+    
+    UIToolbar *tb = [[UIToolbar alloc] initWithFrame:self.topBar.frame];
+//    [self.topBar addSubview:tb];
+    tb.barTintColor = [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
+//    [UIColor colorWithRed:139/255.0 green:166/255.0 blue:255/255.0 alpha:0.0];
+    tb.alpha = 0.8;
+    tb.translucent = YES;
+    
+    self.topBar.tintColor = [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
+    self.topBar.blurRadius = 50;
+    self.topBar.backgroundColor = [UIColor clearColor];
+    
+    
+//    tb.barTintColor = [UIColor clearColor];
+//    tb.tintColor = [UIColor clearColor];
+//    tb.backgroundColor = [UIColor redColor];
+//    [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
+//    tb.alpha = 0.5;
+    
     [self getDataFromServer];
 	// Do any additional setup after loading the view, typically from a nib.
 }

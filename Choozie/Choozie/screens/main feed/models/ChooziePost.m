@@ -31,7 +31,23 @@
     return self;
 }
 
+- (NSArray *)votes1
+{
+    if (!_votes1) {
+        [self parseVotes];
+    }
+    
+    return _votes1;
+}
 
+- (NSArray *)votes2
+{
+    if (!_votes2) {
+        [self parseVotes];
+    }
+    
+    return _votes2;
+}
 
 + (NSValueTransformer *)userJSONTransformer {
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[ChoozieUser class]];

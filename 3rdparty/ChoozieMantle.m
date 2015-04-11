@@ -16,6 +16,7 @@
 
 
 
+
 //- (BOOL)isEqual:(ChoozieMantle *)model
 //{
 //    if (![model isMemberOfClass:self.class]) return NO;

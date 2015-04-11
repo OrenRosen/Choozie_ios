@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bIs-0U-26t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bIs-0U-26t">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Choozie View Controller - CHOOZIE-->
+        <!--CHOOZIE-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="ChoozieViewController" sceneMemberID="viewController">
@@ -17,22 +18,52 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9CD-T9-GH0" customClass="FeedTableView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="54" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-cg-YKL" customClass="FXBlurView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" red="0.94947522095959591" green="0.048451249040850311" blue="0.76765569900788766" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.090197819205283802" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4SL-I3-gR9"/>
+                                </constraints>
+                            </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Yrr-wg-qGx">
+                                <rect key="frame" x="0.0" y="55" width="320" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="h4l-Nw-8A0"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="seD-D4-eNk">
+                                <rect key="frame" x="114" y="25" width="92" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="1v5-Sd-EfT"/>
+                                    <constraint firstAttribute="height" constant="48" id="vBi-lr-XEF"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Yrr-wg-qGx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0DP-0J-RP0"/>
                             <constraint firstItem="9CD-T9-GH0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0vb-SC-Uoc"/>
-                            <constraint firstItem="9CD-T9-GH0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="AZB-BF-57e"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="2pk-N3-OCH"/>
+                            <constraint firstAttribute="trailing" secondItem="Yrr-wg-qGx" secondAttribute="trailing" id="Ifi-38-K8P"/>
+                            <constraint firstItem="seD-D4-eNk" firstAttribute="bottom" secondItem="HI5-cg-YKL" secondAttribute="bottom" constant="13" id="S9J-xW-3lZ"/>
+                            <constraint firstItem="HI5-cg-YKL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="X5c-ox-MO3"/>
+                            <constraint firstItem="seD-D4-eNk" firstAttribute="centerX" secondItem="HI5-cg-YKL" secondAttribute="centerX" id="ZuZ-6y-dnj"/>
+                            <constraint firstItem="Yrr-wg-qGx" firstAttribute="top" secondItem="HI5-cg-YKL" secondAttribute="bottom" constant="-5" id="biU-GW-8IC"/>
                             <constraint firstAttribute="trailing" secondItem="9CD-T9-GH0" secondAttribute="trailing" id="dev-y1-nPs"/>
+                            <constraint firstAttribute="trailing" secondItem="HI5-cg-YKL" secondAttribute="trailing" id="dxJ-To-JHa"/>
                             <constraint firstAttribute="bottom" secondItem="9CD-T9-GH0" secondAttribute="bottom" id="gnq-dy-au2"/>
+                            <constraint firstItem="HI5-cg-YKL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tH2-OE-o5d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CHOOZIE" id="sZP-c8-TGl"/>
                     <connections>
                         <outlet property="feedTableView" destination="9CD-T9-GH0" id="3q2-FB-Q01"/>
+                        <outlet property="topBar" destination="HI5-cg-YKL" id="f6u-0f-eTP"/>
                         <segue destination="Yuj-uV-ZpA" kind="push" identifier="UserProfileSegue" id="JFH-wq-rhr"/>
                     </connections>
                 </viewController>
@@ -52,9 +83,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iqz-yz-pJu">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iqz-yz-pJu">
                                 <rect key="frame" x="10" y="69" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="5p1-lI-XqL"/>
                                     <constraint firstAttribute="height" constant="64" id="G5W-AA-qY1"/>
@@ -63,21 +93,18 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="32"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-sk-j9X" customClass="FeedTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="XCk-sk-j9X" customClass="FeedTableView">
                                 <rect key="frame" x="0.0" y="148" width="320" height="420"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr some name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7A-2M-ayg">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mr some name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7A-2M-ayg">
                                 <rect key="frame" x="82" y="69" width="111" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is mr some what name description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="k1N-tb-TdE">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is mr some what name description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="k1N-tb-TdE">
                                 <rect key="frame" x="82" y="89" width="225" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +140,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ieC-jo-KF2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bIs-0U-26t" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bIs-0U-26t" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="za6-Bc-CS6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -133,6 +160,10 @@
             <point key="canvasLocation" x="-501" y="8"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="292" height="158"/>
+        <image name="top_shadow" width="1000" height="10"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

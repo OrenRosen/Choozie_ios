@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class ChoozieHeaderPostCell;
+@class ChooziePost;
+@class TTTAttributedLabel;
 
 @protocol ChoozieHeaderPostCellDelegate <NSObject>
 
@@ -21,12 +24,13 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *userNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *userQuestion;
 
-
 @property (nonatomic, strong) id<ChoozieHeaderPostCellDelegate> delegate;
+
+- (void)prepareHeaderForPost:(ChooziePost *)post;
 
 
 @end

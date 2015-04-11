@@ -7,6 +7,7 @@
 //
 
 #import "Utils.h"
+#import "TTTAttributedLabel.h"
 
 @interface Utils()
 
@@ -151,6 +152,41 @@
 }
 
 
+- (void)setLinkInLabel:(TTTAttributedLabel *)label withText:(NSString *)text inRange:(NSRange)range
+{
+    label.linkAttributes = [self getLinkAttributes];
+    label.activeLinkAttributes = [self getActiveLinkAttributes];
+    [label setText: text];
+}
+
+
+#pragma mark - Private Methods
+
+
+- (NSDictionary *)getLinkAttributes
+{
+    NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
+    
+    [mutableActiveLinkAttributes setValue: [UIColor colorWithRed:90/255.0 green:129/255.0 blue:255/255.0 alpha:1.0] forKey: (NSString *) kCTForegroundColorAttributeName];
+    
+    [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
+                                   forKey: (NSString *) kCTUnderlineStyleAttributeName];
+    
+    return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
+}
+
+- (NSDictionary *)getActiveLinkAttributes
+{
+    NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
+    
+    [mutableActiveLinkAttributes setValue: [UIColor purpleColor]
+                                   forKey: (NSString *) kCTForegroundColorAttributeName];
+    
+    [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
+                                   forKey: (NSString *) kCTUnderlineStyleAttributeName];
+    
+    return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
+}
 
 
 

@@ -7,6 +7,16 @@
 //
 
 #import "ChoozieHeaderPostCell.h"
+#import "Utils.h"
+#import "ChooziePost.h"
+#import "ChoozieUser.h"
+#import "TTTAttributedLabel.h"
+#import "FXBlurView.h"
+
+@interface ChoozieHeaderPostCell() <TTTAttributedLabelDelegate>
+@property (weak, nonatomic) IBOutlet FXBlurView *blurView;
+
+@end
 
 @implementation ChoozieHeaderPostCell
 
@@ -22,6 +32,10 @@
 - (void)awakeFromNib
 {
     // Initialization code
+//    self.blurView.dynamic = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.blurView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -35,6 +49,17 @@
 - (IBAction)userImageClicked:(id)sender
 {
     [self.delegate choozieHeaderPostCelldidClickOnUserImageView:self];
+}
+
+
+- (void)prepareHeaderForPost:(ChooziePost *)post
+{
+    NSString *text = [NSString stringWithFormat:@"%@ %@", post.user.display_name, post.question];
+    [[Utils sharedInstance] setImageforView:self.userImageButton withCachedImageFromURL:post.user.avatar];
+    NSRange range = [text rangeOfString:post.user.display_name];
+    [[Utils sharedInstance] setLinkInLabel:self.userNameLabel withText:text inRange:range];
+    [self.userNameLabel addLinkToAddress: @{@"user": post.user}
+                  withRange: range];
 }
 
 

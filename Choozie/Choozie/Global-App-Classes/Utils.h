@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class TTTAttributedLabel;
+
 @interface Utils : NSObject
 
 
@@ -16,6 +18,8 @@
 
 - (CGFloat)getHeightForString:(NSString *)headlineString withMaxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight font:(UIFont *)font;
 
-- (void) setImageforView:(id)genericView withCachedImageFromURL:(NSString *)imageUrl;
+- (void)setImageforView:(id)genericView withCachedImageFromURL:(NSString *)imageUrl;
+
+- (void)setLinkInLabel:(TTTAttributedLabel *)label withText:(NSString *)text inRange:(NSRange)range;
 
 @end

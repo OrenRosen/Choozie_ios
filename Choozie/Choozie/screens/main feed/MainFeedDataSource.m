@@ -13,7 +13,12 @@
 #import "ChoozieComment.h"
 #import "ApiServices.h"
 #import "ChoozieHeaderPostCell.h"
+#import "FXBlurView.h"
 
+
+@interface MainFeedDataSource() <TTTAttributedLabelDelegate>
+
+@end
 
 @implementation MainFeedDataSource
 
@@ -75,36 +80,34 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    ChoozieHeaderPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChoozieHeaderPostCell"];
-    cell.tag = section;
-    if (!cell.delegate) {
-        cell.delegate = self;
+    ChoozieHeaderPostCell *header = [tableView dequeueReusableCellWithIdentifier:@"ChoozieHeaderPostCell"];
+    header.tag = section;
+    if (!header.delegate) {
+        header.delegate = self;
     }
     
     ChooziePost *post = [self.feed objectAtIndex:section];
+    [header prepareHeaderForPost:post];
     
-    // User
-    [[Utils sharedInstance] setImageforView:cell.userImageButton withCachedImageFromURL:post.user.avatar];
-    cell.userNameLabel.text = post.user.display_name;
-    cell.userQuestion.text = post.question;
+    FXBlurView *l = [[FXBlurView alloc] initWithFrame:header.frame];
+    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
+    [l addSubview:header];
+    header.backgroundColor = [UIColor clearColor];
+    header.backgroundView.backgroundColor = [UIColor clearColor];
+    l.backgroundColor = [UIColor clearColor];
+    l.tintColor = [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
+    l.blurRadius = 50;
+    return l;
     
-
-    return cell;
-    
-    
-//    
-//    UILabel *l = [[UILabel alloc] init];
-//    l.text = @"HIIIII";
-//    l.backgroundColor = [UIColor redColor];
-//    
-//    return l;
+//    [header addSubview:[[UIToolbar alloc] initWithFrame:header.frame]];
+    return header;
 }
 
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 60;
+    return 45;
 }
 
 
@@ -117,12 +120,7 @@
     }
     
     ChooziePost *post = [self.feed objectAtIndex:indexPath.section];
-    
-    // User
-//    [[Utils sharedInstance] setImageforView:cell.userImageButton withCachedImageFromURL:post.user.avatar];
-//    cell.userNameLabel.text = post.user.display_name;
-//    cell.userQuestionLabel.text = post.question;
-    
+
     if ([post.post_type integerValue] == 2) {
         // One photo
         cell.centerPhotoImageView.hidden = NO;
@@ -147,30 +145,30 @@
     cell.votes1Label.text = [NSString stringWithFormat:@"%d votes", post.votes1.count];
     cell.votes2Label.text = [NSString stringWithFormat:@"%d votes", post.votes2.count];
     
-    cell.comment1.hidden = YES;
-    cell.comment2.hidden = YES;
-    cell.comment3.hidden = YES;
-    cell.seeAllCommentsButton.hidden = YES;
-    cell.writeCommentButton.hidden = (post.comments.count > 0);
-    
-    if (post.comments.count >= 1) {
-        cell.comment1.hidden = NO;
-        [self configureAttributedLabel:cell.comment1 withComment:[post.comments objectAtIndex:0]];
-    }
-    
-    if (post.comments.count >= 2) {
-        cell.comment2.hidden = NO;
-        [self configureAttributedLabel:cell.comment2 withComment:[post.comments objectAtIndex:1]];
-    }
-    
-    if (post.comments.count >= 3) {
-        cell.comment3.hidden = NO;
-        [self configureAttributedLabel:cell.comment3 withComment:[post.comments objectAtIndex:2]];
-    }
-    
-    if (post.comments.count >= 4) {
-        cell.seeAllCommentsButton.hidden = NO;
-    }
+//    cell.comment1.hidden = YES;
+//    cell.comment2.hidden = YES;
+//    cell.comment3.hidden = YES;
+//    cell.seeAllCommentsButton.hidden = YES;
+//    cell.writeCommentButton.hidden = (post.comments.count > 0);
+//    
+//    if (post.comments.count >= 1) {
+//        cell.comment1.hidden = NO;
+//        [self configureAttributedLabel:cell.comment1 withComment:[post.comments objectAtIndex:0]];
+//    }
+//    
+//    if (post.comments.count >= 2) {
+//        cell.comment2.hidden = NO;
+//        [self configureAttributedLabel:cell.comment2 withComment:[post.comments objectAtIndex:1]];
+//    }
+//    
+//    if (post.comments.count >= 3) {
+//        cell.comment3.hidden = NO;
+//        [self configureAttributedLabel:cell.comment3 withComment:[post.comments objectAtIndex:2]];
+//    }
+//    
+//    if (post.comments.count >= 4) {
+//        cell.seeAllCommentsButton.hidden = NO;
+//    }
     
     cell.leftVoteButton.transform = CGAffineTransformIdentity;
     cell.tag = indexPath.row;
@@ -183,49 +181,13 @@
 - (void)configureAttributedLabel:(TTTAttributedLabel *)label withComment:(ChoozieComment *)comment
 {
     NSString *text = [comment getBasicCommentString];
-    
-    NSRange userNameRange = [text rangeOfString: comment.user.first_name];
-    
-    label.linkAttributes = [self _getLinkAttributes];
-    label.activeLinkAttributes = [self _getActiveLinkAttributes];
+    NSRange userNameRange = [text rangeOfString:comment.user.first_name];
+
+    [[Utils sharedInstance] setLinkInLabel:label withText:text inRange:userNameRange];
     label.delegate = self;
-    
-    [label setText: text];
-    
     [label addLinkToAddress: @{@"user": comment.user}
                   withRange: userNameRange];
 }
-
-
-- (NSDictionary *)_getLinkAttributes
-{
-    NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
-    
-//    [mutableActiveLinkAttributes setValue: [UIFont systemFontOfSize: 15]
-//                                   forKey: (NSString *) kCTFontAttributeName];
-    
-    [mutableActiveLinkAttributes setValue: [UIColor blueColor]
-                                   forKey: (NSString *) kCTForegroundColorAttributeName];
-    
-    [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
-                                   forKey: (NSString *) kCTUnderlineStyleAttributeName];
-    
-    return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
-}
-
-- (NSDictionary *)_getActiveLinkAttributes
-{
-    NSMutableDictionary *mutableActiveLinkAttributes = [NSMutableDictionary dictionary];
-    
-    [mutableActiveLinkAttributes setValue: [UIColor purpleColor]
-                                   forKey: (NSString *) kCTForegroundColorAttributeName];
-    
-    [mutableActiveLinkAttributes setValue: [NSNumber numberWithBool: NO]
-                                   forKey: (NSString *) kCTUnderlineStyleAttributeName];
-    
-    return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
-}
-
 
 
 - (CGFloat)getHeightForComment:(ChoozieComment *)comment
