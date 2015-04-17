@@ -26,6 +26,10 @@
 
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *userNameLabel;
 
+@property (nonatomic, weak) IBOutlet UIView *leftSeperator;
+@property (nonatomic, weak) IBOutlet UIView *rightSeperator;
+@property (nonatomic, weak) IBOutlet UIView *centerSeperator;
+
 @property (weak, nonatomic) IBOutlet UILabel *userQuestion;
 
 @property (nonatomic, strong) id<ChoozieHeaderPostCellDelegate> delegate;

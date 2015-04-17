@@ -23,4 +23,7 @@
 @property (nonatomic, strong) NSArray *votes1;
 @property (nonatomic, strong) NSArray *votes2;
 
+
+- (BOOL)isSingleImagePostCell;
+
 @end

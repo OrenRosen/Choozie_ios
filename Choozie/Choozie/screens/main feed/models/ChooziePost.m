@@ -83,4 +83,9 @@
 }
 
 
+- (BOOL)isSingleImagePostCell
+{
+    return ([self.post_type integerValue] == 2);
+}
+
 @end

@@ -48,11 +48,33 @@
                                     <constraint firstAttribute="height" constant="1" id="cte-fV-Jxp"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg8-fs-0Rj" userLabel="bottom seperation">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rg8-fs-0Rj" userLabel="bottom seperation">
                                 <rect key="frame" x="5" y="49" width="310" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ISK-Ne-x8r"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-6d-AbH" userLabel="left sep">
+                                <rect key="frame" x="5" y="49" width="153" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="2Xc-HF-PhQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-5u-gEL" userLabel="right sep">
+                                <rect key="frame" x="163" y="49" width="152" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Tl4-rl-quE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEj-zD-rzF" userLabel="for center">
+                                <rect key="frame" x="160" y="25" width="1" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="NCz-WM-dhA"/>
+                                    <constraint firstAttribute="height" constant="1" id="dsN-iM-zXG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -60,13 +82,21 @@
                         <color key="tintColor" red="1" green="0.063204622447067815" blue="0.51431306763157458" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="M08-5V-1fC" firstAttribute="leading" secondItem="HHf-Fp-5a8" secondAttribute="trailing" constant="5" id="08u-nY-tfo"/>
+                            <constraint firstAttribute="centerY" secondItem="wEj-zD-rzF" secondAttribute="centerY" id="5iL-Cj-veZ"/>
                             <constraint firstItem="VQH-Ct-ixX" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" id="8nb-6r-OOh"/>
                             <constraint firstItem="rg8-fs-0Rj" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" constant="5" id="9xv-mS-Szo"/>
+                            <constraint firstItem="ek0-5u-gEL" firstAttribute="leading" secondItem="wEj-zD-rzF" secondAttribute="trailing" constant="2" id="Fwv-Dx-Ox2"/>
+                            <constraint firstAttribute="centerX" secondItem="wEj-zD-rzF" secondAttribute="centerX" id="Hey-dp-jrO"/>
+                            <constraint firstAttribute="bottom" secondItem="ek0-5u-gEL" secondAttribute="bottom" id="Lbl-rN-39A"/>
                             <constraint firstItem="HHf-Fp-5a8" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" constant="5" id="LxB-SW-ujE"/>
                             <constraint firstItem="M08-5V-1fC" firstAttribute="centerY" secondItem="HHf-Fp-5a8" secondAttribute="centerY" id="NpO-gm-PbF"/>
                             <constraint firstAttribute="bottom" secondItem="rg8-fs-0Rj" secondAttribute="bottom" id="QIW-d7-P3i"/>
                             <constraint firstAttribute="trailing" secondItem="VQH-Ct-ixX" secondAttribute="trailing" id="UtF-Mx-apB"/>
+                            <constraint firstAttribute="trailing" secondItem="ek0-5u-gEL" secondAttribute="trailing" constant="5" id="Wbi-Hn-pCZ"/>
                             <constraint firstAttribute="trailing" secondItem="rg8-fs-0Rj" secondAttribute="trailing" constant="5" id="WmC-Tx-ljW"/>
+                            <constraint firstAttribute="bottom" secondItem="aeC-6d-AbH" secondAttribute="bottom" id="Yq8-rt-bzp"/>
+                            <constraint firstItem="aeC-6d-AbH" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" constant="5" id="b7Q-pb-mvZ"/>
+                            <constraint firstItem="wEj-zD-rzF" firstAttribute="leading" secondItem="aeC-6d-AbH" secondAttribute="trailing" constant="2" id="bsn-lV-40Z"/>
                             <constraint firstItem="HHf-Fp-5a8" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" constant="5" id="cV4-zD-yix"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M08-5V-1fC" secondAttribute="trailing" constant="5" id="esg-0D-CLB"/>
                             <constraint firstItem="VQH-Ct-ixX" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="fvP-aa-fjN"/>
@@ -83,6 +113,9 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="blurView" destination="duW-qO-mwU" id="DCS-4s-trQ"/>
+                <outlet property="centerSeperator" destination="rg8-fs-0Rj" id="d5Q-Ci-RFl"/>
+                <outlet property="leftSeperator" destination="aeC-6d-AbH" id="Ewq-PP-QpL"/>
+                <outlet property="rightSeperator" destination="ek0-5u-gEL" id="rMF-2U-Dsw"/>
                 <outlet property="userImageButton" destination="HHf-Fp-5a8" id="U6N-Zj-D1E"/>
                 <outlet property="userNameLabel" destination="M08-5V-1fC" id="pNz-Bf-rVz"/>
             </connections>
