@@ -14,6 +14,9 @@
 #import "ApiServices.h"
 #import "ChoozieHeaderPostCell.h"
 #import "FXBlurView.h"
+#import "FeedTableView.h"
+#import "ChoozieSingleImagePostCell.h"
+#import "ChoozieTwoImagesPostCell.h"
 
 
 @interface MainFeedDataSource() <TTTAttributedLabelDelegate>
@@ -80,7 +83,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    ChoozieHeaderPostCell *header = [tableView dequeueReusableCellWithIdentifier:@"ChoozieHeaderPostCell"];
+    ChoozieHeaderPostCell *header = [tableView dequeueReusableCellWithIdentifier:kChoozieHeaderPostCellIdentifier];
     header.tag = section;
     if (!header.delegate) {
         header.delegate = self;
@@ -112,67 +115,41 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(FeedTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChoozieFeedPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChoozieFeedPostCell"];
-    
-    if (!cell.delegate) {
-        cell.delegate = self;
-    }
-    
     ChooziePost *post = [self.feed objectAtIndex:indexPath.section];
-
-    if ([post.post_type integerValue] == 2) {
-        // One photo
-        cell.centerPhotoImageView.hidden = NO;
-        cell.photo1ImageView.hidden = YES;
-        cell.photo2ImageView.hidden = YES;
-        cell.constraintVoteLeftToCenterImageView.priority = 750;
-        cell.constraintVoteLeftToLeftImageView.priority = 250;
-        [cell.centerPhotoImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
-    } else {
-        // Two photos
-        cell.centerPhotoImageView.hidden = YES;
-        cell.photo1ImageView.hidden = NO;
-        cell.photo2ImageView.hidden = NO;
-        cell.constraintVoteLeftToCenterImageView.priority = 250;
-        cell.constraintVoteLeftToLeftImageView.priority = 750;
-        [cell.photo1ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
-        [cell.photo2ImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo2]];
-    }
     
-
+    UITableViewCell *cell = [self isPostKindOfSingleImage:post] ? [self feedTableView:tableView singleImagePostCell:post] : [self feedTableView:tableView twoImagesPostCell:post];
     
-    cell.votes1Label.text = [NSString stringWithFormat:@"%d votes", post.votes1.count];
-    cell.votes2Label.text = [NSString stringWithFormat:@"%d votes", post.votes2.count];
-    
-//    cell.comment1.hidden = YES;
-//    cell.comment2.hidden = YES;
-//    cell.comment3.hidden = YES;
-//    cell.seeAllCommentsButton.hidden = YES;
-//    cell.writeCommentButton.hidden = (post.comments.count > 0);
-//    
-//    if (post.comments.count >= 1) {
-//        cell.comment1.hidden = NO;
-//        [self configureAttributedLabel:cell.comment1 withComment:[post.comments objectAtIndex:0]];
-//    }
-//    
-//    if (post.comments.count >= 2) {
-//        cell.comment2.hidden = NO;
-//        [self configureAttributedLabel:cell.comment2 withComment:[post.comments objectAtIndex:1]];
-//    }
-//    
-//    if (post.comments.count >= 3) {
-//        cell.comment3.hidden = NO;
-//        [self configureAttributedLabel:cell.comment3 withComment:[post.comments objectAtIndex:2]];
-//    }
-//    
-//    if (post.comments.count >= 4) {
-//        cell.seeAllCommentsButton.hidden = NO;
+//    if (!cell.delegate) {
+//        cell.delegate = self;
 //    }
     
-    cell.leftVoteButton.transform = CGAffineTransformIdentity;
+//    cell.votes1Label.text = [NSString stringWithFormat:@"%d votes", post.votes1.count];
+//    cell.votes2Label.text = [NSString stringWithFormat:@"%d votes", post.votes2.count];
+//
+//    cell.leftVoteButton.transform = CGAffineTransformIdentity;
     cell.tag = indexPath.row;
+    return cell;
+}
+
+
+- (ChoozieSingleImagePostCell *)feedTableView:(FeedTableView *)tableView singleImagePostCell:(ChooziePost *)post
+{
+    ChoozieSingleImagePostCell *cell = [tableView dequeueReusableCellWithIdentifier:kChoozieSingleImageCellIdentifier];
+    [cell.centerImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
+    
+    return cell;
+}
+
+
+- (ChoozieTwoImagesPostCell *)feedTableView:(FeedTableView *)tableView twoImagesPostCell:(ChooziePost *)post
+{
+    ChoozieTwoImagesPostCell *cell = [tableView dequeueReusableCellWithIdentifier:kChoozieTwoImagesPostCellIdentifier];
+    
+    [cell.rightImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
+    [cell.leftImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo2]];
+    
     return cell;
 }
 
@@ -238,5 +215,16 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
     ChooziePost *post = [self.feed objectAtIndex:cell.tag];
     [self.mainFeedDataSourceDelegate didClickToShowProfileForUser:post.user];
 }
+
+
+
+#pragma mark - Private Methods
+
+
+- (BOOL)isPostKindOfSingleImage:(ChooziePost *)post
+{
+    return ([post.post_type integerValue] == 2);
+}
+
 
 @end

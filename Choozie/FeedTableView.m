@@ -12,6 +12,10 @@
 
 @implementation FeedTableView
 
+NSString *const kChoozieHeaderPostCellIdentifier = @"ChoozieHeaderPostCell";
+NSString *const kChoozieSingleImageCellIdentifier = @"ChoozieSingleImagePostCell";
+NSString *const kChoozieTwoImagesPostCellIdentifier = @"ChoozieTwoImagesPostCell";
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -25,8 +29,11 @@
 
 - (void)awakeFromNib
 {
-    [self registerNib:[UINib nibWithNibName:@"ChoozieFeedPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieFeedPostCell"];
-    [self registerNib:[UINib nibWithNibName:@"ChoozieHeaderPostCell" bundle:nil] forCellReuseIdentifier:@"ChoozieHeaderPostCell"];
+    [self registerNib:[UINib nibWithNibName:kChoozieHeaderPostCellIdentifier bundle:nil] forCellReuseIdentifier:kChoozieHeaderPostCellIdentifier];
+    [self registerNib:[UINib nibWithNibName:kChoozieTwoImagesPostCellIdentifier bundle:nil] forCellReuseIdentifier:kChoozieTwoImagesPostCellIdentifier];
+    [self registerNib:[UINib nibWithNibName:kChoozieSingleImageCellIdentifier bundle:nil] forCellReuseIdentifier:kChoozieSingleImageCellIdentifier];
+    
+    
     
     [self addInfScroll];
 }

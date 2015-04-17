@@ -22,4 +22,8 @@
 
 @property (nonatomic, weak) id<FeedTableViewDelegate> feedTableViewDelegate;
 
+FOUNDATION_EXPORT NSString *const kChoozieHeaderPostCellIdentifier;
+FOUNDATION_EXPORT NSString *const kChoozieSingleImageCellIdentifier;
+FOUNDATION_EXPORT NSString *const kChoozieTwoImagesPostCellIdentifier;
+
 @end

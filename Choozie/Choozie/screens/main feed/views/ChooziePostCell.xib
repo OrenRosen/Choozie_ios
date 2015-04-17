@@ -255,6 +255,7 @@
                 <outlet property="votes2Label" destination="TbU-T7-N29" id="y0y-zq-q7D"/>
                 <outlet property="writeCommentButton" destination="hHe-WP-bJ2" id="g5U-HO-GLD"/>
             </connections>
+            <point key="canvasLocation" x="262" y="191"/>
         </tableViewCell>
     </objects>
     <resources>
