@@ -79,7 +79,10 @@
 }
 
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"****** Scroll view offset = %@", NSStringFromCGPoint(scrollView.contentOffset));
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -92,16 +95,17 @@
     ChooziePost *post = [self.feed objectAtIndex:section];
     [header prepareHeaderForPost:post];
     
+    
     FXBlurView *l = [[FXBlurView alloc] initWithFrame:header.frame];
     [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
     [l addSubview:header];
-    header.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.9];
+    header.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1];
     header.backgroundView.backgroundColor = [UIColor clearColor];
     l.backgroundColor = [UIColor clearColor];
-    l.tintColor = [UIColor blackColor];
+    l.tintColor = [UIColor clearColor];
 //    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
-    l.blurRadius = 50;
-//    return l;
+    l.blurRadius = 5;
+    return l;
     
 //    [header addSubview:[[UIToolbar alloc] initWithFrame:header.frame]];
     return header;
@@ -152,7 +156,6 @@
     
     return cell;
 }
-
 
 
 

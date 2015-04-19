@@ -59,12 +59,42 @@
                                     <constraint firstAttribute="height" constant="48" id="vBi-lr-XEF"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jol-6I-g6s" userLabel="left line">
+                                <rect key="frame" x="5" y="60" width="1" height="508"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="npx-JE-F9Z"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7a-0W-nVv" userLabel="right line">
+                                <rect key="frame" x="314" y="60" width="1" height="508"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="1Fs-kR-ySl"/>
+                                </constraints>
+                            </view>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="wNp-YZ-OBY" userLabel="left shadow">
+                                <rect key="frame" x="-5" y="60" width="10" height="508"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="tfW-op-5xn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="5jp-rv-BtC" userLabel="right shadow">
+                                <rect key="frame" x="315" y="60" width="10" height="508"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="uOR-Bp-N00"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Yrr-wg-qGx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0DP-0J-RP0"/>
                             <constraint firstItem="9CD-T9-GH0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0vb-SC-Uoc"/>
                             <constraint firstItem="9CD-T9-GH0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="2pk-N3-OCH"/>
+                            <constraint firstItem="V7a-0W-nVv" firstAttribute="bottom" secondItem="9CD-T9-GH0" secondAttribute="bottom" id="EME-ih-uRB"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="bottom" secondItem="jol-6I-g6s" secondAttribute="bottom" id="Eyl-BU-u0o"/>
+                            <constraint firstItem="V7a-0W-nVv" firstAttribute="top" secondItem="5jp-rv-BtC" secondAttribute="top" id="FN8-zK-wS8"/>
+                            <constraint firstItem="V7a-0W-nVv" firstAttribute="leading" secondItem="5jp-rv-BtC" secondAttribute="leading" constant="-1" id="Fon-t2-4Ry"/>
                             <constraint firstAttribute="trailing" secondItem="Yrr-wg-qGx" secondAttribute="trailing" id="Ifi-38-K8P"/>
                             <constraint firstItem="seD-D4-eNk" firstAttribute="bottom" secondItem="HI5-cg-YKL" secondAttribute="bottom" constant="13" id="S9J-xW-3lZ"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="X5c-ox-MO3"/>
@@ -74,9 +104,17 @@
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="bottom" secondItem="4Rl-YQ-DlI" secondAttribute="bottom" id="agN-5K-9uO"/>
                             <constraint firstAttribute="trailing" secondItem="9CD-T9-GH0" secondAttribute="trailing" id="dev-y1-nPs"/>
                             <constraint firstAttribute="trailing" secondItem="HI5-cg-YKL" secondAttribute="trailing" id="dxJ-To-JHa"/>
+                            <constraint firstItem="jol-6I-g6s" firstAttribute="top" secondItem="HI5-cg-YKL" secondAttribute="bottom" id="eqw-HN-enR"/>
+                            <constraint firstItem="wNp-YZ-OBY" firstAttribute="trailing" secondItem="jol-6I-g6s" secondAttribute="trailing" constant="-1" id="euE-6B-fna"/>
                             <constraint firstAttribute="bottom" secondItem="9CD-T9-GH0" secondAttribute="bottom" id="gnq-dy-au2"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="leading" secondItem="jol-6I-g6s" secondAttribute="leading" constant="-5" id="h1n-cv-cZG"/>
+                            <constraint firstItem="V7a-0W-nVv" firstAttribute="bottom" secondItem="5jp-rv-BtC" secondAttribute="bottom" id="mhf-YM-PRB"/>
+                            <constraint firstItem="V7a-0W-nVv" firstAttribute="top" secondItem="HI5-cg-YKL" secondAttribute="bottom" id="obx-6Y-NXm"/>
                             <constraint firstItem="4Rl-YQ-DlI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="smT-pm-dSR"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tH2-OE-o5d"/>
+                            <constraint firstItem="wNp-YZ-OBY" firstAttribute="top" secondItem="jol-6I-g6s" secondAttribute="top" id="w0T-E5-p2P"/>
+                            <constraint firstItem="wNp-YZ-OBY" firstAttribute="bottom" secondItem="jol-6I-g6s" secondAttribute="bottom" id="x4z-un-efV"/>
+                            <constraint firstItem="V7a-0W-nVv" firstAttribute="trailing" secondItem="9CD-T9-GH0" secondAttribute="trailing" constant="-5" id="xjp-P2-pmK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CHOOZIE" id="sZP-c8-TGl"/>
@@ -180,8 +218,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="left_shadow" width="4" height="320"/>
         <image name="logo" width="292" height="158"/>
         <image name="popup_top_shadow" width="320" height="4"/>
+        <image name="right_shadow" width="4" height="320"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

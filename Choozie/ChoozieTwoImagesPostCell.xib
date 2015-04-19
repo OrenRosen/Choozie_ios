@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChoozieTwoImagesPostCell" rowHeight="158" id="naq-5c-SR7" userLabel="s" customClass="ChoozieTwoImagesPostCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChoozieTwoImagesPostCell" rowHeight="165" id="naq-5c-SR7" userLabel="s" customClass="ChoozieTwoImagesPostCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="naq-5c-SR7" id="79q-Nm-SVp">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="323"/>
@@ -25,13 +25,13 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCP-c4-hGT" userLabel="left image" customClass="NINetworkImageView">
-                        <rect key="frame" x="5" y="0.0" width="153" height="153"/>
+                        <rect key="frame" x="0.0" y="0.0" width="158" height="158"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="fCP-c4-hGT" secondAttribute="height" multiplier="1:1" id="bAv-F4-4PZ"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="euw-uR-0Rz" userLabel="right image" customClass="NINetworkImageView">
-                        <rect key="frame" x="163" y="0.0" width="152" height="152"/>
+                        <rect key="frame" x="162" y="0.0" width="158" height="158"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="euw-uR-0Rz" secondAttribute="height" multiplier="1:1" id="iSL-Q2-Ewo"/>
                         </constraints>
@@ -39,11 +39,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="euw-uR-0Rz" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="Aau-4C-fJl"/>
-                    <constraint firstItem="euw-uR-0Rz" firstAttribute="leading" secondItem="RtH-Io-4Zx" secondAttribute="trailing" constant="2" id="C1j-QN-ryb"/>
-                    <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="79q-Nm-SVp" secondAttribute="leading" constant="5" id="JCA-g3-TSP"/>
+                    <constraint firstItem="euw-uR-0Rz" firstAttribute="leading" secondItem="RtH-Io-4Zx" secondAttribute="trailing" constant="1" id="C1j-QN-ryb"/>
+                    <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="79q-Nm-SVp" secondAttribute="leading" id="JCA-g3-TSP"/>
                     <constraint firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="JFf-ku-Mq3"/>
                     <constraint firstItem="fCP-c4-hGT" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="PZz-nL-3HD"/>
-                    <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" constant="5" id="gTZ-Xr-SUb"/>
+                    <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="gTZ-Xr-SUb"/>
                     <constraint firstItem="RtH-Io-4Zx" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="topMargin" id="rLg-hK-7Uq"/>
                     <constraint firstItem="RtH-Io-4Zx" firstAttribute="leading" secondItem="fCP-c4-hGT" secondAttribute="trailing" constant="2" id="uwu-ka-sKZ"/>
                 </constraints>
@@ -53,7 +53,7 @@
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
                 <outlet property="rightImageView" destination="euw-uR-0Rz" id="1G5-In-NnJ"/>
             </connections>
-            <point key="canvasLocation" x="306" y="179"/>
+            <point key="canvasLocation" x="306" y="182.5"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

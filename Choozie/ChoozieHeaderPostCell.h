@@ -12,6 +12,9 @@
 @class ChoozieHeaderPostCell;
 @class ChooziePost;
 @class TTTAttributedLabel;
+@class FXBlurView;
+
+
 
 @protocol ChoozieHeaderPostCellDelegate <NSObject>
 
@@ -23,7 +26,7 @@
 @interface ChoozieHeaderPostCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageButton;
-
+@property (weak, nonatomic) IBOutlet FXBlurView *blurView;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *userNameLabel;
 
 @property (nonatomic, weak) IBOutlet UIView *leftSeperator;

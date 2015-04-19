@@ -14,7 +14,7 @@
 #import "FXBlurView.h"
 
 @interface ChoozieHeaderPostCell() <TTTAttributedLabelDelegate>
-@property (weak, nonatomic) IBOutlet FXBlurView *blurView;
+
 
 @end
 
@@ -60,16 +60,25 @@
     [[Utils sharedInstance] setLinkInLabel:self.userNameLabel withText:text inRange:range];
     [self.userNameLabel addLinkToAddress: @{@"user": post.user}
                   withRange: range];
-    
-    if ([post isSingleImagePostCell]) {
-        self.centerSeperator.hidden = NO;
-        self.leftSeperator.hidden = YES;
-        self.rightSeperator.hidden = YES;
-    } else {
-        self.centerSeperator.hidden = YES;
-        self.leftSeperator.hidden = NO;
-        self.rightSeperator.hidden = NO;
-    }
+//    
+//    if ([post isSingleImagePostCell]) {
+////        self.centerSeperator.hidden = NO;
+//        self.leftSeperator.hidden = YES;
+//        self.rightSeperator.hidden = YES;
+//    } else {
+//        self.centerSeperator.hidden = YES;
+//        self.leftSeperator.hidden = NO;
+//        self.rightSeperator.hidden = NO;
+//    }
+//    
+//    
+//    
+//    
+//    
+//    
+    self.centerSeperator.hidden = NO; //
+    self.leftSeperator.hidden = YES;
+    self.rightSeperator.hidden = YES;
 }
 
 
