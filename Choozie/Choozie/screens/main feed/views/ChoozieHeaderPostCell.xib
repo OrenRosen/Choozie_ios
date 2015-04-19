@@ -16,10 +16,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duW-qO-mwU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="1" width="320" height="50"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHf-Fp-5a8">
-                                <rect key="frame" x="5" y="5" width="35" height="35"/>
+                                <rect key="frame" x="5" y="6" width="35" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="iDQ-v1-yVY"/>
@@ -36,20 +36,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr Bernisdatsed" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M08-5V-1fC" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="45" y="16" width="86" height="14"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" red="0.20342092803030298" green="0.20342092803030298" blue="0.20342092803030298" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="45" y="17" width="131" height="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQH-Ct-ixX" userLabel="top seperation">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                                <rect key="frame" x="0.0" y="1" width="320" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="cte-fV-Jxp"/>
                                 </constraints>
                             </view>
                             <view alpha="0.29999999999999966" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ks7-rp-h9m" userLabel="top seperation">
-                                <rect key="frame" x="0.0" y="43" width="320" height="7"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="7"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="7" id="b8M-Pk-n52"/>
@@ -62,21 +62,21 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-6d-AbH" userLabel="left sep">
-                                <rect key="frame" x="0.0" y="49" width="158" height="1"/>
+                                <rect key="frame" x="0.0" y="50" width="158" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="2Xc-HF-PhQ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ek0-5u-gEL" userLabel="right sep">
-                                <rect key="frame" x="163" y="49" width="157" height="1"/>
+                                <rect key="frame" x="163" y="50" width="157" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Tl4-rl-quE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEj-zD-rzF" userLabel="for center">
-                                <rect key="frame" x="160" y="25" width="1" height="1"/>
+                                <rect key="frame" x="160" y="26" width="1" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="NCz-WM-dhA"/>
@@ -84,14 +84,14 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-He-fqE" userLabel="clock image">
-                                <rect key="frame" x="308" y="4" width="8" height="8"/>
+                                <rect key="frame" x="308" y="5" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="K3i-fX-hCy"/>
                                     <constraint firstAttribute="width" constant="8" id="Skj-Df-D1W"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 hours" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-2b-qyT">
-                                <rect key="frame" x="279" y="3" width="27" height="10"/>
+                                <rect key="frame" x="279" y="4" width="27" height="10"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                 <outlet property="userImageButton" destination="HHf-Fp-5a8" id="U6N-Zj-D1E"/>
                 <outlet property="userNameLabel" destination="M08-5V-1fC" id="pNz-Bf-rVz"/>
             </connections>
-            <point key="canvasLocation" x="245" y="214.5"/>
+            <point key="canvasLocation" x="245" y="212.5"/>
         </tableViewCell>
     </objects>
     <resources>

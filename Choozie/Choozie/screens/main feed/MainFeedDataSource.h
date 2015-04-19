@@ -17,6 +17,11 @@
 
 - (void)didClickToShowProfileForUser:(ChoozieUser *)user;
 
+@optional
+
+- (void)feedTableviewScrollViewDidScroll:(UIScrollView *)scrollView;
+- (void)feedTableScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+
 @end
 
 

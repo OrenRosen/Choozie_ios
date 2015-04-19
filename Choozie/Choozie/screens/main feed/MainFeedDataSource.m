@@ -79,11 +79,6 @@
 }
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    NSLog(@"****** Scroll view offset = %@", NSStringFromCGPoint(scrollView.contentOffset));
-}
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     ChoozieHeaderPostCell *header = [tableView dequeueReusableCellWithIdentifier:kChoozieHeaderPostCellIdentifier];
@@ -229,5 +224,22 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
     return ([post.post_type integerValue] == 2);
 }
 
+
+#pragma mark - TableViewScrollView Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([self.mainFeedDataSourceDelegate respondsToSelector:@selector(feedTableviewScrollViewDidScroll:)]) {
+        [self.mainFeedDataSourceDelegate feedTableviewScrollViewDidScroll:scrollView];
+    }
+}
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if ([self.mainFeedDataSourceDelegate respondsToSelector:@selector(feedTableScrollViewDidEndDragging:willDecelerate:)]) {
+        [self.mainFeedDataSourceDelegate feedTableScrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+    }
+}
 
 @end

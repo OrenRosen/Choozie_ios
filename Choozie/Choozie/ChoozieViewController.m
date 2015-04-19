@@ -20,6 +20,8 @@
 @property (nonatomic, weak) IBOutlet FXBlurView *topBar;
 @property (nonatomic, strong) MainFeedDataSource *mainFeedDataSource;
 @property (nonatomic, strong) FeedResponse *feedResponse;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTopBarToTop;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 
 @end
 
@@ -116,6 +118,59 @@
 - (void)didClickToShowProfileForUser:(ChoozieUser *)user
 {
     [self performSegueWithIdentifier:@"UserProfileSegue" sender:user];
+}
+
+
+- (void)feedTableviewScrollViewDidScroll:(UIScrollView *)scrollView
+{
+    static CGFloat lastY = -1;
+    
+    if (lastY == -1) {
+        lastY = scrollView.contentOffset.y;
+        return;
+    }
+    
+    CGFloat currentY = scrollView.contentOffset.y;
+    CGFloat difference = floorf(currentY - lastY);
+    
+//    NSLog(@" **** lastY = %f, currentY = %f", lastY, currentY);
+    
+    lastY = currentY;
+    
+    if ((difference > 0) && (scrollView.contentOffset.y <= -40)) {
+        lastY = -40;
+        return;
+    }
+    
+    CGFloat newConstant = self.constraintTopBarToTop.constant - difference;
+    
+    newConstant = MIN(newConstant, 0);
+    newConstant = MAX(newConstant, -40);
+    
+    static BOOL setOne = NO;
+    static BOOL setTwo = NO;
+
+    if (setOne && !setTwo) {
+        return;
+    }
+    
+    self.constraintTopBarToTop.constant = newConstant;
+    
+    [self.view layoutIfNeeded];
+    
+    setOne = YES;
+    
+    self.feedTableView.contentInset = UIEdgeInsetsMake(newConstant+40, 0, 0, 0);
+    
+    setTwo = YES;
+    
+    setOne = NO;
+    setTwo = NO;
+    
+    CGFloat shrinkValue = 1 -  (-newConstant / 40.0);
+    self.logoImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, shrinkValue, shrinkValue);
+    self.logoImageView.alpha = shrinkValue;
+    
 }
 
 
