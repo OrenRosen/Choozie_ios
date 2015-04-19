@@ -79,6 +79,56 @@
     self.centerSeperator.hidden = NO; //
     self.leftSeperator.hidden = YES;
     self.rightSeperator.hidden = YES;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-d H:m:s.A"];
+    
+    NSDate *nowDate = [NSDate date];
+    NSDate *postDate = [dateFormat dateFromString:post.created_at];
+    
+    NSCalendar *calendar = [[NSCalendar alloc]
+                            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitSecond
+                                               fromDate:postDate
+                                                 toDate:nowDate options:kNilOptions];
+    
+    NSInteger days = [components day];
+    NSInteger months = [components month];
+    NSInteger year = [components year];
+    NSInteger hours = [components hour];
+    NSInteger minutes = [components minute];
+    NSInteger seconds = [components second];
+    
+    NSString *str = @"sda";
+    NSInteger valueNumber = 0;
+    NSString *type = @"year";
+    if (months != 0) {
+        
+        valueNumber = months;
+        type = @"month";
+        
+    } else if (days != 0) {
+        valueNumber = days;
+        type = @"day";
+    } else if (hours != 0) {
+        valueNumber = hours;
+        type = @"hour";
+    } else if (minutes != 0) {
+        valueNumber = minutes;
+        type = @"minute";
+    } else if (seconds != 0) {
+        valueNumber = seconds;
+        type = @"second";
+    }
+    
+    str = [NSString stringWithFormat:@"%ld %@", (long)valueNumber, type];
+    if (valueNumber > 1) {
+        str = [str stringByAppendingString:@"s"];
+    }
+    
+    self.timeLabel.text = str;
+    
 }
 
 

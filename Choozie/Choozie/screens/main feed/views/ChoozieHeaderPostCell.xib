@@ -83,6 +83,19 @@
                                     <constraint firstAttribute="height" constant="1" id="dsN-iM-zXG"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.39999999999999963" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-He-fqE" userLabel="clock image">
+                                <rect key="frame" x="308" y="4" width="8" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="K3i-fX-hCy"/>
+                                    <constraint firstAttribute="width" constant="8" id="Skj-Df-D1W"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 hours" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYQ-2b-qyT">
+                                <rect key="frame" x="279" y="3" width="27" height="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.063204622447067815" blue="0.51431306763157458" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,13 +103,16 @@
                             <constraint firstItem="M08-5V-1fC" firstAttribute="leading" secondItem="HHf-Fp-5a8" secondAttribute="trailing" constant="5" id="08u-nY-tfo"/>
                             <constraint firstAttribute="centerY" secondItem="wEj-zD-rzF" secondAttribute="centerY" id="5iL-Cj-veZ"/>
                             <constraint firstItem="VQH-Ct-ixX" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" id="8nb-6r-OOh"/>
+                            <constraint firstItem="jYQ-2b-qyT" firstAttribute="centerY" secondItem="yMj-He-fqE" secondAttribute="centerY" id="9AM-nH-TuF"/>
                             <constraint firstItem="rg8-fs-0Rj" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="9xv-mS-Szo"/>
                             <constraint firstItem="ek0-5u-gEL" firstAttribute="leading" secondItem="wEj-zD-rzF" secondAttribute="trailing" constant="2" id="Fwv-Dx-Ox2"/>
                             <constraint firstAttribute="centerX" secondItem="wEj-zD-rzF" secondAttribute="centerX" id="Hey-dp-jrO"/>
                             <constraint firstAttribute="bottom" secondItem="ek0-5u-gEL" secondAttribute="bottom" id="Lbl-rN-39A"/>
                             <constraint firstItem="HHf-Fp-5a8" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" constant="5" id="LxB-SW-ujE"/>
                             <constraint firstItem="M08-5V-1fC" firstAttribute="centerY" secondItem="HHf-Fp-5a8" secondAttribute="centerY" id="NpO-gm-PbF"/>
+                            <constraint firstItem="yMj-He-fqE" firstAttribute="leading" secondItem="jYQ-2b-qyT" secondAttribute="trailing" constant="2" id="PNt-k3-bC5"/>
                             <constraint firstAttribute="bottom" secondItem="rg8-fs-0Rj" secondAttribute="bottom" id="QIW-d7-P3i"/>
+                            <constraint firstItem="yMj-He-fqE" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" constant="4" id="REk-EW-hB6"/>
                             <constraint firstAttribute="trailing" secondItem="VQH-Ct-ixX" secondAttribute="trailing" id="UtF-Mx-apB"/>
                             <constraint firstAttribute="trailing" secondItem="ek0-5u-gEL" secondAttribute="trailing" id="Wbi-Hn-pCZ"/>
                             <constraint firstAttribute="trailing" secondItem="rg8-fs-0Rj" secondAttribute="trailing" id="WmC-Tx-ljW"/>
@@ -105,6 +121,7 @@
                             <constraint firstItem="aeC-6d-AbH" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="b7Q-pb-mvZ"/>
                             <constraint firstItem="wEj-zD-rzF" firstAttribute="leading" secondItem="aeC-6d-AbH" secondAttribute="trailing" constant="2" id="bsn-lV-40Z"/>
                             <constraint firstItem="HHf-Fp-5a8" firstAttribute="top" secondItem="duW-qO-mwU" secondAttribute="top" constant="5" id="cV4-zD-yix"/>
+                            <constraint firstAttribute="trailing" secondItem="yMj-He-fqE" secondAttribute="trailing" constant="4" id="eHf-pn-fHr"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M08-5V-1fC" secondAttribute="trailing" constant="5" id="esg-0D-CLB"/>
                             <constraint firstItem="VQH-Ct-ixX" firstAttribute="leading" secondItem="duW-qO-mwU" secondAttribute="leading" id="fvP-aa-fjN"/>
                             <constraint firstAttribute="trailing" secondItem="Ks7-rp-h9m" secondAttribute="trailing" id="jdt-UD-EC6"/>
@@ -125,12 +142,16 @@
                 <outlet property="centerSeperator" destination="rg8-fs-0Rj" id="d5Q-Ci-RFl"/>
                 <outlet property="leftSeperator" destination="aeC-6d-AbH" id="Ewq-PP-QpL"/>
                 <outlet property="rightSeperator" destination="ek0-5u-gEL" id="rMF-2U-Dsw"/>
+                <outlet property="timeLabel" destination="jYQ-2b-qyT" id="lBj-u7-CYC"/>
                 <outlet property="userImageButton" destination="HHf-Fp-5a8" id="U6N-Zj-D1E"/>
                 <outlet property="userNameLabel" destination="M08-5V-1fC" id="pNz-Bf-rVz"/>
             </connections>
-            <point key="canvasLocation" x="245" y="219.5"/>
+            <point key="canvasLocation" x="245" y="214.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="clock" width="16" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

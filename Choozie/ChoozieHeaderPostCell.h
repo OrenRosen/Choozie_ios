@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet FXBlurView *blurView;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *userNameLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 @property (nonatomic, weak) IBOutlet UIView *leftSeperator;
 @property (nonatomic, weak) IBOutlet UIView *rightSeperator;
 @property (nonatomic, weak) IBOutlet UIView *centerSeperator;
