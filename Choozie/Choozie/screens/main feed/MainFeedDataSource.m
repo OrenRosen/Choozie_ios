@@ -242,4 +242,12 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
     }
 }
 
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if ([self.mainFeedDataSourceDelegate respondsToSelector:@selector(feedTableScrollViewDidEndDecelerating:)]) {
+        [self.mainFeedDataSourceDelegate feedTableScrollViewDidEndDecelerating:scrollView];
+    }
+}
+
 @end

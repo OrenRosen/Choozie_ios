@@ -142,6 +142,26 @@
         return;
     }
     
+    static NSInteger numberOfNum = 0;
+    
+    NSLog(@" **** numbb %f",  scrollView.contentOffset.y);
+    if ((difference < 0) && ![self isTopBarInMiddle] && (scrollView.contentOffset.y > 0)) {
+        numberOfNum++;
+        
+        if (numberOfNum < 50) {
+//            numberOfNum = 0;
+            return;
+        }
+    } else if (difference > 0) {
+        numberOfNum = 0;
+    }
+    
+//    if ((difference > -30) && (difference < 0) && ![self isTopBarInMiddle]) {
+//        return;
+//    }
+    
+//    NSLog(@" *** diff %f", difference);
+    
     CGFloat newConstant = self.constraintTopBarToTop.constant - difference;
     
     newConstant = MIN(newConstant, 0);
@@ -174,6 +194,40 @@
 }
 
 
+- (void)feedTableScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        
+        CGFloat constant = self.constraintTopBarToTop.constant;
+        if (constant < 0 && constant >= -20) {
+            
+            
+            self.constraintTopBarToTop.constant = 0;
+            CGFloat shrinkValue = 1 -  (-self.constraintTopBarToTop.constant / 40.0);
+            [UIView animateWithDuration:0.2 animations:^{
+                [self.view layoutIfNeeded];
+                self.feedTableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
+                self.logoImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, shrinkValue, shrinkValue);
+                self.logoImageView.alpha = shrinkValue;
+            }];
+            
+        } else if (constant < -20 && constant > -40) {
+            
+            
+            self.constraintTopBarToTop.constant = -40;
+            CGFloat shrinkValue = 1 -  (-self.constraintTopBarToTop.constant / 40.0);
+            [UIView animateWithDuration:0.2 animations:^{
+                [self.view layoutIfNeeded];
+                self.feedTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+                self.logoImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, shrinkValue, shrinkValue);
+                self.logoImageView.alpha = shrinkValue;
+            }];
+            
+        }
+    }
+}
+
+
 #pragma mark - Private Methods
 
 - (void)updateNewFeedResponse:(FeedResponse *)newFeedResponse
@@ -196,6 +250,29 @@
     return [kFeedUrl stringByAppendingString:[NSString stringWithFormat:kCurserAdditionToFeedUrl, self.feedResponse.cursor]];
 }
 
+
+- (BOOL)isTopBarShown
+{
+    return (self.constraintTopBarToTop.constant > -40);
+}
+
+
+- (BOOL)isTopBarInMiddle
+{
+    return ([self isTopBarShown] && ![self isTopBarFullUnshown]);
+}
+
+
+- (BOOL)isTopBarFullyShown
+{
+    return (self.constraintTopBarToTop.constant >= 0);
+}
+
+
+- (BOOL)isTopBarFullUnshown
+{
+    return (self.constraintTopBarToTop.constant <= -40);
+}
 
 
 @end

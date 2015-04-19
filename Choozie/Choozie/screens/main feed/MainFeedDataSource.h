@@ -21,6 +21,7 @@
 
 - (void)feedTableviewScrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)feedTableScrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+- (void)feedTableScrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 
 @end
 
