@@ -148,7 +148,7 @@
     if ((difference < 0) && ![self isTopBarInMiddle] && (scrollView.contentOffset.y > 0)) {
         numberOfNum++;
         
-        if (numberOfNum < 50) {
+        if (numberOfNum < 30) {
 //            numberOfNum = 0;
             return;
         }
@@ -156,7 +156,7 @@
         numberOfNum = 0;
     }
     
-//    if ((difference > -30) && (difference < 0) && ![self isTopBarInMiddle]) {
+//    if ((difference > -10) && (difference < 0) && ![self isTopBarInMiddle]) {
 //        return;
 //    }
     

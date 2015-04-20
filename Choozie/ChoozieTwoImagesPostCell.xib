@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,21 +16,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtH-Io-4Zx" userLabel="center help view">
-                        <rect key="frame" x="160" y="8" width="1" height="1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="160" y="0.0" width="1" height="160"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="EJV-KW-4fw"/>
                             <constraint firstAttribute="width" constant="1" id="yN9-2E-zvh"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCP-c4-hGT" userLabel="left image" customClass="NINetworkImageView">
-                        <rect key="frame" x="0.0" y="0.0" width="158" height="158"/>
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="fCP-c4-hGT" secondAttribute="height" multiplier="1:1" id="bAv-F4-4PZ"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="euw-uR-0Rz" userLabel="right image" customClass="NINetworkImageView">
-                        <rect key="frame" x="162" y="0.0" width="158" height="158"/>
+                        <rect key="frame" x="161" y="0.0" width="159" height="159"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="euw-uR-0Rz" secondAttribute="height" multiplier="1:1" id="iSL-Q2-Ewo"/>
                         </constraints>
@@ -39,13 +37,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="euw-uR-0Rz" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="Aau-4C-fJl"/>
-                    <constraint firstItem="euw-uR-0Rz" firstAttribute="leading" secondItem="RtH-Io-4Zx" secondAttribute="trailing" constant="1" id="C1j-QN-ryb"/>
+                    <constraint firstItem="euw-uR-0Rz" firstAttribute="leading" secondItem="RtH-Io-4Zx" secondAttribute="trailing" id="C1j-QN-ryb"/>
                     <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="79q-Nm-SVp" secondAttribute="leading" id="JCA-g3-TSP"/>
                     <constraint firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="JFf-ku-Mq3"/>
+                    <constraint firstItem="RtH-Io-4Zx" firstAttribute="bottom" secondItem="fCP-c4-hGT" secondAttribute="bottom" id="Kqp-7s-Dhe"/>
                     <constraint firstItem="fCP-c4-hGT" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="PZz-nL-3HD"/>
                     <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="gTZ-Xr-SUb"/>
-                    <constraint firstItem="RtH-Io-4Zx" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="topMargin" id="rLg-hK-7Uq"/>
-                    <constraint firstItem="RtH-Io-4Zx" firstAttribute="leading" secondItem="fCP-c4-hGT" secondAttribute="trailing" constant="2" id="uwu-ka-sKZ"/>
+                    <constraint firstItem="RtH-Io-4Zx" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="rLg-hK-7Uq"/>
+                    <constraint firstItem="RtH-Io-4Zx" firstAttribute="leading" secondItem="fCP-c4-hGT" secondAttribute="trailing" id="uwu-ka-sKZ"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
