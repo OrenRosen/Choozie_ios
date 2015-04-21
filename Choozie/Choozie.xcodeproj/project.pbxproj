@@ -14,6 +14,7 @@
 		8424AC501AE15FC0001D3097 /* ChoozieSingleImagePostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424AC4F1AE15FC0001D3097 /* ChoozieSingleImagePostCell.m */; };
 		8424AC531AE16BDD001D3097 /* ChoozieBasicPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424AC521AE16BDD001D3097 /* ChoozieBasicPostCell.m */; };
 		843DF1BD1AD68715000570F4 /* ChoozieMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843DF1BC1AD68715000570F4 /* ChoozieMantle.m */; };
+		848EC4711AE4DFBC0036AD1A /* HeroButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EC4701AE4DFBC0036AD1A /* HeroButton.m */; };
 		8493665A1AD938CE00190D08 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849366591AD938CE00190D08 /* FXBlurView.m */; };
 		8493665E1AD9B8DF00190D08 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493665D1AD9B8DF00190D08 /* UIView+Borders.m */; };
 		849417F51ACEC50A00EF24CC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 849417F41ACEC50A00EF24CC /* Podfile */; };
@@ -88,6 +89,8 @@
 		8424AC521AE16BDD001D3097 /* ChoozieBasicPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieBasicPostCell.m; sourceTree = SOURCE_ROOT; };
 		843DF1BB1AD68715000570F4 /* ChoozieMantle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieMantle.h; sourceTree = "<group>"; };
 		843DF1BC1AD68715000570F4 /* ChoozieMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieMantle.m; sourceTree = "<group>"; };
+		848EC46F1AE4DFBC0036AD1A /* HeroButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroButton.h; sourceTree = SOURCE_ROOT; };
+		848EC4701AE4DFBC0036AD1A /* HeroButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroButton.m; sourceTree = SOURCE_ROOT; };
 		849366581AD938CE00190D08 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		849366591AD938CE00190D08 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		8493665C1AD9B8DF00190D08 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
@@ -205,6 +208,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		848EC46E1AE4DF9A0036AD1A /* custom_stuff */ = {
+			isa = PBXGroup;
+			children = (
+				848EC46F1AE4DFBC0036AD1A /* HeroButton.h */,
+				848EC4701AE4DFBC0036AD1A /* HeroButton.m */,
+			);
+			name = custom_stuff;
+			sourceTree = "<group>";
+		};
 		849366571AD9389C00190D08 /* FXBlurView */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +330,7 @@
 		D8C08EFA197C418600BA4439 /* main feed */ = {
 			isa = PBXGroup;
 			children = (
+				848EC46E1AE4DF9A0036AD1A /* custom_stuff */,
 				D8C08EFC197C41A400BA4439 /* views */,
 				D8C08EFB197C419900BA4439 /* models */,
 				D8C08F16197C4E6200BA4439 /* MainFeedDataSource.h */,
@@ -609,6 +622,7 @@
 				8424AC531AE16BDD001D3097 /* ChoozieBasicPostCell.m in Sources */,
 				8493665A1AD938CE00190D08 /* FXBlurView.m in Sources */,
 				D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */,
+				848EC4711AE4DFBC0036AD1A /* HeroButton.m in Sources */,
 				D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */,
 				D8C08F0B197C421A00BA4439 /* FeedResponse.m in Sources */,
 				D853AE71198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m in Sources */,

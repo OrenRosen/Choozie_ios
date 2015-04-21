@@ -8,8 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChoozieTwoImagesPostCell" rowHeight="165" id="naq-5c-SR7" userLabel="s" customClass="ChoozieTwoImagesPostCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChoozieTwoImagesPostCell" rowHeight="218" id="naq-5c-SR7" userLabel="s" customClass="ChoozieTwoImagesPostCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="naq-5c-SR7" id="79q-Nm-SVp">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="323"/>
@@ -34,27 +34,108 @@
                             <constraint firstAttribute="width" secondItem="euw-uR-0Rz" secondAttribute="height" multiplier="1:1" id="iSL-Q2-Ewo"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-idle" highlightedImage="heart-pressed" translatesAutoresizingMaskIntoConstraints="NO" id="zcD-DS-kJo" userLabel="heart-left">
+                        <rect key="frame" x="5" y="165" width="11" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="CJv-yl-yHu"/>
+                            <constraint firstAttribute="height" constant="11" id="ZhR-N3-YhO"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-Gx-cV9" userLabel="votes left">
+                        <rect key="frame" x="19" y="163" width="46" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" red="0.32549019607843138" green="0.54117647058823526" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-idle" highlightedImage="heart-pressed" translatesAutoresizingMaskIntoConstraints="NO" id="nzB-hS-F8v" userLabel="heart-right">
+                        <rect key="frame" x="166" y="164" width="11" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="53v-Ek-KOJ"/>
+                            <constraint firstAttribute="height" constant="11" id="ecF-ir-gXB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dzh-CS-Ree" userLabel="votes right">
+                        <rect key="frame" x="180" y="162" width="46" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" red="0.32549019607843138" green="0.54117647058823526" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnl-7e-vdV" userLabel="Button right" customClass="HeroButton">
+                        <rect key="frame" x="166" y="164" width="60" height="11"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonVoteRightPressed:" destination="naq-5c-SR7" eventType="touchUpInside" id="xP9-wi-hm7"/>
+                            <outlet property="heroImageView" destination="nzB-hS-F8v" id="vzy-1F-oIY"/>
+                            <outlet property="heroLabel" destination="Dzh-CS-Ree" id="2Qw-3z-asZ"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fI-Du-Q73" userLabel="Button left" customClass="HeroButton">
+                        <rect key="frame" x="5" y="165" width="60" height="11"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="buttonVoteLeftPressed:" destination="naq-5c-SR7" eventType="touchUpInside" id="bgI-pa-Lfu"/>
+                            <outlet property="heroImageView" destination="zcD-DS-kJo" id="xuc-m9-ED3"/>
+                            <outlet property="heroLabel" destination="Tfm-Gx-cV9" id="9z3-R0-WdW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Dzh-CS-Ree" firstAttribute="leading" secondItem="nzB-hS-F8v" secondAttribute="trailing" constant="3" id="0Ms-Bi-xWx"/>
+                    <constraint firstItem="nzB-hS-F8v" firstAttribute="leading" secondItem="euw-uR-0Rz" secondAttribute="leading" constant="5" id="7y6-Xq-KAt"/>
+                    <constraint firstItem="nzB-hS-F8v" firstAttribute="top" secondItem="euw-uR-0Rz" secondAttribute="bottom" constant="5" id="85g-c2-9ve"/>
                     <constraint firstItem="euw-uR-0Rz" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="Aau-4C-fJl"/>
+                    <constraint firstItem="Dzh-CS-Ree" firstAttribute="trailing" secondItem="nnl-7e-vdV" secondAttribute="trailing" id="BiO-Jq-19m"/>
                     <constraint firstItem="euw-uR-0Rz" firstAttribute="leading" secondItem="RtH-Io-4Zx" secondAttribute="trailing" id="C1j-QN-ryb"/>
                     <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="79q-Nm-SVp" secondAttribute="leading" id="JCA-g3-TSP"/>
                     <constraint firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="JFf-ku-Mq3"/>
                     <constraint firstItem="RtH-Io-4Zx" firstAttribute="bottom" secondItem="fCP-c4-hGT" secondAttribute="bottom" id="Kqp-7s-Dhe"/>
                     <constraint firstItem="fCP-c4-hGT" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="PZz-nL-3HD"/>
+                    <constraint firstItem="Tfm-Gx-cV9" firstAttribute="leading" secondItem="zcD-DS-kJo" secondAttribute="trailing" constant="3" id="PhF-iQ-TGS"/>
+                    <constraint firstItem="Tfm-Gx-cV9" firstAttribute="trailing" secondItem="6fI-Du-Q73" secondAttribute="trailing" id="Rw0-1n-kXA"/>
+                    <constraint firstItem="Dzh-CS-Ree" firstAttribute="centerY" secondItem="nzB-hS-F8v" secondAttribute="centerY" id="Up4-gU-bGZ"/>
+                    <constraint firstItem="zcD-DS-kJo" firstAttribute="bottom" secondItem="6fI-Du-Q73" secondAttribute="bottom" id="Uxd-J5-M4E"/>
+                    <constraint firstItem="zcD-DS-kJo" firstAttribute="top" secondItem="fCP-c4-hGT" secondAttribute="bottom" constant="5" id="WpE-20-xTS"/>
+                    <constraint firstItem="nzB-hS-F8v" firstAttribute="top" secondItem="nnl-7e-vdV" secondAttribute="top" id="YVI-Gz-fBO"/>
+                    <constraint firstItem="zcD-DS-kJo" firstAttribute="leading" secondItem="fCP-c4-hGT" secondAttribute="leading" constant="5" id="YfF-ps-MPh"/>
+                    <constraint firstItem="nzB-hS-F8v" firstAttribute="leading" secondItem="nnl-7e-vdV" secondAttribute="leading" id="aVF-vT-gTW"/>
+                    <constraint firstItem="zcD-DS-kJo" firstAttribute="top" secondItem="6fI-Du-Q73" secondAttribute="top" id="fYS-TG-qMR"/>
                     <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="gTZ-Xr-SUb"/>
+                    <constraint firstItem="Tfm-Gx-cV9" firstAttribute="centerY" secondItem="zcD-DS-kJo" secondAttribute="centerY" id="jAF-aa-Jbp"/>
+                    <constraint firstItem="nzB-hS-F8v" firstAttribute="bottom" secondItem="nnl-7e-vdV" secondAttribute="bottom" id="oPc-da-g3j"/>
                     <constraint firstItem="RtH-Io-4Zx" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="rLg-hK-7Uq"/>
                     <constraint firstItem="RtH-Io-4Zx" firstAttribute="leading" secondItem="fCP-c4-hGT" secondAttribute="trailing" id="uwu-ka-sKZ"/>
+                    <constraint firstItem="zcD-DS-kJo" firstAttribute="leading" secondItem="6fI-Du-Q73" secondAttribute="leading" id="wDl-yi-JIA"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="heartImageLeft" destination="zcD-DS-kJo" id="bWh-fB-ShM"/>
+                <outlet property="heartImageRight" destination="nzB-hS-F8v" id="yNw-8K-040"/>
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
                 <outlet property="rightImageView" destination="euw-uR-0Rz" id="1G5-In-NnJ"/>
+                <outlet property="votesButtonLeft" destination="6fI-Du-Q73" id="Pgk-so-2Qj"/>
+                <outlet property="votesButtonRight" destination="nnl-7e-vdV" id="uDQ-Nc-oyO"/>
+                <outlet property="votesLabelLeft" destination="Tfm-Gx-cV9" id="LMD-jn-2Fa"/>
+                <outlet property="votesLabelRight" destination="Dzh-CS-Ree" id="4kv-x6-B48"/>
             </connections>
-            <point key="canvasLocation" x="306" y="182.5"/>
+            <point key="canvasLocation" x="306" y="206"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="heart-idle" width="32" height="32"/>
+        <image name="heart-pressed" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

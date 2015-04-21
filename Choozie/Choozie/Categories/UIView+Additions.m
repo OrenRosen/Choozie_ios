@@ -69,4 +69,85 @@
     self.frame = frame;
 }
 
+- (void)fadeInWithDuration:(CGFloat)duration
+{
+    [UIView fadeInViews:@[self] withDuration:duration];
+}
+
+- (void)fadeOutWithDuration:(CGFloat)duration
+{
+    [UIView fadeOutViews:@[self] withDuration:duration];
+}
+
+- (void)fadeInWithDuration:(CGFloat)duration withCompletion:(void (^)(void))onComplete
+{
+    [UIView fadeInViews:@[self] withDuration:duration withCompletion:onComplete];
+}
+
+- (void)fadeOutWithDuration:(CGFloat)duration withCompletion:(void (^)(void))onComplete
+{
+    [UIView fadeOutViews:@[self] withDuration:duration withCompletion:onComplete];
+}
+
++ (void)fadeInViews:(NSArray *)views withDuration:(CGFloat)duration
+{
+    [UIView fadeInViews:views withDuration:duration withCompletion:nil];
+}
+
++ (void)fadeOutViews:(NSArray *)views withDuration:(CGFloat)duration
+{
+    [UIView fadeOutViews:views withDuration:duration withCompletion:nil];
+}
+
++ (void)fadeInViews:(NSArray *)views withDuration:(CGFloat)duration withCompletion:(void (^)(void))onComplete
+{
+    for (UIView *view in views) {
+        view.alpha = 0.0;
+        view.opaque = NO;
+        view.hidden = NO;
+    }
+    
+    [UIView animateWithDuration:duration animations:^{
+        
+        for (UIView *view in views) {
+            view.alpha = 1.0;
+        }
+        
+    } completion:^(BOOL finished) {
+        
+        for (UIView *view in views) {
+            view.opaque = YES;
+        }
+        
+        if (onComplete) {
+            onComplete();
+        }
+        
+    }];
+}
+
++ (void)fadeOutViews:(NSArray *)views withDuration:(CGFloat)duration withCompletion:(void (^)(void))onComplete
+{
+    [UIView animateWithDuration:duration animations:^{
+        
+        for (UIView *view in views) {
+            view.alpha = 0.0;
+        }
+        
+    } completion:^(BOOL finished) {
+        
+        for (UIView *view in views) {
+            view.hidden = YES;
+            view.alpha = 1.0;
+            view.opaque = YES;
+        }
+        
+        if (onComplete) {
+            onComplete();
+        }
+    }];
+}
+
+
+
 @end

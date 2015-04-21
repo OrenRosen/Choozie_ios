@@ -11,6 +11,7 @@
 #import "ChoozieFeedPostCell.h"
 #import "ChoozieHeaderPostCell.h"
 #import "ChoozieUser.h"
+#import "ChoozieTwoImagesPostCell.h"
 
 
 @protocol MainFeedDataSourceDelegate <NSObject>
@@ -26,7 +27,7 @@
 @end
 
 
-@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, ChoozieFeedPostCellDelegate, ChoozieHeaderPostCellDelegate>
+@interface MainFeedDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, ChoozieFeedPostCellDelegate, ChoozieHeaderPostCellDelegate, ChoozieTwoImagesPostCellDelegate>
 
 
 @property (nonatomic, strong) NSArray *feed;

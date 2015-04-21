@@ -17,15 +17,27 @@
 #import "FeedTableView.h"
 #import "ChoozieSingleImagePostCell.h"
 #import "ChoozieTwoImagesPostCell.h"
+#import "UIView+Additions.h"
 
 
 @interface MainFeedDataSource() <TTTAttributedLabelDelegate>
+
+@property (nonatomic, strong) NSMutableDictionary *userVotesToPostsDictionary;
 
 @end
 
 @implementation MainFeedDataSource
 
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        
+        self.userVotesToPostsDictionary = [[NSMutableDictionary alloc] init];
+    }
+    
+    return self;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -99,7 +111,7 @@
     l.backgroundColor = [UIColor clearColor];
     l.tintColor = [UIColor clearColor];
 //    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
-    l.blurRadius = 5;
+    l.blurRadius = 13;
     return l;
     
 //    [header addSubview:[[UIToolbar alloc] initWithFrame:header.frame]];
@@ -128,7 +140,7 @@
 //    cell.votes2Label.text = [NSString stringWithFormat:@"%d votes", post.votes2.count];
 //
 //    cell.leftVoteButton.transform = CGAffineTransformIdentity;
-    cell.tag = indexPath.row;
+    cell.tag = indexPath.section;
     return cell;
 }
 
@@ -146,8 +158,30 @@
 {
     ChoozieTwoImagesPostCell *cell = [tableView dequeueReusableCellWithIdentifier:kChoozieTwoImagesPostCellIdentifier];
     
-    [cell.rightImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo1]];
-    [cell.leftImageView setPathToNetworkImage:[kBaseUrl stringByAppendingString:post.photo2]];
+    if (!cell.choozieTwoImagesCelldelegate) {
+        cell.choozieTwoImagesCelldelegate = self;
+    }
+    
+    [cell preparePost:post];
+    
+    NSNumber *userVote = [self.userVotesToPostsDictionary objectForKey:post.key];
+    if (!userVote) {
+        cell.votesButtonLeft.disableTouches = NO;
+        cell.votesButtonRight.disableTouches = NO;
+        cell.votesLabelLeft.hidden = YES;
+        cell.votesLabelRight.hidden = YES;
+    } else {
+        cell.votesLabelLeft.hidden = NO;
+        cell.votesLabelRight.hidden = NO;
+        
+        if ([userVote integerValue] == 1) {
+            [cell.votesButtonLeft setAsNotChosen];
+            [cell.votesButtonRight setAsChosen];
+        } else {
+            [cell.votesButtonLeft setAsChosen];
+            [cell.votesButtonRight setAsNotChosen];
+        }
+    }
     
     return cell;
 }
@@ -249,5 +283,56 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
         [self.mainFeedDataSourceDelegate feedTableScrollViewDidEndDecelerating:scrollView];
     }
 }
+
+
+#pragma mark - ChoozieTwoImagesPostCellDelegate Methods
+
+- (void)votedLeftInChoozieCell:(ChoozieTwoImagesPostCell *)cell
+{
+    [self showLeftVotesForCell:cell];
+}
+
+
+- (void)votedRightInChoozieCell:(ChoozieTwoImagesPostCell *)cell
+{
+    [self showRightVotesForCell:cell];
+}
+
+
+- (void)showLeftVotesForCell:(ChoozieTwoImagesPostCell *)cell
+{
+    ChooziePost *post = [self getPostForCell:cell];
+    if ([self.userVotesToPostsDictionary objectForKey:post.key]) {
+        return;
+    } else {
+        [self.userVotesToPostsDictionary setValue:[NSNumber numberWithInteger:2] forKey:post.key];
+        [cell.votesLabelLeft fadeInWithDuration:0.3];
+        [cell.votesLabelRight fadeInWithDuration:0.3];
+        [cell.votesButtonRight setAsNotChosen];
+        [cell.votesButtonLeft setAsChosen];
+    }
+}
+
+
+- (void)showRightVotesForCell:(ChoozieTwoImagesPostCell *)cell
+{
+    ChooziePost *post = [self getPostForCell:cell];
+    if ([self.userVotesToPostsDictionary objectForKey:post.key]) {
+        return;
+    } else {
+        [self.userVotesToPostsDictionary setValue:[NSNumber numberWithInteger:1] forKey:post.key];
+        [cell.votesLabelRight fadeInWithDuration:0.3];
+        [cell.votesLabelLeft fadeInWithDuration:0.3];
+        [cell.votesButtonRight setAsChosen];
+        [cell.votesButtonLeft setAsNotChosen];
+    }
+}
+
+
+- (ChooziePost *)getPostForCell:(ChoozieTwoImagesPostCell *)cell
+{
+    return [self.feed objectAtIndex:cell.tag];
+}
+
 
 @end

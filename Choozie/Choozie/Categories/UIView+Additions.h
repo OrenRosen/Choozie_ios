@@ -16,4 +16,16 @@
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 
+
+- (void)fadeOutWithDuration:(CGFloat)duration;
+- (void)fadeInWithDuration:(CGFloat)duration;
+- (void)fadeInWithDuration:(CGFloat)duration withCompletion:(void(^)(void))onComplete;
+- (void)fadeOutWithDuration:(CGFloat)duration withCompletion:(void(^)(void))onComplete;
+
++ (void)fadeOutViews:(NSArray *)views withDuration:(CGFloat)duration;
++ (void)fadeInViews:(NSArray *)views withDuration:(CGFloat)duration;
++ (void)fadeOutViews:(NSArray *)views withDuration:(CGFloat)duration withCompletion:(void(^)(void))onComplete;
++ (void)fadeInViews:(NSArray *)views withDuration:(CGFloat)duration withCompletion:(void(^)(void))onComplete;
+
+
 @end

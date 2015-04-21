@@ -33,6 +33,8 @@
     
     self.feedTableView.feedTableViewDelegate = self;
     
+    self.feedTableView.delaysContentTouches = NO;
+    
     self.feedTableView.contentInset = UIEdgeInsetsMake(40, 0, 0, 0);
     
     UIToolbar *tb = [[UIToolbar alloc] initWithFrame:self.topBar.frame];
