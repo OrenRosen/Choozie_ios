@@ -15,6 +15,9 @@
 
 @property (nonatomic, weak) IBOutlet UIView *backView;
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder;
+@property (nonatomic, weak) IBOutlet UIView *backViewForBorder2;
+@property (nonatomic, weak) IBOutlet UIView *backViewForBorder3;
+@property (nonatomic, weak) IBOutlet UIView *backViewForBorder4;
 
 @end
 
@@ -39,8 +42,17 @@
 //    self.backView.layer.shadowOpacity = 0.5;
 //    self.backView.layer.shadowRadius = 4;
     
-    self.backViewForBorder.layer.borderColor = [UIColor colorWithRed:214.0/255 green:214.0/255 blue:214.0/255 alpha:1.0].CGColor;
+    self.backViewForBorder.layer.borderColor = [UIColor colorWithRed:209.0/255 green:209.0/255 blue:209.0/255 alpha:1.0].CGColor;
     self.backViewForBorder.layer.borderWidth = 1;
+    
+    self.backViewForBorder2.layer.borderColor = [UIColor colorWithRed:218.0/255 green:218.0/255 blue:218.0/255 alpha:1.0].CGColor;
+    self.backViewForBorder2.layer.borderWidth = 1;
+    
+    self.backViewForBorder3.layer.borderColor = [UIColor colorWithRed:220.0/255 green:220.0/255 blue:220.0/255 alpha:1.0].CGColor;
+    self.backViewForBorder3.layer.borderWidth = 1;
+    
+    self.backViewForBorder4.layer.borderColor = [UIColor colorWithRed:227.0/255 green:227.0/255 blue:227.0/255 alpha:1.0].CGColor;
+    self.backViewForBorder4.layer.borderWidth = 1;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

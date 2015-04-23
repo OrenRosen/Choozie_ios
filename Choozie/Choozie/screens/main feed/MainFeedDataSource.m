@@ -110,7 +110,9 @@
     header.height = 55;
     header.width = 302;
     
-    l.tintColor = [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:1];
+    l.tintColor = [UIColor clearColor];
+//    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
+//    [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:1];
     l.backgroundColor = [UIColor clearColor];
 //    [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:1];
     
@@ -122,13 +124,15 @@
 
     header.blurView.layer.cornerRadius = 3;
     
-    header.backgroundColor = [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:0.3];
+    header.backgroundColor = [UIColor clearColor];
+//    [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:0.3];
+//    header.tintColor = [UIColor redColor];
 
     header.contentView.backgroundColor = [UIColor clearColor];
     
     l.clipsToBounds = NO;
     [l addSubview:header];
-    l.dynamic = NO;
+    l.dynamic = YES;
 //    l.blurEnabled = NO;
 //    NSLog(@" ***** %d %d %f", l.dynamic, l.blurEnabled, l.blurRadius);
     

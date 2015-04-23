@@ -15,6 +15,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="323"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gA8-Af-0py" userLabel="bacground 4">
+                        <rect key="frame" x="-2" y="0.0" width="325" height="311"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="433-3A-e29" userLabel="bacground 3">
+                        <rect key="frame" x="-1" y="0.0" width="323" height="310"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDc-77-B1n" userLabel="bacground 2">
+                        <rect key="frame" x="-2" y="0.0" width="325" height="309"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyB-jK-sAZ" userLabel="backView for border">
                         <rect key="frame" x="-1" y="0.0" width="323" height="308"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -100,7 +121,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RtH-Io-4Zx" firstAttribute="leading" secondItem="fCP-c4-hGT" secondAttribute="trailing" id="2xu-Gu-HpQ"/>
                             <constraint firstItem="nzB-hS-F8v" firstAttribute="leading" secondItem="euw-uR-0Rz" secondAttribute="leading" id="434-br-D5g"/>
@@ -156,20 +177,32 @@
                 </subviews>
                 <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
+                    <constraint firstItem="433-3A-e29" firstAttribute="leading" secondItem="gA8-Af-0py" secondAttribute="leading" constant="1" id="2BC-F0-RaE"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="leading" secondItem="PDc-77-B1n" secondAttribute="leading" constant="1" id="2jx-Y3-Zex"/>
+                    <constraint firstItem="PDc-77-B1n" firstAttribute="trailing" secondItem="DyB-jK-sAZ" secondAttribute="trailing" constant="1" id="32V-Th-Wp6"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="top" secondItem="PDc-77-B1n" secondAttribute="top" id="5rs-vu-iqH"/>
                     <constraint firstItem="ZJk-3f-BUu" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="62S-bF-ecC"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="leading" secondItem="DyB-jK-sAZ" secondAttribute="leading" constant="1" id="9Un-bg-48W"/>
                     <constraint firstItem="BCr-pE-zFl" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="bottom" constant="-4" id="9Yn-6U-Njj"/>
                     <constraint firstItem="WY3-pB-mRI" firstAttribute="bottom" secondItem="XPu-xx-h7X" secondAttribute="bottom" id="9j5-Ac-lKe"/>
                     <constraint firstItem="ZJk-3f-BUu" firstAttribute="bottom" secondItem="XPu-xx-h7X" secondAttribute="bottom" id="BY1-7t-Q3a"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="top" secondItem="DyB-jK-sAZ" secondAttribute="top" id="BrM-0X-Vdq"/>
+                    <constraint firstItem="PDc-77-B1n" firstAttribute="bottom" secondItem="DyB-jK-sAZ" secondAttribute="bottom" constant="1" id="CIe-ms-ypX"/>
                     <constraint firstAttribute="bottom" secondItem="XPu-xx-h7X" secondAttribute="bottom" constant="2" id="N98-Ya-4Uq"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="leading" secondItem="ZJk-3f-BUu" secondAttribute="trailing" id="VUk-sB-Qxm"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="trailing" secondItem="PDc-77-B1n" secondAttribute="trailing" constant="-1" id="aCI-Ya-8El"/>
                     <constraint firstItem="WY3-pB-mRI" firstAttribute="leading" secondItem="XPu-xx-h7X" secondAttribute="trailing" id="baJ-jm-07E"/>
                     <constraint firstAttribute="bottom" secondItem="BCr-pE-zFl" secondAttribute="bottom" id="gr6-qr-AhC"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="trailing" secondItem="DyB-jK-sAZ" secondAttribute="trailing" constant="-1" id="i5h-hB-yXn"/>
+                    <constraint firstItem="PDc-77-B1n" firstAttribute="top" secondItem="DyB-jK-sAZ" secondAttribute="top" id="i8P-Si-UaS"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="leading" secondItem="BCr-pE-zFl" secondAttribute="trailing" id="kao-Ai-DWr"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="top" secondItem="gA8-Af-0py" secondAttribute="top" id="lE7-1X-6kE"/>
                     <constraint firstAttribute="trailing" secondItem="XPu-xx-h7X" secondAttribute="trailing" id="lZ5-wp-4sh"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="bottom" secondItem="DyB-jK-sAZ" secondAttribute="bottom" constant="-1" id="mUG-cr-Mmu"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="trailing" secondItem="gA8-Af-0py" secondAttribute="trailing" constant="-1" id="p64-p1-ky4"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="bottom" secondItem="PDc-77-B1n" secondAttribute="bottom" constant="1" id="pgd-BU-gDs"/>
+                    <constraint firstItem="433-3A-e29" firstAttribute="bottom" secondItem="gA8-Af-0py" secondAttribute="bottom" constant="-1" id="sKj-RN-Abo"/>
+                    <constraint firstItem="PDc-77-B1n" firstAttribute="leading" secondItem="DyB-jK-sAZ" secondAttribute="leading" constant="-1" id="wJl-QP-CML"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="leading" secondItem="79q-Nm-SVp" secondAttribute="leading" id="xIE-Sv-mmM"/>
                     <constraint firstItem="WY3-pB-mRI" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="y0X-DW-7OQ"/>
                     <constraint firstItem="XPu-xx-h7X" firstAttribute="top" secondItem="79q-Nm-SVp" secondAttribute="top" id="y5C-hk-XGi"/>
@@ -179,6 +212,9 @@
             <connections>
                 <outlet property="backView" destination="XPu-xx-h7X" id="fSZ-D7-YA1"/>
                 <outlet property="backViewForBorder" destination="DyB-jK-sAZ" id="kan-gB-83M"/>
+                <outlet property="backViewForBorder2" destination="PDc-77-B1n" id="BPt-XL-daA"/>
+                <outlet property="backViewForBorder3" destination="433-3A-e29" id="jeW-h3-ddO"/>
+                <outlet property="backViewForBorder4" destination="gA8-Af-0py" id="Gd5-Kh-iR6"/>
                 <outlet property="heartImageLeft" destination="zcD-DS-kJo" id="bWh-fB-ShM"/>
                 <outlet property="heartImageRight" destination="nzB-hS-F8v" id="yNw-8K-040"/>
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
