@@ -18,6 +18,8 @@
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder2;
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder3;
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder4;
+@property (weak, nonatomic) IBOutlet HeroButton *circleLeft;
+@property (weak, nonatomic) IBOutlet HeroButton *circleRight;
 
 @end
 
@@ -53,6 +55,15 @@
     
     self.backViewForBorder4.layer.borderColor = [UIColor colorWithRed:227.0/255 green:227.0/255 blue:227.0/255 alpha:1.0].CGColor;
     self.backViewForBorder4.layer.borderWidth = 1;
+    
+    self.circleLeft.layer.borderColor = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0].CGColor;
+    self.circleRight.layer.borderColor = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0].CGColor;
+    
+    self.circleRight.colorIdle = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+    self.circleRight.colorPress = [UIColor colorWithRed:209/255.0 green:209/255.0 blue:209/255.0 alpha:1.0];
+    
+    self.circleLeft.colorIdle = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+    self.circleLeft.colorPress = [UIColor colorWithRed:190/255.0 green:190/255.0 blue:190/255.0 alpha:0.5];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
