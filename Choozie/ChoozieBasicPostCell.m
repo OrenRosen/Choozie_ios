@@ -21,12 +21,6 @@
     // Configure the view for the selected state
 }
 
-- (void)addBorderToView:(UIView *)view
-{
-//    [view addBottomBorderWithHeight:1.0 andColor:[UIColor blackColor]];
-//    [view addLeftBorderWithWidth:1.0 andColor:[UIColor blackColor]];
-//    [view addRightBorderWithWidth:1.0 andColor:[UIColor blackColor]];
-//    [view addTopBorderWithHeight:1.0 andColor:[UIColor blackColor]];
-}
+
 
 @end

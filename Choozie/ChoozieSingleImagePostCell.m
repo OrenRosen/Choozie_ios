@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    [self addBorderToView:self.centerImageView];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

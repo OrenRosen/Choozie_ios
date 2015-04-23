@@ -63,7 +63,7 @@
     self.disableTouches = YES;
     self.heroImageView.highlighted = NO;
     [self.heroImageView setImage:[UIImage imageNamed:self.disabledImageName]];
-    self.heroLabel.enabled = NO;
+//    self.heroLabel.enabled = NO;
 }
 
 

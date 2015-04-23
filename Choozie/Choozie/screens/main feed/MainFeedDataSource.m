@@ -86,7 +86,7 @@
     
     
     
-    
+    return 360.0;
     return heightToRet;
 }
 
@@ -103,26 +103,70 @@
     [header prepareHeaderForPost:post];
     
     
-    FXBlurView *l = [[FXBlurView alloc] initWithFrame:header.frame];
-    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
-    [l addSubview:header];
-    header.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1];
-    header.backgroundView.backgroundColor = [UIColor clearColor];
+    FXBlurView *l = [[FXBlurView alloc] initWithFrame:header.blurView.bounds];
+    
+    l.height = 55;
+    l.width = 302;
+    header.height = 55;
+    header.width = 302;
+    
+    l.tintColor = [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:1];
     l.backgroundColor = [UIColor clearColor];
-    l.tintColor = [UIColor clearColor];
-//    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.5];
-    l.blurRadius = 13;
+//    [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:1];
+    
+    l.layer.cornerRadius = 3;
+//    header.layer.cornerRadius = 30;
+//    header.contentView.layer.cornerRadius = 30;
+
+    
+
+    header.blurView.layer.cornerRadius = 3;
+    
+    header.backgroundColor = [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:0.3];
+
+    header.contentView.backgroundColor = [UIColor clearColor];
+    
+    l.clipsToBounds = NO;
+    [l addSubview:header];
+    l.dynamic = NO;
+//    l.blurEnabled = NO;
+//    NSLog(@" ***** %d %d %f", l.dynamic, l.blurEnabled, l.blurRadius);
+    
+    l.blurRadius = 5;
+    
+    
+    
+//    header.blurView.backgroundColor = [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:0.5];
+//    header.contentView.backgroundColor = [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:1];
+    
     return l;
     
-//    [header addSubview:[[UIToolbar alloc] initWithFrame:header.frame]];
+//    NSLog(@" *** CELLFOR - %@:", NSStringFromCGRect(header.bounds));
+//
+//    [header.blurView addSubview:l];
+//    header.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1];
+//    header.backgroundView.backgroundColor = [UIColor clearColor];
+//    header.blurView.backgroundColor = [UIColor clearColor];
+//    header.blurView.tintColor = [UIColor clearColor];
+
+//    header.blurView.blurRadius = -9;
+
+    
+
     return header;
+}
+
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(ChoozieHeaderPostCell *)header forSection:(NSInteger)section
+{
+//    NSLog(@" *** will display - %@:", NSStringFromCGRect(header.bounds));
 }
 
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 45;
+    return 55;
 }
 
 
@@ -182,6 +226,8 @@
             [cell.votesButtonRight setAsNotChosen];
         }
     }
+    
+    cell.contentView.frame = CGRectMake(cell.contentView.left+5, cell.contentView.top+5, cell.contentView.width-10, cell.contentView.height-10);
     
     return cell;
 }

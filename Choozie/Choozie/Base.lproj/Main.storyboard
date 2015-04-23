@@ -17,10 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9CD-T9-GH0" customClass="FeedTableView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nC-3t-moq" userLabel="left line">
+                                <rect key="frame" x="8" y="20" width="1" height="548"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="6eT-wv-uLb"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqK-xP-ihg" userLabel="right line">
+                                <rect key="frame" x="311" y="20" width="1" height="548"/>
+                                <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="2xr-N2-kik"/>
+                                </constraints>
+                            </view>
+                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9CD-T9-GH0" customClass="FeedTableView">
+                                <rect key="frame" x="9" y="20" width="302" height="548"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="54" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" red="0.31221279200000002" green="0.36431541379999999" blue="0.39614898990000003" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-cg-YKL" customClass="FXBlurView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
@@ -60,21 +75,27 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Yrr-wg-qGx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0DP-0J-RP0"/>
-                            <constraint firstItem="9CD-T9-GH0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="0vb-SC-Uoc"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="9" id="0vb-SC-Uoc"/>
                             <constraint firstItem="9CD-T9-GH0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="2pk-N3-OCH"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="top" secondItem="3nC-3t-moq" secondAttribute="top" id="AY8-5X-BIP"/>
+                            <constraint firstItem="rqK-xP-ihg" firstAttribute="leading" secondItem="9CD-T9-GH0" secondAttribute="trailing" id="BEB-Iw-Rw3"/>
                             <constraint firstAttribute="trailing" secondItem="Yrr-wg-qGx" secondAttribute="trailing" id="Ifi-38-K8P"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="bottom" secondItem="3nC-3t-moq" secondAttribute="bottom" id="OKy-Ty-pEy"/>
                             <constraint firstItem="seD-D4-eNk" firstAttribute="bottom" secondItem="HI5-cg-YKL" secondAttribute="bottom" constant="13" id="S9J-xW-3lZ"/>
+                            <constraint firstItem="9CD-T9-GH0" firstAttribute="leading" secondItem="3nC-3t-moq" secondAttribute="trailing" id="VMy-Ck-hnD"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="X5c-ox-MO3"/>
                             <constraint firstAttribute="trailing" secondItem="4Rl-YQ-DlI" secondAttribute="trailing" id="Ym3-tT-qJb"/>
+                            <constraint firstItem="rqK-xP-ihg" firstAttribute="bottom" secondItem="9CD-T9-GH0" secondAttribute="bottom" id="ZTJ-gV-drR"/>
                             <constraint firstItem="Yrr-wg-qGx" firstAttribute="top" secondItem="4Rl-YQ-DlI" secondAttribute="bottom" id="ZZt-72-FJF"/>
                             <constraint firstItem="seD-D4-eNk" firstAttribute="centerX" secondItem="HI5-cg-YKL" secondAttribute="centerX" id="ZuZ-6y-dnj"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="bottom" secondItem="4Rl-YQ-DlI" secondAttribute="bottom" id="agN-5K-9uO"/>
-                            <constraint firstAttribute="trailing" secondItem="9CD-T9-GH0" secondAttribute="trailing" id="dev-y1-nPs"/>
+                            <constraint firstAttribute="trailing" secondItem="9CD-T9-GH0" secondAttribute="trailing" constant="9" id="dev-y1-nPs"/>
                             <constraint firstAttribute="trailing" secondItem="HI5-cg-YKL" secondAttribute="trailing" id="dxJ-To-JHa"/>
                             <constraint firstAttribute="bottom" secondItem="9CD-T9-GH0" secondAttribute="bottom" id="gnq-dy-au2"/>
+                            <constraint firstItem="rqK-xP-ihg" firstAttribute="top" secondItem="9CD-T9-GH0" secondAttribute="top" id="sae-9W-bx4"/>
                             <constraint firstItem="4Rl-YQ-DlI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="smT-pm-dSR"/>
                             <constraint firstItem="HI5-cg-YKL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tH2-OE-o5d"/>
                         </constraints>

@@ -22,4 +22,5 @@
 
 - (void)setLinkInLabel:(TTTAttributedLabel *)label withText:(NSString *)text inRange:(NSRange)range;
 
+
 @end

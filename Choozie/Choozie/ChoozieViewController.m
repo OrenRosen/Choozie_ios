@@ -31,7 +31,10 @@
 {
     [super viewDidLoad];
     
+    self.feedTableView.clipsToBounds = NO;
     self.feedTableView.feedTableViewDelegate = self;
+    
+    self.feedTableView.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, -9);
     
     self.feedTableView.delaysContentTouches = NO;
     
@@ -146,7 +149,7 @@
     
     static NSInteger numberOfNum = 0;
     
-    NSLog(@" **** numbb %f",  scrollView.contentOffset.y);
+//    NSLog(@" **** numbb %f",  scrollView.contentOffset.y);
     if ((difference < 0) && ![self isTopBarInMiddle] && (scrollView.contentOffset.y > 0)) {
         numberOfNum++;
         

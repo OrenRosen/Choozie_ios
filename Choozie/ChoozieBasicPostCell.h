@@ -10,6 +10,5 @@
 
 @interface ChoozieBasicPostCell : UITableViewCell
 
-- (void)addBorderToView:(UIView *)view;
 
 @end
