@@ -89,6 +89,8 @@
     self.circleLeft.borderColorPress = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0];
     
     self.shimmeringViewLeft.shimmering = NO;
+    
+    [self addShadow];
 
     [self lalaGestures];
 //
@@ -98,6 +100,14 @@
     //[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
 }
 
+- (void)addShadow
+{
+        self.circleRight.layer.shadowColor = [UIColor blackColor].CGColor;
+//        self.circleRight.layer.shadowColor = [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1.0].CGColor;
+        self.circleRight.layer.shadowOffset = CGSizeMake(0, 5);
+        self.circleRight.layer.shadowOpacity = 0.5;
+        self.circleRight.layer.shadowRadius = 1;
+}
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -139,6 +149,7 @@
         self.constraintCenterY.constant = self.constraintCenterY.constant + diffY;
         
         [self layoutIfNeeded];
+        
         
 
         
@@ -186,10 +197,48 @@
     CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
     self.pointerImageView.transform = transform;
     
-    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
+    [self updateShoadowOffset:deg];
+    
+//    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
     
 }
 
+
+- (void)updateShoadowOffset:(CGFloat)deg
+{
+    NSLog(@" ****** deg = %f, x = %f", deg, [self getShadowOffsetForDeg:deg].height);
+    self.circleRight.layer.shadowOffset = [self getShadowOffsetForDeg:deg];
+}
+
+- (CGSize)getShadowOffsetForDeg:(CGFloat)deg
+{
+    CGFloat x = 0;
+    CGFloat y = 0;
+    if ((deg > -90) && (deg <= 0)) {
+        
+        x =10.0/(90.0/(-deg));
+        y = 10.0/(90.0/(90.0+deg));
+        
+    } else if ((deg > 0) && (deg <= 90)) {
+        
+        x = -10.0/(90.0/deg);
+        y = 10.0/(90.0/(90.0-deg));
+        
+    } else if ((deg > 90) && (deg <= 180)) {
+        
+        y = -10.0/(90.0/(deg-90.0));
+        deg = deg - 90;
+        x = -10.0/(90.0/(90.0-deg));
+        
+    } else if ((deg > 180) && (deg <= 270)) {
+        
+        x =10.0/(90.0/(deg-180.0));
+        y = -10.0/(90.0/(270.0-deg));
+        
+    }
+    
+    return CGSizeMake(x, y);
+}
 
 - (void)rotateeeWithAnim:(UIPanGestureRecognizer *)gesture
 {
@@ -205,8 +254,15 @@
         self.pointerImageView.transform = transform;
     }];
     
+    CABasicAnimation *animShadowOffset = [CABasicAnimation animationWithKeyPath:@"shadowOffset"];
+    animShadowOffset.fromValue = [NSValue valueWithCGSize:self.circleRight.layer.shadowOffset];
+    animShadowOffset.toValue = [NSValue valueWithCGSize:[self getShadowOffsetForDeg:deg]];
+    animShadowOffset.duration = 0.1;
+    [self updateShoadowOffset:deg];
+    [self.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
     
-    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
+    
+//    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
     
 }
 
