@@ -65,7 +65,7 @@
     self.backViewForBorder4.layer.borderWidth = 1;
     
     self.circleLeft.layer.borderColor = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0].CGColor;
-    self.circleRight.layer.borderColor = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0].CGColor;
+    self.circleRight.layer.borderColor = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0].CGColor;
     
     self.circleRight.colorIdle = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
     self.circleRight.colorPress = [UIColor colorWithRed:209/255.0 green:209/255.0 blue:209/255.0 alpha:1.0];
@@ -87,6 +87,10 @@
     self.circleLeft.borderColorIdle = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0];
     
     self.circleLeft.borderColorPress = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0];
+    
+    self.circleRight.borderColorIdle = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0];
+    
+    self.circleRight.borderColorPress = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0];
     
     self.shimmeringViewLeft.shimmering = NO;
     
@@ -158,25 +162,44 @@
         [self rotateee:gesture];
         
         
-        
+        NSLog(@" ***** lala - %f,%f", self.constraintCenterX.constant, self.constraintCenterY.constant);
         
     } else if (gesture.state == UIGestureRecognizerStateEnded) {
         
-        self.constraintCenterX.constant = 0;
-        self.constraintCenterY.constant = 0;
+        
+        
+        self.constraintCenterX.constant = -self.constraintCenterX.constant/5;
+        self.constraintCenterY.constant = -self.constraintCenterY.constant/5;
         
         last = CGPointMake(0, 0);
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.2 animations:^{
             CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI*2);
             self.pointerImageView.transform = transform;
             [self layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            
+            self.constraintCenterX.constant = -self.constraintCenterX.constant/5;
+            self.constraintCenterY.constant = -self.constraintCenterY.constant/5;
+            
+            [UIView animateWithDuration:0.1 animations:^{
+                [self layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                self.constraintCenterX.constant = 0;
+                self.constraintCenterY.constant = 0;
+                
+                [UIView animateWithDuration:0.07 animations:^{
+                    [self layoutIfNeeded];
+                }];
+            }];
+            
+            
         }];
         
         CABasicAnimation *animShadowOffset = [CABasicAnimation animationWithKeyPath:@"shadowOffset"];
         animShadowOffset.fromValue = [NSValue valueWithCGSize:self.circleRight.layer.shadowOffset];
-        animShadowOffset.toValue = [NSValue valueWithCGSize:CGSizeMake(0, 10)];
+        animShadowOffset.toValue = [NSValue valueWithCGSize:CGSizeMake(0, 3.0)];
         animShadowOffset.duration = 0.5;
-        self.circleRight.layer.shadowOffset = CGSizeMake(0, 10);
+        self.circleRight.layer.shadowOffset = CGSizeMake(0, 3.0);
         [self.circleRight.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
     }
 }
@@ -213,34 +236,36 @@
 
 - (void)updateShoadowOffset:(CGFloat)deg
 {
-    NSLog(@" ****** deg = %f, x = %f", deg, [self getShadowOffsetForDeg:deg].height);
+//    NSLog(@" ****** deg = %f, x = %f", deg, [self getShadowOffsetForDeg:deg].height);
     self.circleRight.layer.shadowOffset = [self getShadowOffsetForDeg:deg];
+    self.circleRight.layer.shadowRadius = 3;
 }
 
 - (CGSize)getShadowOffsetForDeg:(CGFloat)deg
 {
+    CGFloat maxOffset = 3.0;
     CGFloat x = 0;
     CGFloat y = 0;
     if ((deg > -90) && (deg <= 0)) {
         
-        x =10.0/(90.0/(-deg));
-        y = 10.0/(90.0/(90.0+deg));
+        x = maxOffset/(90.0/(-deg));
+        y = maxOffset/(90.0/(90.0+deg));
         
     } else if ((deg > 0) && (deg <= 90)) {
         
-        x = -10.0/(90.0/deg);
-        y = 10.0/(90.0/(90.0-deg));
+        x = -maxOffset/(90.0/deg);
+        y = maxOffset/(90.0/(90.0-deg));
         
     } else if ((deg > 90) && (deg <= 180)) {
         
-        y = -10.0/(90.0/(deg-90.0));
+        y = -maxOffset/(90.0/(deg-90.0));
         deg = deg - 90;
-        x = -10.0/(90.0/(90.0-deg));
+        x = -maxOffset/(90.0/(90.0-deg));
         
     } else if ((deg > 180) && (deg <= 270)) {
         
-        x =10.0/(90.0/(deg-180.0));
-        y = -10.0/(90.0/(270.0-deg));
+        x =maxOffset/(90.0/(deg-180.0));
+        y = -maxOffset/(90.0/(270.0-deg));
         
     }
     
