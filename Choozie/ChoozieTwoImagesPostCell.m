@@ -171,6 +171,13 @@
             self.pointerImageView.transform = transform;
             [self layoutIfNeeded];
         }];
+        
+        CABasicAnimation *animShadowOffset = [CABasicAnimation animationWithKeyPath:@"shadowOffset"];
+        animShadowOffset.fromValue = [NSValue valueWithCGSize:self.circleRight.layer.shadowOffset];
+        animShadowOffset.toValue = [NSValue valueWithCGSize:CGSizeMake(0, 10)];
+        animShadowOffset.duration = 0.5;
+        self.circleRight.layer.shadowOffset = CGSizeMake(0, 10);
+        [self.circleRight.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
     }
 }
 
@@ -259,7 +266,7 @@
     animShadowOffset.toValue = [NSValue valueWithCGSize:[self getShadowOffsetForDeg:deg]];
     animShadowOffset.duration = 0.1;
     [self updateShoadowOffset:deg];
-    [self.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
+    [self.circleRight.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
     
     
 //    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
