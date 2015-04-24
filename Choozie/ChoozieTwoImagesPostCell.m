@@ -10,6 +10,7 @@
 #import "ChooziePost.h"
 #import "Constants.h"
 #import "UIView+Borders.h"
+#import "FBShimmeringView.h"
 
 @interface ChoozieTwoImagesPostCell()
 
@@ -20,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder4;
 @property (weak, nonatomic) IBOutlet HeroButton *circleLeft;
 @property (weak, nonatomic) IBOutlet HeroButton *circleRight;
+@property (weak, nonatomic) IBOutlet FBShimmeringView *shimmeringViewLeft;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowLeft;
 
 @end
 
@@ -64,6 +67,27 @@
     
     self.circleLeft.colorIdle = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
     self.circleLeft.colorPress = [UIColor colorWithRed:190/255.0 green:190/255.0 blue:190/255.0 alpha:0.5];
+    
+    self.shimmeringViewLeft.contentView = self.circleLeft;
+    self.shimmeringViewLeft.shimmering = YES;
+    self.shimmeringViewLeft.shimmeringPauseDuration = 1;
+    self.shimmeringViewLeft.shimmeringSpeed = 160;
+    self.shimmeringViewLeft.shimmeringHighlightWidth = 1;
+    self.shimmeringViewLeft.shimmeringHighlightLength = 1;
+    self.shimmeringViewLeft.shimmeringEndFadeDuration = 100;
+    self.shimmeringViewLeft.backgroundColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
+    self.circleLeft.shimmeringColorIdle = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
+    self.circleLeft.shimmeringColorPress = [UIColor whiteColor];
+    
+    self.circleLeft.borderColorIdle = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0];
+    
+    self.circleLeft.borderColorPress = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0];
+
+//
+    
+    
+//    [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1.0];
+    //[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -22,14 +22,14 @@
 @implementation ChooziePost
 
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
-{
-    self = [super initWithDictionary:dictionary];
-    
-    [self parseVotes];
-    
-    return self;
-}
+//- (id)initWithDictionary:(NSDictionary *)dictionary
+//{
+//    self = [super initWithDictionary:dictionary];
+//    
+//    [self parseVotes];
+//    
+//    return self;
+//}
 
 - (NSArray *)votes1
 {

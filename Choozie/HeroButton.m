@@ -7,6 +7,7 @@
 //
 
 #import "HeroButton.h"
+#import "FBShimmeringView.h"
 
 @interface HeroButton()
 
@@ -40,15 +41,53 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.backgroundColor = self.colorIdle;
+        self.shimmeringView.backgroundColor = self.colorPress;
+        
+        
     }];
+    
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+    anim.fromValue = [NSNumber numberWithFloat:0.0];
+    anim.toValue = [NSNumber numberWithFloat:0.6];
+    anim.duration = 0.3;
+    [self.shimmeringView.layer addAnimation:anim forKey:@"shadowOpacity"];
+    self.shimmeringView.layer.shadowOpacity = 0.6;
+    
+    CABasicAnimation *animBorderColor = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+    anim.fromValue = (id)self.borderColorPress.CGColor;
+    anim.toValue = (id)self.borderColorIdle.CGColor;
+    anim.duration = 0.3;
+    [self.layer addAnimation:animBorderColor forKey:@"borderColor"];
+    self.layer.borderColor = self.borderColorIdle.CGColor;
+    
+    
 }
 
 
 - (void)setPressed
 {
-    [UIView animateWithDuration:0.1 animations:^{
+    self.shimmeringView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.shimmeringView.layer.shadowRadius = 2;
+    self.shimmeringView.layer.shadowOffset = CGSizeMake(0, 3);
+    
+    [UIView animateWithDuration:0.2 animations:^{
         self.backgroundColor = self.colorPress;
+        self.shimmeringView.backgroundColor = self.colorIdle;
     }];
+    
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+    anim.fromValue = [NSNumber numberWithFloat:0.6];
+    anim.toValue = [NSNumber numberWithFloat:0.0];
+    anim.duration = 0.1;
+    [self.shimmeringView.layer addAnimation:anim forKey:@"shadowOpacity"];
+    self.shimmeringView.layer.shadowOpacity = 0.0;
+    
+    CABasicAnimation *animBorderColor = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+    anim.fromValue = (id)self.borderColorIdle.CGColor;
+    anim.toValue = (id)self.borderColorPress.CGColor;
+    anim.duration = 0.1;
+    [self.layer addAnimation:animBorderColor forKey:@"borderColor"];
+    self.layer.borderColor = self.borderColorPress.CGColor;
 }
 
 - (IBAction)cancelClick

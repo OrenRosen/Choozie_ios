@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FBShimmeringView.h"
 
 @class HeroButton;
 @protocol HeroButtonDelegate <NSObject>
@@ -20,15 +20,23 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *heroImageView;
 @property (nonatomic, weak) IBOutlet UILabel *heroLabel;
+@property (weak, nonatomic) IBOutlet FBShimmeringView *shimmeringView;
 
 @property (nonatomic, strong) UIColor *colorIdle;
 @property (nonatomic, strong) UIColor *colorPress;
 
+@property (nonatomic, strong) UIColor *borderColorIdle;
+@property (nonatomic, strong) UIColor *borderColorPress;
+
+@property (nonatomic, strong) UIColor *shimmeringColorIdle;
+@property (nonatomic, strong) UIColor *shimmeringColorPress;
+
 @property (nonatomic) NSString *disabledImageName;
 @property (nonatomic) NSString *chosenImageName;
 
-@property (nonatomic, weak) id<HeroButtonDelegate> heroButtonDelegate;
 
+
+@property (nonatomic, weak) id<HeroButtonDelegate> heroButtonDelegate;
 
 
 @property (nonatomic) BOOL disableTouches;
