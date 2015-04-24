@@ -27,6 +27,7 @@
 @property (nonatomic, strong) UIPanGestureRecognizer *dragGesture;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterY;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterX;
+@property (nonatomic, weak) IBOutlet UIImageView *pointerImageView;
 
 @end
 
@@ -100,6 +101,11 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
+//    CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI/2);
+//    self.pointerImageView.transform = transform;
+
+    
+    
     CGPoint location = [gestureRecognizer locationInView:self.circleRight];
     BOOL isInside = (CGRectContainsPoint(self.circleRight.bounds, location));
     NSLog(@" ******* insid - %d", isInside);
@@ -122,20 +128,26 @@
     if (gesture.state == UIGestureRecognizerStateBegan) {
         
         last = current;
+        [self rotateeeWithAnim:gesture];
         
     } else if (gesture.state == UIGestureRecognizerStateChanged) {
         
         CGFloat diffX = current.x - last.x;
         CGFloat diffY = current.y - last.y;
         
-        self.constraintCenterX.constant = self.constraintCenterX.constant - diffX;
+        self.constraintCenterX.constant = self.constraintCenterX.constant + diffX;
         self.constraintCenterY.constant = self.constraintCenterY.constant + diffY;
         
         [self layoutIfNeeded];
         
-        last = current;
+
         
-        NSLog(@" *** changed x = %f, y = %f **", diffX, diffY);
+        last = current;
+
+        [self rotateee:gesture];
+        
+        
+        
         
     } else if (gesture.state == UIGestureRecognizerStateEnded) {
         
@@ -144,9 +156,73 @@
         
         last = CGPointMake(0, 0);
         [UIView animateWithDuration:0.5 animations:^{
+            CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI*2);
+            self.pointerImageView.transform = transform;
             [self layoutIfNeeded];
         }];
     }
+}
+
+
+- (void)rotateee:(UIPanGestureRecognizer *)gesture
+{
+    static NSInteger prev = -1;
+    UIView *vvv = [self getViewInRegardToRotateWithGesture];
+    
+    NSInteger current = (vvv == self.rightImageView) ? 1 : 2;
+    if ((prev != -1) && (current != prev)) {
+        [self rotateeeWithAnim:gesture];
+        prev = current;
+        return;
+    }
+    
+    prev = current;
+    
+    CGFloat diffCeneterX = self.circleRight.superview.center.x - vvv.center.x;
+    CGFloat diffCeneterY =  self.circleRight.superview.center.y - vvv.center.y;
+    
+    CGFloat x = atan2(diffCeneterY, diffCeneterX);
+    CGFloat deg = ((x > 0 ? x : (2*M_PI + x)) * 360 / (2*M_PI)) - 90;
+    CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
+    self.pointerImageView.transform = transform;
+    
+    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
+    
+}
+
+
+- (void)rotateeeWithAnim:(UIPanGestureRecognizer *)gesture
+{
+    UIView *vvv = [self getViewInRegardToRotateWithGesture];
+    CGFloat diffCeneterX = self.circleRight.superview.center.x - vvv.center.x;
+    CGFloat diffCeneterY =  self.circleRight.superview.center.y - vvv.center.y;
+    
+    CGFloat x = atan2(diffCeneterY, diffCeneterX);
+    CGFloat deg = ((x > 0 ? x : (2*M_PI + x)) * 360 / (2*M_PI)) - 90;
+    CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        self.pointerImageView.transform = transform;
+    }];
+    
+    
+    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
+    
+}
+
+
+- (UIView *)getViewInRegardToRotateWithGesture
+{
+    if (self.constraintCenterX.constant > 0) {
+        return self.rightImageView;
+    } else {
+        return self.leftImageView;
+    }
+}
+
+- (CGFloat)degreesToRadians:(CGFloat) degrees
+{
+    return degrees * M_PI / 180;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

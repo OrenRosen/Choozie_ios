@@ -148,7 +148,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-P1-9CV" userLabel="circle shimm -&gt;" customClass="UIButton">
-                                <rect key="frame" x="199" y="211" width="60" height="60"/>
+                                <rect key="frame" x="131" y="211" width="60" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzY-b5-IVw" userLabel="circle button-&gt;" customClass="HeroButton">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -164,7 +164,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsup" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-My-Yoa" userLabel="thumbsup -&gt;">
+                                    <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pointer" translatesAutoresizingMaskIntoConstraints="NO" id="0Sf-My-Yoa" userLabel="thumbsup -&gt;">
                                         <rect key="frame" x="11" y="10" width="39" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="39" id="59Y-oV-lC3"/>
@@ -179,7 +179,7 @@
                                     <constraint firstAttribute="width" secondItem="Nla-P1-9CV" secondAttribute="height" multiplier="1:1" id="9Ib-Yo-fTT"/>
                                     <constraint firstAttribute="centerX" secondItem="0Sf-My-Yoa" secondAttribute="centerX" id="EMH-O7-jnH"/>
                                     <constraint firstAttribute="centerY" secondItem="OzY-b5-IVw" secondAttribute="centerY" id="NXN-GQ-JIB"/>
-                                    <constraint firstAttribute="centerX" secondItem="OzY-b5-IVw" secondAttribute="centerX" id="YQM-BR-Gt7"/>
+                                    <constraint firstItem="OzY-b5-IVw" firstAttribute="centerX" secondItem="Nla-P1-9CV" secondAttribute="centerX" id="YQM-BR-Gt7"/>
                                     <constraint firstAttribute="centerY" secondItem="0Sf-My-Yoa" secondAttribute="centerY" constant="1" id="vCd-bM-l19"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -187,7 +187,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5e-cV-VP0" userLabel="Shimmering View &lt;-" customClass="FBShimmeringView">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5e-cV-VP0" userLabel="Shimmering View &lt;-" customClass="FBShimmeringView">
                                 <rect key="frame" x="50" y="212" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -228,7 +228,6 @@
                             <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="942-xm-BAr"/>
                             <constraint firstItem="zcD-DS-kJo" firstAttribute="leading" secondItem="6fI-Du-Q73" secondAttribute="leading" id="CnN-ge-bKP"/>
                             <constraint firstItem="nzB-hS-F8v" firstAttribute="bottom" secondItem="nnl-7e-vdV" secondAttribute="bottom" id="DmJ-wW-IbE"/>
-                            <constraint firstItem="euw-uR-0Rz" firstAttribute="centerX" secondItem="Nla-P1-9CV" secondAttribute="centerX" constant="12" id="FJH-zT-loo"/>
                             <constraint firstItem="CKx-J8-iAv" firstAttribute="centerY" secondItem="QQV-Kp-JhR" secondAttribute="centerY" constant="1" id="G34-n7-PD8"/>
                             <constraint firstItem="CKx-J8-iAv" firstAttribute="centerX" secondItem="QQV-Kp-JhR" secondAttribute="centerX" id="HYu-Qs-mZ5"/>
                             <constraint firstItem="kaF-Ac-ldu" firstAttribute="top" secondItem="v5e-cV-VP0" secondAttribute="top" id="HfM-qR-Dpi"/>
@@ -237,6 +236,7 @@
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="XPu-xx-h7X" secondAttribute="leading" id="LEO-xc-aky"/>
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="zcD-DS-kJo" secondAttribute="leading" constant="-5" id="N2z-Z5-9hx"/>
                             <constraint firstItem="QQV-Kp-JhR" firstAttribute="centerX" secondItem="fCP-c4-hGT" secondAttribute="centerX" id="NF5-uL-ZoS"/>
+                            <constraint firstItem="OzY-b5-IVw" firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="RWb-En-kKG"/>
                             <constraint firstItem="HHK-PY-rNn" firstAttribute="centerY" secondItem="QQV-Kp-JhR" secondAttribute="centerY" id="TNa-A7-3o6"/>
                             <constraint firstItem="kaF-Ac-ldu" firstAttribute="bottom" secondItem="v5e-cV-VP0" secondAttribute="bottom" id="Uxq-Eo-CvY"/>
                             <constraint firstItem="HHK-PY-rNn" firstAttribute="top" secondItem="RtH-Io-4Zx" secondAttribute="bottom" constant="20" id="VgP-pv-JmJ"/>
@@ -329,11 +329,12 @@
                 <outlet property="backViewForBorder4" destination="gA8-Af-0py" id="Gd5-Kh-iR6"/>
                 <outlet property="circleLeft" destination="CKx-J8-iAv" id="Z2w-Ut-In7"/>
                 <outlet property="circleRight" destination="OzY-b5-IVw" id="bDD-ml-MJD"/>
-                <outlet property="constraintCenterX" destination="FJH-zT-loo" id="ZQh-3U-FxP"/>
+                <outlet property="constraintCenterX" destination="RWb-En-kKG" id="CFd-9g-lbc"/>
                 <outlet property="constraintCenterY" destination="2mY-07-ehs" id="dDo-PA-Bfx"/>
                 <outlet property="heartImageLeft" destination="zcD-DS-kJo" id="bWh-fB-ShM"/>
                 <outlet property="heartImageRight" destination="nzB-hS-F8v" id="yNw-8K-040"/>
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
+                <outlet property="pointerImageView" destination="0Sf-My-Yoa" id="yRC-1h-IzJ"/>
                 <outlet property="rightImageView" destination="euw-uR-0Rz" id="1G5-In-NnJ"/>
                 <outlet property="shimmeringViewLeft" destination="v5e-cV-VP0" id="kcg-Z9-YzX"/>
                 <outlet property="votesButtonLeft" destination="6fI-Du-Q73" id="Pgk-so-2Qj"/>
@@ -349,6 +350,7 @@
         <image name="heart-idle" width="32" height="32"/>
         <image name="heart-pressed" width="32" height="32"/>
         <image name="left_shadow" width="4" height="320"/>
+        <image name="pointer" width="48" height="48"/>
         <image name="right_shadow" width="4" height="320"/>
         <image name="thumbsup" width="48" height="48"/>
     </resources>
