@@ -15,6 +15,7 @@
 		8424AC531AE16BDD001D3097 /* ChoozieBasicPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424AC521AE16BDD001D3097 /* ChoozieBasicPostCell.m */; };
 		843DF1BD1AD68715000570F4 /* ChoozieMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843DF1BC1AD68715000570F4 /* ChoozieMantle.m */; };
 		848EC4711AE4DFBC0036AD1A /* HeroButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EC4701AE4DFBC0036AD1A /* HeroButton.m */; };
+		848FFDE41AEA68E3005A0D67 /* UIView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFDE31AEA68E3005A0D67 /* UIView+Draggable.m */; };
 		8493665A1AD938CE00190D08 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849366591AD938CE00190D08 /* FXBlurView.m */; };
 		8493665E1AD9B8DF00190D08 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493665D1AD9B8DF00190D08 /* UIView+Borders.m */; };
 		849417F51ACEC50A00EF24CC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 849417F41ACEC50A00EF24CC /* Podfile */; };
@@ -91,6 +92,8 @@
 		843DF1BC1AD68715000570F4 /* ChoozieMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieMantle.m; sourceTree = "<group>"; };
 		848EC46F1AE4DFBC0036AD1A /* HeroButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroButton.h; sourceTree = SOURCE_ROOT; };
 		848EC4701AE4DFBC0036AD1A /* HeroButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroButton.m; sourceTree = SOURCE_ROOT; };
+		848FFDE21AEA68E3005A0D67 /* UIView+Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Draggable.h"; sourceTree = "<group>"; };
+		848FFDE31AEA68E3005A0D67 /* UIView+Draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Draggable.m"; sourceTree = "<group>"; };
 		849366581AD938CE00190D08 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		849366591AD938CE00190D08 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		8493665C1AD9B8DF00190D08 /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
@@ -217,6 +220,15 @@
 			name = custom_stuff;
 			sourceTree = "<group>";
 		};
+		848FFDDB1AEA67D9005A0D67 /* UIVIew_draggable */ = {
+			isa = PBXGroup;
+			children = (
+				848FFDE21AEA68E3005A0D67 /* UIView+Draggable.h */,
+				848FFDE31AEA68E3005A0D67 /* UIView+Draggable.m */,
+			);
+			name = UIVIew_draggable;
+			sourceTree = "<group>";
+		};
 		849366571AD9389C00190D08 /* FXBlurView */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +271,7 @@
 		D8444D7D197AFAD0005BF1F5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				848FFDDB1AEA67D9005A0D67 /* UIVIew_draggable */,
 				8493665B1AD9B8C300190D08 /* UIView_Border */,
 				D8444D7E197AFAD0005BF1F5 /* backward */,
 				D8444D7F197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.h */,
@@ -639,6 +652,7 @@
 				D8444D8E197AFAD0005BF1F5 /* NSTimeZone+abtz_location.m in Sources */,
 				D853AE70198C00C500C0C256 /* ODRefreshControl.m in Sources */,
 				D8CD1B39198620CF005B5A22 /* ChoozieFeedPostCell.m in Sources */,
+				848FFDE41AEA68E3005A0D67 /* UIView+Draggable.m in Sources */,
 				D8C247EC197AD74B006DA42E /* ChoozieViewController.m in Sources */,
 				D8444D91197AFAD0005BF1F5 /* UIView+Additions.m in Sources */,
 				D8C08F08197C421A00BA4439 /* ChooziePost.m in Sources */,

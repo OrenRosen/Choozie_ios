@@ -12,7 +12,7 @@
 #import "UIView+Borders.h"
 #import "FBShimmeringView.h"
 
-@interface ChoozieTwoImagesPostCell()
+@interface ChoozieTwoImagesPostCell() <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *backView;
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder;
@@ -23,6 +23,10 @@
 @property (weak, nonatomic) IBOutlet HeroButton *circleRight;
 @property (weak, nonatomic) IBOutlet FBShimmeringView *shimmeringViewLeft;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowLeft;
+
+@property (nonatomic, strong) UIPanGestureRecognizer *dragGesture;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterY;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterX;
 
 @end
 
@@ -60,7 +64,7 @@
     self.backViewForBorder4.layer.borderWidth = 1;
     
     self.circleLeft.layer.borderColor = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0].CGColor;
-    self.circleRight.layer.borderColor = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0].CGColor;
+    self.circleRight.layer.borderColor = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0].CGColor;
     
     self.circleRight.colorIdle = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
     self.circleRight.colorPress = [UIColor colorWithRed:209/255.0 green:209/255.0 blue:209/255.0 alpha:1.0];
@@ -82,12 +86,67 @@
     self.circleLeft.borderColorIdle = [UIColor colorWithRed:214/255.0 green:214/255.0 blue:214/255.0 alpha:1.0];
     
     self.circleLeft.borderColorPress = [UIColor colorWithRed:90/255.0 green:90/255.0 blue:90/255.0 alpha:1.0];
+    
+    self.shimmeringViewLeft.shimmering = NO;
 
+    [self lalaGestures];
 //
     
     
 //    [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1.0];
     //[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
+}
+
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    CGPoint location = [gestureRecognizer locationInView:self.circleRight];
+    BOOL isInside = (CGRectContainsPoint(self.circleRight.bounds, location));
+    NSLog(@" ******* insid - %d", isInside);
+    return isInside;
+}
+
+
+- (void)lalaGestures
+{
+    self.dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragged:)];
+    self.dragGesture.delegate = self;
+    [self addGestureRecognizer:self.dragGesture];
+}
+
+- (void)dragged:(UIPanGestureRecognizer *)gesture
+{
+    static CGPoint last = {0, 0};
+    CGPoint current = [gesture translationInView:gesture.view];
+    
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        
+        last = current;
+        
+    } else if (gesture.state == UIGestureRecognizerStateChanged) {
+        
+        CGFloat diffX = current.x - last.x;
+        CGFloat diffY = current.y - last.y;
+        
+        self.constraintCenterX.constant = self.constraintCenterX.constant - diffX;
+        self.constraintCenterY.constant = self.constraintCenterY.constant + diffY;
+        
+        [self layoutIfNeeded];
+        
+        last = current;
+        
+        NSLog(@" *** changed x = %f, y = %f **", diffX, diffY);
+        
+    } else if (gesture.state == UIGestureRecognizerStateEnded) {
+        
+        self.constraintCenterX.constant = 0;
+        self.constraintCenterY.constant = 0;
+        
+        last = CGPointMake(0, 0);
+        [UIView animateWithDuration:0.5 animations:^{
+            [self layoutIfNeeded];
+        }];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
