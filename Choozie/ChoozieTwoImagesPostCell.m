@@ -11,8 +11,10 @@
 #import "Constants.h"
 #import "UIView+Borders.h"
 #import "FBShimmeringView.h"
+#import "HeroButton.h"
+#import "ChooziePostDraggableHelper.h"
 
-@interface ChoozieTwoImagesPostCell() <UIGestureRecognizerDelegate>
+@interface ChoozieTwoImagesPostCell()
 
 @property (nonatomic, weak) IBOutlet UIView *backView;
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder;
@@ -20,14 +22,12 @@
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder3;
 @property (nonatomic, weak) IBOutlet UIView *backViewForBorder4;
 @property (weak, nonatomic) IBOutlet HeroButton *circleLeft;
-@property (weak, nonatomic) IBOutlet HeroButton *circleRight;
 @property (weak, nonatomic) IBOutlet FBShimmeringView *shimmeringViewLeft;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowLeft;
 
-@property (nonatomic, strong) UIPanGestureRecognizer *dragGesture;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterY;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterX;
-@property (nonatomic, weak) IBOutlet UIImageView *pointerImageView;
+
 
 @end
 
@@ -96,12 +96,7 @@
     
     [self addShadow];
 
-    [self lalaGestures];
-//
-    
-    
-//    [UIColor colorWithRed:212/255.0 green:212/255.0 blue:212/255.0 alpha:1.0];
-    //[UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1.0];
+    [self initTheDragggg];
 }
 
 - (void)addShadow
@@ -113,214 +108,12 @@
         self.circleRight.layer.shadowRadius = 1;
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-//    CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI/2);
-//    self.pointerImageView.transform = transform;
 
-    
-    
-    CGPoint location = [gestureRecognizer locationInView:self.circleRight];
-    BOOL isInside = (CGRectContainsPoint(self.circleRight.bounds, location));
-    NSLog(@" ******* insid - %d", isInside);
-    return isInside;
+- (void)initTheDragggg
+{
+    ChooziePostDraggableHelper *draggableHelper = [[ChooziePostDraggableHelper alloc] initInCell:self withConstraintX:self.constraintCenterX constraintY:self.constraintCenterY];
 }
 
-
-- (void)lalaGestures
-{
-    self.dragGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragged:)];
-    self.dragGesture.delegate = self;
-    [self addGestureRecognizer:self.dragGesture];
-}
-
-- (void)dragged:(UIPanGestureRecognizer *)gesture
-{
-    static CGPoint last = {0, 0};
-    CGPoint current = [gesture translationInView:gesture.view];
-    
-    if (gesture.state == UIGestureRecognizerStateBegan) {
-        
-        last = current;
-        [self rotateeeWithAnim:gesture];
-        
-    } else if (gesture.state == UIGestureRecognizerStateChanged) {
-        
-        CGFloat diffX = current.x - last.x;
-        CGFloat diffY = current.y - last.y;
-        
-        self.constraintCenterX.constant = self.constraintCenterX.constant + diffX;
-        self.constraintCenterY.constant = self.constraintCenterY.constant + diffY;
-        
-        [self layoutIfNeeded];
-        
-        
-
-        
-        last = current;
-
-        [self rotateee:gesture];
-        
-        
-        NSLog(@" ***** lala - %f,%f", self.constraintCenterX.constant, self.constraintCenterY.constant);
-        
-    } else if (gesture.state == UIGestureRecognizerStateEnded) {
-        
-        
-        
-        self.constraintCenterX.constant = -self.constraintCenterX.constant/5;
-        self.constraintCenterY.constant = -self.constraintCenterY.constant/5;
-        
-        last = CGPointMake(0, 0);
-        [UIView animateWithDuration:0.2 animations:^{
-            CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI*2);
-            self.pointerImageView.transform = transform;
-            [self layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            
-            self.constraintCenterX.constant = -self.constraintCenterX.constant/2;
-            self.constraintCenterY.constant = -self.constraintCenterY.constant/2;
-            
-            [UIView animateWithDuration:0.14 animations:^{
-                [self layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                self.constraintCenterX.constant = -self.constraintCenterX.constant/3;
-                self.constraintCenterY.constant = -self.constraintCenterY.constant/3;
-                
-                [UIView animateWithDuration:0.1 animations:^{
-                    [self layoutIfNeeded];
-                } completion:^(BOOL finished) {
-                    self.constraintCenterX.constant = 0;
-                    self.constraintCenterY.constant = 0;
-                    
-                    [UIView animateWithDuration:0.05 animations:^{
-                        [self layoutIfNeeded];
-                    }];
-                }];
-                
-                
-            }];
-            
-            
-        }];
-        
-        CABasicAnimation *animShadowOffset = [CABasicAnimation animationWithKeyPath:@"shadowOffset"];
-        animShadowOffset.fromValue = [NSValue valueWithCGSize:self.circleRight.layer.shadowOffset];
-        animShadowOffset.toValue = [NSValue valueWithCGSize:CGSizeMake(0, 3.0)];
-        animShadowOffset.duration = 0.5;
-        self.circleRight.layer.shadowOffset = CGSizeMake(0, 3.0);
-        [self.circleRight.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
-    }
-}
-
-
-- (void)rotateee:(UIPanGestureRecognizer *)gesture
-{
-    static NSInteger prev = -1;
-    UIView *vvv = [self getViewInRegardToRotateWithGesture];
-    
-    NSInteger current = (vvv == self.rightImageView) ? 1 : 2;
-    if ((prev != -1) && (current != prev)) {
-        [self rotateeeWithAnim:gesture];
-        prev = current;
-        return;
-    }
-    
-    prev = current;
-    
-    CGFloat diffCeneterX = self.circleRight.superview.center.x - vvv.center.x;
-    CGFloat diffCeneterY =  self.circleRight.superview.center.y - vvv.center.y;
-    
-    CGFloat x = atan2(diffCeneterY, diffCeneterX);
-    CGFloat deg = ((x > 0 ? x : (2*M_PI + x)) * 360 / (2*M_PI)) - 90;
-    CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
-    self.pointerImageView.transform = transform;
-    
-    [self updateShoadowOffset:deg];
-    
-//    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
-    
-}
-
-
-- (void)updateShoadowOffset:(CGFloat)deg
-{
-//    NSLog(@" ****** deg = %f, x = %f", deg, [self getShadowOffsetForDeg:deg].height);
-    self.circleRight.layer.shadowOffset = [self getShadowOffsetForDeg:deg];
-    self.circleRight.layer.shadowRadius = 3;
-}
-
-- (CGSize)getShadowOffsetForDeg:(CGFloat)deg
-{
-    CGFloat maxOffset = 3.0;
-    CGFloat x = 0;
-    CGFloat y = 0;
-    if ((deg > -90) && (deg <= 0)) {
-        
-        x = maxOffset/(90.0/(-deg));
-        y = maxOffset/(90.0/(90.0+deg));
-        
-    } else if ((deg > 0) && (deg <= 90)) {
-        
-        x = -maxOffset/(90.0/deg);
-        y = maxOffset/(90.0/(90.0-deg));
-        
-    } else if ((deg > 90) && (deg <= 180)) {
-        
-        y = -maxOffset/(90.0/(deg-90.0));
-        deg = deg - 90;
-        x = -maxOffset/(90.0/(90.0-deg));
-        
-    } else if ((deg > 180) && (deg <= 270)) {
-        
-        x =maxOffset/(90.0/(deg-180.0));
-        y = -maxOffset/(90.0/(270.0-deg));
-        
-    }
-    
-    return CGSizeMake(x, y);
-}
-
-- (void)rotateeeWithAnim:(UIPanGestureRecognizer *)gesture
-{
-    UIView *vvv = [self getViewInRegardToRotateWithGesture];
-    CGFloat diffCeneterX = self.circleRight.superview.center.x - vvv.center.x;
-    CGFloat diffCeneterY =  self.circleRight.superview.center.y - vvv.center.y;
-    
-    CGFloat x = atan2(diffCeneterY, diffCeneterX);
-    CGFloat deg = ((x > 0 ? x : (2*M_PI + x)) * 360 / (2*M_PI)) - 90;
-    CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
-    
-    [UIView animateWithDuration:0.1 animations:^{
-        self.pointerImageView.transform = transform;
-    }];
-    
-    CABasicAnimation *animShadowOffset = [CABasicAnimation animationWithKeyPath:@"shadowOffset"];
-    animShadowOffset.fromValue = [NSValue valueWithCGSize:self.circleRight.layer.shadowOffset];
-    animShadowOffset.toValue = [NSValue valueWithCGSize:[self getShadowOffsetForDeg:deg]];
-    animShadowOffset.duration = 0.1;
-    [self updateShoadowOffset:deg];
-    [self.circleRight.layer addAnimation:animShadowOffset forKey:@"shadowOffset"];
-    
-    
-//    NSLog(@" **** diffs - x = %f, y = %f, deg = %f", diffCeneterX, diffCeneterY, deg);
-    
-}
-
-
-- (UIView *)getViewInRegardToRotateWithGesture
-{
-    if (self.constraintCenterX.constant > 0) {
-        return self.rightImageView;
-    } else {
-        return self.leftImageView;
-    }
-}
-
-- (CGFloat)degreesToRadians:(CGFloat) degrees
-{
-    return degrees * M_PI / 180;
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

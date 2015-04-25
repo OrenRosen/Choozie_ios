@@ -213,23 +213,23 @@
     [cell preparePost:post];
     
     NSNumber *userVote = [self.userVotesToPostsDictionary objectForKey:post.key];
-    if (!userVote) {
-        cell.votesButtonLeft.disableTouches = NO;
-        cell.votesButtonRight.disableTouches = NO;
-        cell.votesLabelLeft.hidden = YES;
-        cell.votesLabelRight.hidden = YES;
-    } else {
-        cell.votesLabelLeft.hidden = NO;
-        cell.votesLabelRight.hidden = NO;
-        
-        if ([userVote integerValue] == 1) {
-            [cell.votesButtonLeft setAsNotChosen];
-            [cell.votesButtonRight setAsChosen];
-        } else {
-            [cell.votesButtonLeft setAsChosen];
-            [cell.votesButtonRight setAsNotChosen];
-        }
-    }
+//    if (!userVote) {
+//        cell.votesButtonLeft.disableTouches = NO;
+//        cell.votesButtonRight.disableTouches = NO;
+//        cell.votesLabelLeft.hidden = YES;
+//        cell.votesLabelRight.hidden = YES;
+//    } else {
+//        cell.votesLabelLeft.hidden = NO;
+//        cell.votesLabelRight.hidden = NO;
+//        
+//        if ([userVote integerValue] == 1) {
+//            [cell.votesButtonLeft setAsNotChosen];
+//            [cell.votesButtonRight setAsChosen];
+//        } else {
+//            [cell.votesButtonLeft setAsChosen];
+//            [cell.votesButtonRight setAsNotChosen];
+//        }
+//    }
     
     cell.contentView.frame = CGRectMake(cell.contentView.left+5, cell.contentView.top+5, cell.contentView.width-10, cell.contentView.height-10);
     
@@ -358,8 +358,8 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
         [self.userVotesToPostsDictionary setValue:[NSNumber numberWithInteger:2] forKey:post.key];
         [cell.votesLabelLeft fadeInWithDuration:0.3];
         [cell.votesLabelRight fadeInWithDuration:0.3];
-        [cell.votesButtonRight setAsNotChosen];
-        [cell.votesButtonLeft setAsChosen];
+//        [cell.votesButtonRight setAsNotChosen];
+//        [cell.votesButtonLeft setAsChosen];
     }
 }
 
@@ -373,8 +373,8 @@ didSelectLinkWithAddress: (NSDictionary *)addressComponents
         [self.userVotesToPostsDictionary setValue:[NSNumber numberWithInteger:1] forKey:post.key];
         [cell.votesLabelRight fadeInWithDuration:0.3];
         [cell.votesLabelLeft fadeInWithDuration:0.3];
-        [cell.votesButtonRight setAsChosen];
-        [cell.votesButtonLeft setAsNotChosen];
+//        [cell.votesButtonRight setAsChosen];
+//        [cell.votesButtonLeft setAsNotChosen];
     }
 }
 

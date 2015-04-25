@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "NINetworkImageView.h"
 #import "ChoozieBasicPostCell.h"
-#import "HeroButton.h"
+
 
 @class ChoozieTwoImagesPostCell;
 @class ChooziePost;
+@class HeroButton;
 @protocol ChoozieTwoImagesPostCellDelegate <NSObject>
 
 - (void)votedLeftInChoozieCell:(ChoozieTwoImagesPostCell *)cell;
@@ -34,6 +35,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageLeft;
 
 @property (nonatomic, weak) id<ChoozieTwoImagesPostCellDelegate> choozieTwoImagesCelldelegate;
+
+// For dragging
+@property (nonatomic, weak) IBOutlet UIImageView *pointerImageView;
+@property (weak, nonatomic) IBOutlet HeroButton *circleRight;
+
 
 
 - (void)preparePost:(ChooziePost *)post;

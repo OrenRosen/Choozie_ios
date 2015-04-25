@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Draggable)
+@interface UIView (Draggable) 
 
-//@property (nonatomic, weak) UIView *containerView;
-//- (void)setAsDraggable;
+@property (nonatomic, weak) NSLayoutConstraint *constraintForX;
+@property (nonatomic, weak) NSLayoutConstraint *constraintForY;
+@property (nonatomic, weak) UIView *containerView;
+@property (nonatomic, strong) UIPanGestureRecognizer *dragGesture;
+
+@property (nonatomic, copy) void (^draggingStartedBlock)();
+@property (nonatomic, copy) void (^draggingChangedBlock)();
+@property (nonatomic, copy) void (^draggingEndedBlock)();
+
+@property (nonatomic) BOOL shouldReturnWithBoundWhenDraggingEnds;
+
+- (void)setDraggableWithConstraintX:(NSLayoutConstraint *)constraintX constraintY:(NSLayoutConstraint *)constraintY inView:(UIView *)containerView;
+
 
 
 @end
