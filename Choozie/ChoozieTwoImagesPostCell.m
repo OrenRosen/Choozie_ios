@@ -178,18 +178,27 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             
-            self.constraintCenterX.constant = -self.constraintCenterX.constant/5;
-            self.constraintCenterY.constant = -self.constraintCenterY.constant/5;
+            self.constraintCenterX.constant = -self.constraintCenterX.constant/2;
+            self.constraintCenterY.constant = -self.constraintCenterY.constant/2;
             
-            [UIView animateWithDuration:0.1 animations:^{
+            [UIView animateWithDuration:0.14 animations:^{
                 [self layoutIfNeeded];
             } completion:^(BOOL finished) {
-                self.constraintCenterX.constant = 0;
-                self.constraintCenterY.constant = 0;
+                self.constraintCenterX.constant = -self.constraintCenterX.constant/3;
+                self.constraintCenterY.constant = -self.constraintCenterY.constant/3;
                 
-                [UIView animateWithDuration:0.07 animations:^{
+                [UIView animateWithDuration:0.1 animations:^{
                     [self layoutIfNeeded];
+                } completion:^(BOOL finished) {
+                    self.constraintCenterX.constant = 0;
+                    self.constraintCenterY.constant = 0;
+                    
+                    [UIView animateWithDuration:0.05 animations:^{
+                        [self layoutIfNeeded];
+                    }];
                 }];
+                
+                
             }];
             
             
