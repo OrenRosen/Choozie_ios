@@ -14,7 +14,8 @@
 
 @property (nonatomic) CGPoint lastDraggedPoint;
 
-@property (nonatomic) CGFloat originalX;
+
+
 @property (nonatomic) CGFloat originalY;
 
 @end
@@ -39,7 +40,7 @@
 - (void)setOriginalX:(CGFloat)originalX
 {
     NSNumber *originalXNumber = [NSNumber numberWithFloat:originalX];
-    objc_setAssociatedObject(self, @selector(originalX), originalXNumber, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(originalX), originalXNumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
@@ -53,7 +54,7 @@
 - (void)setOriginalY:(CGFloat)originalY
 {
     NSNumber *originalYNumber = [NSNumber numberWithFloat:originalY];
-    objc_setAssociatedObject(self, @selector(originalX), originalYNumber, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(originalX), originalYNumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
@@ -157,7 +158,7 @@
 - (void)setShouldReturnWithBoundWhenDraggingEnds:(BOOL)shouldReturnWithBoundWhenDraggingEnds
 {
     NSNumber *numberVal = [NSNumber numberWithBool:shouldReturnWithBoundWhenDraggingEnds];
-    objc_setAssociatedObject(self, @selector(shouldReturnWithBoundWhenDraggingEnds), numberVal, OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(shouldReturnWithBoundWhenDraggingEnds), numberVal, OBJC_ASSOCIATION_RETAIN);
 }
 
 
@@ -188,7 +189,7 @@
 {
     if (gesture.state == UIGestureRecognizerStateBegan) {
         
-        self.lastDraggedPoint = [gesture translationInView:gesture.view];;
+        self.lastDraggedPoint = [gesture translationInView:gesture.view];
         [self callDraggingStartedBlockIfNeeded];
         
     } else if (gesture.state == UIGestureRecognizerStateChanged) {
@@ -208,11 +209,33 @@
 - (void)updateConstraintsXYWhileDragging
 {
     CGPoint current = [self.dragGesture translationInView:self.dragGesture.view];
-    CGFloat diffX = current.x - self.lastDraggedPoint.x;
-    CGFloat diffY = current.y - self.lastDraggedPoint.y;
     
-    self.constraintForX.constant = self.constraintForX.constant + diffX;
-    self.constraintForY.constant = self.constraintForY.constant + diffY;
+    CGFloat newX = current.x - self.originalX;// self.lastDraggedPoint.x;
+    CGFloat newY = current.y - self.originalY;
+    
+//    CGFloat newX = (self.constraintForX.constant + diffX)/2;
+//    CGFloat newY = (self.constraintForY.constant + diffY)/2;
+
+    
+//    self.containerView.
+    
+    NSLog(@" ***** . NEW - %f,%f", newX, newY);
+    
+    if (newX < -70) {
+        newX = -70 - (-70 - newX) * 0.5;
+    } else if (newX > 70) {
+        newX = 70 + (newX - 70)*0.5;
+    }
+    
+    if (newY < -130) {
+        newY = -130 - (-130 - newY)*0.4;
+        
+    } else if (newY > 70) {
+        newY = 70 + (newY - 70)*0.3;
+    }
+    
+    self.constraintForX.constant = newX;
+    self.constraintForY.constant = newY;
     [self layoutIfNeeded];
 }
 
