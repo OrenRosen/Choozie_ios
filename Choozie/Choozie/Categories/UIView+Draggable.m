@@ -245,30 +245,49 @@
     self.constraintForX.constant = -self.constraintForX.constant/5;
     self.constraintForY.constant = -self.constraintForY.constant/5;
 
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         
         [self.containerView layoutIfNeeded];
+        
     } completion:^(BOOL finished) {
-        
-        self.constraintForX.constant = -self.constraintForX.constant/2;
-        self.constraintForY.constant = -self.constraintForY.constant/2;
-        
-        [UIView animateWithDuration:0.14 animations:^{
+        [UIView animateWithDuration:0.14 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            
             [self.containerView layoutIfNeeded];
+            
+
+            
         } completion:^(BOOL finished) {
+            
             self.constraintForX.constant = -self.constraintForX.constant/3;
             self.constraintForY.constant = -self.constraintForY.constant/3;
-            
-            [UIView animateWithDuration:0.1 animations:^{
-                [self.containerView layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                self.constraintForX.constant = 0;
-                self.constraintForY.constant = 0;
+            [UIView animateWithDuration:0.14 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 
-                [UIView animateWithDuration:0.05 animations:^{
+                
+                [self.containerView layoutIfNeeded];
+                
+            } completion:^(BOOL finished) {
+                
+                self.constraintForX.constant = -self.constraintForX.constant/3;
+                self.constraintForY.constant = -self.constraintForY.constant/3;
+                
+                [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                    
                     [self.containerView layoutIfNeeded];
+                    
+                } completion:^(BOOL finished) {
+                    
+                    self.constraintForX.constant = 0;
+                    self.constraintForY.constant = 0;
+                    
+                    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                        
+                        [self.containerView layoutIfNeeded];
+                        
+                    } completion:nil];
                 }];
+                
             }];
+            
         }];
     }];
 }
