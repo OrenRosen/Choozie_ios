@@ -11,6 +11,7 @@
 #import "ChoozieBasicPostCell.h"
 
 
+@class MLPSpotlight;
 @class ChoozieTwoImagesPostCell;
 @class ChooziePost;
 @class HeroButton;
@@ -33,6 +34,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *votesLabelRight;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageRight;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageLeft;
+
+@property (nonatomic, strong) MLPSpotlight *spotlightLeft;
+@property (nonatomic, strong) MLPSpotlight *spotlightRight;
 
 @property (nonatomic, weak) id<ChoozieTwoImagesPostCellDelegate> choozieTwoImagesCelldelegate;
 

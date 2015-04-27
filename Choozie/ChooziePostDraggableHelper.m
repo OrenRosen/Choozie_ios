@@ -10,6 +10,7 @@
 #import "UIView+Draggable.h"
 #import "ChoozieTwoImagesPostCell.h"
 #import "HeroButton.h"
+#import "MLPSpotlight.h"
 
 @interface ChooziePostDraggableHelper()
 
@@ -78,19 +79,50 @@
     CGFloat deg = [self getWantedDegreeForDraggedView];
     
     NSInteger current = (anchorView == self.chooziePostCell.rightImageView) ? 1 : 2;
-    if ((prev == -1) || (current != prev)) {
+    BOOL isDiffAnchorView = ((prev == -1) || (current != prev));
+    if (isDiffAnchorView) {
         [self rotateWithAnimationToDeg:deg];
     } else {
         [self rotateWithoutAnimationToDeg:deg];
     }
     
     prev = current;
+    
+    CGRect anchorViewFrame = [anchorView convertRect:anchorView.bounds toView:self.chooziePostCell.contentView];
+    CGRect draggedViewFrame = [self.viewtoDrag convertRect:self.viewtoDrag.bounds toView:self.chooziePostCell.contentView];
+    
+    BOOL isInside = CGRectIntersectsRect(anchorViewFrame, draggedViewFrame);
+    
+    UIView *spotLightview = (anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
+    
+    CGFloat diff = anchorViewFrame.origin.y + anchorViewFrame.size.height - (draggedViewFrame.origin.y + draggedViewFrame.size.height);
+    CGFloat alpha = (diff+100)/(anchorViewFrame.size.height/4);
+    
+    if (isDiffAnchorView) {
+       UIView *prevSpotLightView = (anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
+        
+        spotLightview.hidden = NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            prevSpotLightView.alpha = 0.0;
+            spotLightview.alpha = alpha;
+            
+        } completion:^(BOOL finished) {
+            prevSpotLightView.hidden = YES;
+            prevSpotLightView.opaque = NO;
+        }];
+    } else {
+        spotLightview.alpha = alpha;
+        spotLightview.hidden = (alpha > 0) ? NO : YES;
+    }
 }
 
 
 - (void)rotateWithAnimationToDeg:(CGFloat)deg
 {
-    [UIView animateWithDuration:0.1 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.chooziePostCell.spotlightLeft.alpha = 0;
+        self.chooziePostCell.spotlightRight.alpha = 0;
         [self rotatePointerImageViewByDegree:deg];
     }];
     

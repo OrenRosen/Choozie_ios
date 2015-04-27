@@ -13,6 +13,7 @@
 #import "FBShimmeringView.h"
 #import "HeroButton.h"
 #import "ChooziePostDraggableHelper.h"
+#import "MLPSpotlight.h"
 
 @interface ChoozieTwoImagesPostCell()
 
@@ -97,6 +98,14 @@
     [self addShadow];
 
     [self initTheDragggg];
+    
+    CGPoint leftLightPoint = [self.leftImageView convertPoint:self.leftImageView.center toView:self.contentView];
+    self.spotlightLeft = [MLPSpotlight addSpotlightImmidiatlyInView:self.contentView atPoint:leftLightPoint withAlpha:0];
+    self.spotlightLeft.hidden = YES;
+    
+    CGPoint rightLightPoint = CGPointMake(350, 80); //[self.rightImageView convertPoint:self.rightImageView.center toView:self.contentView];
+    self.spotlightRight = [MLPSpotlight addSpotlightImmidiatlyInView:self.contentView atPoint:rightLightPoint withAlpha:0];
+    self.spotlightRight.hidden = YES;
 }
 
 - (void)addShadow

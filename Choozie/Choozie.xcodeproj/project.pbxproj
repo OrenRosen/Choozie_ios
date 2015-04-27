@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		78697EF570C64857860090CC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71613A80FFD043C68656E75E /* libPods.a */; };
+		840E5CEA1AED89530041C6F1 /* MLPSpotlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 840E5CE91AED89530041C6F1 /* MLPSpotlight.m */; };
 		8424AC491AE15F84001D3097 /* ChoozieTwoImagesPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424AC481AE15F84001D3097 /* ChoozieTwoImagesPostCell.m */; };
 		8424AC4B1AE15F99001D3097 /* ChoozieTwoImagesPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8424AC4A1AE15F99001D3097 /* ChoozieTwoImagesPostCell.xib */; };
 		8424AC4D1AE15FAE001D3097 /* ChoozieSingleImagePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8424AC4C1AE15FAE001D3097 /* ChoozieSingleImagePostCell.xib */; };
@@ -81,6 +82,8 @@
 		431984A942672DC14CA8A3AD /* libPods-Choozie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Choozie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		549A6B30FA457C3BE4945C55 /* Pods-Choozie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Choozie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Choozie/Pods-Choozie.release.xcconfig"; sourceTree = "<group>"; };
 		71613A80FFD043C68656E75E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		840E5CE81AED89530041C6F1 /* MLPSpotlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPSpotlight.h; sourceTree = "<group>"; };
+		840E5CE91AED89530041C6F1 /* MLPSpotlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPSpotlight.m; sourceTree = "<group>"; };
 		8424AC471AE15F84001D3097 /* ChoozieTwoImagesPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieTwoImagesPostCell.h; sourceTree = SOURCE_ROOT; };
 		8424AC481AE15F84001D3097 /* ChoozieTwoImagesPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieTwoImagesPostCell.m; sourceTree = SOURCE_ROOT; };
 		8424AC4A1AE15F99001D3097 /* ChoozieTwoImagesPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoozieTwoImagesPostCell.xib; sourceTree = SOURCE_ROOT; };
@@ -212,6 +215,15 @@
 				2B509B1388320662A88993D9 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		840E5CE71AED88C50041C6F1 /* MLPSpotlight */ = {
+			isa = PBXGroup;
+			children = (
+				840E5CE81AED89530041C6F1 /* MLPSpotlight.h */,
+				840E5CE91AED89530041C6F1 /* MLPSpotlight.m */,
+			);
+			name = MLPSpotlight;
 			sourceTree = "<group>";
 		};
 		848EC46E1AE4DF9A0036AD1A /* custom_stuff */ = {
@@ -441,6 +453,7 @@
 		D8C247DB197AD74B006DA42E /* Choozie */ = {
 			isa = PBXGroup;
 			children = (
+				840E5CE71AED88C50041C6F1 /* MLPSpotlight */,
 				D853AE69198C00C500C0C256 /* 3rd_libraries */,
 				D8C08EF9197C416600BA4439 /* screens */,
 				D8C247E4197AD74B006DA42E /* ChoozieAppDelegate.h */,
@@ -643,6 +656,7 @@
 				848EC4711AE4DFBC0036AD1A /* HeroButton.m in Sources */,
 				D8444D97197AFB5A005BF1F5 /* ApiServices.m in Sources */,
 				D8C08F0B197C421A00BA4439 /* FeedResponse.m in Sources */,
+				840E5CEA1AED89530041C6F1 /* MLPSpotlight.m in Sources */,
 				D853AE71198C00C500C0C256 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				D8C08EE6197C346000BA4439 /* Utils.m in Sources */,
 				D8C247E2197AD74B006DA42E /* main.m in Sources */,
