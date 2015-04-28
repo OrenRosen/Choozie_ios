@@ -96,7 +96,7 @@
     UIView *spotLightview = (anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
     
     CGFloat diff = anchorViewFrame.origin.y + anchorViewFrame.size.height - (draggedViewFrame.origin.y + draggedViewFrame.size.height);
-    CGFloat alpha = (diff+100)/(anchorViewFrame.size.height/4);
+    CGFloat alpha = MIN(0.8,(diff+100)/(anchorViewFrame.size.height/4));
     
     if (isDiffAnchorView) {
        UIView *prevSpotLightView = (anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;

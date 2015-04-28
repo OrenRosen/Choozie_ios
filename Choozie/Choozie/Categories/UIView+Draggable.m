@@ -219,7 +219,7 @@
     
 //    self.containerView.
     
-    NSLog(@" ***** . NEW - %f,%f", newX, newY);
+//    NSLog(@" ***** . NEW - %f,%f", newX, newY);
     
     if (newX < -70) {
         newX = -70 - (-70 - newX) * 0.5;

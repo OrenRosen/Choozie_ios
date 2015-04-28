@@ -132,7 +132,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         CGGradientRelease(defaultGradientRef);
         
         [self setSpotlightStartRadius:0];
-        [self setSpotlightEndRadius:350];
+        [self setSpotlightEndRadius:150];
         
     }
     return self;
