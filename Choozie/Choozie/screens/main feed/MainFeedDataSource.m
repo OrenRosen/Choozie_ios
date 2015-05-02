@@ -101,63 +101,8 @@
     
     ChooziePost *post = [self.feed objectAtIndex:section];
     [header prepareHeaderForPost:post];
-    
-    
-    FXBlurView *l = [[FXBlurView alloc] initWithFrame:header.blurView.bounds];
-    
-    l.height = 55;
-    l.width = 302;
-    header.height = 55;
-    header.width = 302;
-    
-    l.tintColor = [UIColor clearColor];
-//    [UIColor colorWithRed:40/255.0 green:120/255.0 blue:255/255.0 alpha:0.1];
-//    [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:1];
-    l.backgroundColor = [UIColor clearColor];
-//    [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:1];
-    
-    l.layer.cornerRadius = 3;
-//    header.layer.cornerRadius = 30;
-//    header.contentView.layer.cornerRadius = 30;
 
-    
-
-    header.blurView.layer.cornerRadius = 3;
-    
-    header.backgroundColor = [UIColor clearColor];
-//    [UIColor colorWithRed:234.0/255 green:234.0/255 blue:234.0/255 alpha:0.3];
-//    header.tintColor = [UIColor redColor];
-
-    header.contentView.backgroundColor = [UIColor clearColor];
-    
-    l.clipsToBounds = NO;
-    [l addSubview:header];
-    l.dynamic = YES;
-//    l.blurEnabled = NO;
-//    NSLog(@" ***** %d %d %f", l.dynamic, l.blurEnabled, l.blurRadius);
-    
-    l.blurRadius = 5;
-    
-    
-    
-//    header.blurView.backgroundColor = [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:0.5];
-//    header.contentView.backgroundColor = [UIColor colorWithRed:253/255.0 green:253/255.0 blue:253/255.0 alpha:1];
-    
-    return l;
-    
-//    NSLog(@" *** CELLFOR - %@:", NSStringFromCGRect(header.bounds));
-//
-//    [header.blurView addSubview:l];
-//    header.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.1];
-//    header.backgroundView.backgroundColor = [UIColor clearColor];
-//    header.blurView.backgroundColor = [UIColor clearColor];
-//    header.blurView.tintColor = [UIColor clearColor];
-
-//    header.blurView.blurRadius = -9;
-
-    
-
-    return header;
+    return header.realBlurView;
 }
 
 

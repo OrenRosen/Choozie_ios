@@ -12,6 +12,7 @@
 #import "ChoozieUser.h"
 #import "TTTAttributedLabel.h"
 #import "FXBlurView.h"
+#import "UIView+Additions.h"
 
 @interface ChoozieHeaderPostCell() <TTTAttributedLabelDelegate>
 
@@ -37,6 +38,35 @@
     self.backViewforBorder.layer.borderColor = [UIColor colorWithRed:214.0/255 green:214.0/255 blue:214.0/255 alpha:1.0].CGColor;
     self.backViewforBorder.layer.borderWidth = 1;
     self.backViewforBorder.layer.cornerRadius = 3;
+    
+    [self tryAddBlur];
+}
+
+
+- (void)tryAddBlur
+{
+    self.realBlurView = [[FXBlurView alloc] initWithFrame:self.blurView.bounds];
+    
+    self.realBlurView.height = 55;
+    self.realBlurView.width = 302;
+    self.height = 55;
+    self.width = 302;
+    
+    self.realBlurView.tintColor = [UIColor clearColor];
+    self.realBlurView.backgroundColor = [UIColor clearColor];
+    self.realBlurView.layer.cornerRadius = 3;
+    
+    self.blurView.layer.cornerRadius = 3;
+    
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    
+    self.realBlurView.clipsToBounds = NO;
+    [self.realBlurView addSubview:self];
+    self.realBlurView.dynamic = NO;
+    self.realBlurView.blurRadius = 5;
+//    self.realBlurView.blurEnabled = NO;
+    
 }
 
 //- (void)awakeFromNib

@@ -69,6 +69,20 @@
     [self.viewtoDrag setDraggingEndedBlock:^{
         [self rotateWithAnimationToDeg:0];
     }];
+    
+
+//    NSTimeInterval duration = 320.0 / velocityX;
+//    CGPoint offScreenCenter = moveView.center;
+//    offScreenCenter.x += xPoints;
+//    [UIView animateWithDuration:duration animations:^{
+//        moveView.center = offScreenCenter;
+//    }];
+}
+
+
+- (void)draggedChanged
+{
+    [self rotateDraggedView];
 }
 
 
@@ -127,6 +141,10 @@
     }];
     
     [self aniamateShadowOffsetToDeg:deg];
+    
+    
+    CGPoint velocity = [self.viewtoDrag.dragGesture velocityInView:self.chooziePostCell];
+    NSLog(@" ***** velo = %@", NSStringFromCGPoint(velocity));
 }
 
 

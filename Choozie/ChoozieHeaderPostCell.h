@@ -27,6 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageButton;
 @property (weak, nonatomic) IBOutlet FXBlurView *blurView;
+@property (nonatomic, strong) FXBlurView *realBlurView;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *userNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;

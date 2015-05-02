@@ -21,7 +21,6 @@
 		8493665E1AD9B8DF00190D08 /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 8493665D1AD9B8DF00190D08 /* UIView+Borders.m */; };
 		849417F51ACEC50A00EF24CC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 849417F41ACEC50A00EF24CC /* Podfile */; };
 		84DC1D181AEBA5BE0088B843 /* ChooziePostDraggableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DC1D171AEBA5BE0088B843 /* ChooziePostDraggableHelper.m */; };
-		8CB4A3A65E31D3FE20712D22 /* libPods-Choozie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 431984A942672DC14CA8A3AD /* libPods-Choozie.a */; };
 		D817EDEF19841B5100EEB25E /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D817EDEE19841B5100EEB25E /* UserProfileViewController.m */; };
 		D8444D8C197AFAD0005BF1F5 /* backward in Resources */ = {isa = PBXBuildFile; fileRef = D8444D7E197AFAD0005BF1F5 /* backward */; };
 		D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */ = {isa = PBXBuildFile; fileRef = D8444D80197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m */; };
@@ -189,7 +188,6 @@
 				D8C247DA197AD74B006DA42E /* UIKit.framework in Frameworks */,
 				D8C247D6197AD74B006DA42E /* Foundation.framework in Frameworks */,
 				78697EF570C64857860090CC /* libPods.a in Frameworks */,
-				8CB4A3A65E31D3FE20712D22 /* libPods-Choozie.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +546,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = ROKY;
 				TargetAttributes = {
+					D8C247D1197AD74B006DA42E = {
+						DevelopmentTeam = F5ZP7PYB42;
+					};
 					D8C247F2197AD74B006DA42E = {
 						TestTargetID = D8C247D1197AD74B006DA42E;
 					};
@@ -801,11 +802,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
 				INFOPLIST_FILE = "Choozie/Choozie-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
 			};
@@ -817,11 +821,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Choozie/Choozie-Prefix.pch";
 				INFOPLIST_FILE = "Choozie/Choozie-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s armv6";
 				WRAPPER_EXTENSION = app;
 			};
