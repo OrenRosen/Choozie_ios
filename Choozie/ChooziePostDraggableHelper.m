@@ -168,13 +168,30 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 
 - (CGFloat)getAlphaForSpotLightView
 {
-    CGFloat diff = self.anchorViewFrame.origin.y + self.anchorViewFrame.size.height/2 - (self.draggedViewFrame.origin.y + self.draggedViewFrame.size.height/2);
-    
-    CGFloat m = kMaxSpotLightAlpha / self.anchorViewFrame.size.height;
-    CGFloat alpha = kMaxSpotLightAlpha + m*diff;
+    CGFloat alpha_x = [self getAlphaForSpotlight_X];
+    CGFloat alpha_y = [self getAlphaForSpotlight_Y];
+    CGFloat alpha = MIN(alpha_x, alpha_y);
     return alpha;
 }
 
+
+- (CGFloat)getAlphaForSpotlight_Y
+{
+    CGFloat diff_y = self.anchorViewFrame.origin.y + self.anchorViewFrame.size.height/2 - (self.draggedViewFrame.origin.y + self.draggedViewFrame.size.height/2);
+    CGFloat m_y = (diff_y<0) ? kMaxSpotLightAlpha / self.anchorViewFrame.size.height : -kMaxSpotLightAlpha / self.anchorViewFrame.size.height;
+    CGFloat alpha_y = MAX(0, MIN(kMaxSpotLightAlpha + m_y*diff_y, kMaxSpotLightAlpha));
+    return alpha_y;
+}
+
+
+- (CGFloat)getAlphaForSpotlight_X
+{
+    CGFloat diff_x = self.anchorViewFrame.origin.x + self.anchorViewFrame.size.width/2 - (self.draggedViewFrame.origin.x + self.draggedViewFrame.size.width/2);
+    
+    CGFloat m_x = (diff_x<0) ? kMaxSpotLightAlpha / self.anchorViewFrame.size.width : -kMaxSpotLightAlpha / self.anchorViewFrame.size.width;
+    CGFloat alpha_x = MAX(0, MIN(kMaxSpotLightAlpha + m_x*diff_x, kMaxSpotLightAlpha));
+    return alpha_x;
+}
 
 - (void)rotateWithAnimationToDeg:(CGFloat)deg
 {
