@@ -13,16 +13,19 @@
 #import "ChoozieComment.h"
 #import "ApiServices.h"
 #import "ChoozieHeaderPostCell.h"
-#import "FXBlurView.h"
+#import "BlurViewHeader.h"
 #import "FeedTableView.h"
 #import "ChoozieSingleImagePostCell.h"
 #import "ChoozieTwoImagesPostCell.h"
 #import "UIView+Additions.h"
 
 
+
 @interface MainFeedDataSource() <TTTAttributedLabelDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *userVotesToPostsDictionary;
+
+@property (nonatomic, strong) NSMutableArray *headersStash;
 
 @end
 
@@ -33,6 +36,7 @@
 {
     if (self = [super init]) {
         
+        self.headersStash = [[NSMutableArray alloc] init];
         self.userVotesToPostsDictionary = [[NSMutableDictionary alloc] init];
     }
     
@@ -93,8 +97,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    ChoozieHeaderPostCell *header = [tableView dequeueReusableCellWithIdentifier:kChoozieHeaderPostCellIdentifier];
-    header.tag = section;
+    ChoozieHeaderPostCell *header = [self dequeHeader];
+
     if (!header.delegate) {
         header.delegate = self;
     }
@@ -102,14 +106,39 @@
     ChooziePost *post = [self.feed objectAtIndex:section];
     [header prepareHeaderForPost:post];
 
+//    header.blurEnabled = NO;
     return header.realBlurView;
 }
 
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(ChoozieHeaderPostCell *)header forSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(BlurViewHeader *)view forSection:(NSInteger)section
 {
-//    NSLog(@" *** will display - %@:", NSStringFromCGRect(header.bounds));
+    [self.headersStash addObject:view.header];
 }
+
+
+- (ChoozieHeaderPostCell *)dequeHeader
+{
+    ChoozieHeaderPostCell *header;
+    if (self.headersStash.count == 0) {
+        header = [[NSBundle mainBundle] loadNibNamed:kChoozieHeaderPostCellIdentifier owner:nil options:nil][0];
+        header.realBlurView.dynamic = YES;
+    } else {
+        header = self.headersStash[0];
+        [header prepareForReuse];
+        [self.headersStash removeObject:header];
+    }
+    
+    return header;
+}
+
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    [view setNeedsDisplay];
+}
+
+
 
 
 

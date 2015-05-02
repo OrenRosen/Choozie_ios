@@ -14,6 +14,7 @@
 		8424AC4D1AE15FAE001D3097 /* ChoozieSingleImagePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8424AC4C1AE15FAE001D3097 /* ChoozieSingleImagePostCell.xib */; };
 		8424AC501AE15FC0001D3097 /* ChoozieSingleImagePostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424AC4F1AE15FC0001D3097 /* ChoozieSingleImagePostCell.m */; };
 		8424AC531AE16BDD001D3097 /* ChoozieBasicPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424AC521AE16BDD001D3097 /* ChoozieBasicPostCell.m */; };
+		8437D6D11AF5026F00881979 /* BlurViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437D6D01AF5026F00881979 /* BlurViewHeader.m */; };
 		843DF1BD1AD68715000570F4 /* ChoozieMantle.m in Sources */ = {isa = PBXBuildFile; fileRef = 843DF1BC1AD68715000570F4 /* ChoozieMantle.m */; };
 		848EC4711AE4DFBC0036AD1A /* HeroButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EC4701AE4DFBC0036AD1A /* HeroButton.m */; };
 		848FFDE41AEA68E3005A0D67 /* UIView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFDE31AEA68E3005A0D67 /* UIView+Draggable.m */; };
@@ -91,6 +92,8 @@
 		8424AC4F1AE15FC0001D3097 /* ChoozieSingleImagePostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieSingleImagePostCell.m; sourceTree = SOURCE_ROOT; };
 		8424AC511AE16BDD001D3097 /* ChoozieBasicPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieBasicPostCell.h; sourceTree = SOURCE_ROOT; };
 		8424AC521AE16BDD001D3097 /* ChoozieBasicPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieBasicPostCell.m; sourceTree = SOURCE_ROOT; };
+		8437D6CF1AF5026F00881979 /* BlurViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurViewHeader.h; sourceTree = SOURCE_ROOT; };
+		8437D6D01AF5026F00881979 /* BlurViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurViewHeader.m; sourceTree = SOURCE_ROOT; };
 		843DF1BB1AD68715000570F4 /* ChoozieMantle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoozieMantle.h; sourceTree = "<group>"; };
 		843DF1BC1AD68715000570F4 /* ChoozieMantle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoozieMantle.m; sourceTree = "<group>"; };
 		848EC46F1AE4DFBC0036AD1A /* HeroButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroButton.h; sourceTree = SOURCE_ROOT; };
@@ -408,6 +411,8 @@
 				8424AC521AE16BDD001D3097 /* ChoozieBasicPostCell.m */,
 				84DC1D161AEBA5BE0088B843 /* ChooziePostDraggableHelper.h */,
 				84DC1D171AEBA5BE0088B843 /* ChooziePostDraggableHelper.m */,
+				8437D6CF1AF5026F00881979 /* BlurViewHeader.h */,
+				8437D6D01AF5026F00881979 /* BlurViewHeader.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -663,6 +668,7 @@
 				D8C247E2197AD74B006DA42E /* main.m in Sources */,
 				D8C08EE1197C33F400BA4439 /* Constants.m in Sources */,
 				D853AE74198C049A00C0C256 /* UserProfileFeedTableView.m in Sources */,
+				8437D6D11AF5026F00881979 /* BlurViewHeader.m in Sources */,
 				D8444D8D197AFAD0005BF1F5 /* NSDictionary+ValueNotNull.m in Sources */,
 				D853AE66198BF79400C0C256 /* FeedTableView.m in Sources */,
 				D8C08F0A197C421A00BA4439 /* ChoozieVote.m in Sources */,

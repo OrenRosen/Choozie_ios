@@ -12,10 +12,10 @@
 @class ChoozieHeaderPostCell;
 @class ChooziePost;
 @class TTTAttributedLabel;
-@class FXBlurView;
 
 
 
+@class BlurViewHeader;
 @protocol ChoozieHeaderPostCellDelegate <NSObject>
 
 - (void)choozieHeaderPostCelldidClickOnUserImageView:(ChoozieHeaderPostCell *)cell;
@@ -23,11 +23,11 @@
 @end
 
 
-@interface ChoozieHeaderPostCell : UITableViewCell
+@interface ChoozieHeaderPostCell : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *userImageButton;
-@property (weak, nonatomic) IBOutlet FXBlurView *blurView;
-@property (nonatomic, strong) FXBlurView *realBlurView;
+@property (weak, nonatomic) IBOutlet BlurViewHeader *blurView;
+@property (nonatomic, strong) BlurViewHeader *realBlurView;
 @property (weak, nonatomic) IBOutlet TTTAttributedLabel *userNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -41,6 +41,8 @@
 @property (nonatomic, strong) id<ChoozieHeaderPostCellDelegate> delegate;
 
 - (void)prepareHeaderForPost:(ChooziePost *)post;
+- (void)prepareForReuse;
+
 
 
 @end

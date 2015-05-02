@@ -11,8 +11,9 @@
 #import "ChooziePost.h"
 #import "ChoozieUser.h"
 #import "TTTAttributedLabel.h"
-#import "FXBlurView.h"
 #import "UIView+Additions.h"
+#import "BlurViewHeader.h"
+
 
 @interface ChoozieHeaderPostCell() <TTTAttributedLabelDelegate>
 
@@ -22,22 +23,39 @@
 
 @implementation ChoozieHeaderPostCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+//- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+//{
+//    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+//    if (self) {
+//        // Initialization code
+//    }
+//    return self;
+//}
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    NSLog(@" ***************** ");
     
     self.backViewforBorder.layer.borderColor = [UIColor colorWithRed:214.0/255 green:214.0/255 blue:214.0/255 alpha:1.0].CGColor;
     self.backViewforBorder.layer.borderWidth = 1;
     self.backViewforBorder.layer.cornerRadius = 3;
+    
+//    self.height = 55;
+//    self.width = 302;
+    
+
+
+
+    self.backgroundColor = [UIColor clearColor];
+
+//    self.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
+//    UIColor *aqua = [UIColor colorWithRed:0 green:.62 blue:.984 alpha:0.0];
+//    self.tintColor = aqua;
+    self.blurView.layer.cornerRadius = 3;
+    
+    self.clipsToBounds = NO;
+
     
     [self tryAddBlur];
 }
@@ -45,28 +63,34 @@
 
 - (void)tryAddBlur
 {
-    self.realBlurView = [[FXBlurView alloc] initWithFrame:self.blurView.bounds];
+    self.realBlurView = [[BlurViewHeader alloc] initWithFrame:self.blurView.bounds];
     
     self.realBlurView.height = 55;
     self.realBlurView.width = 302;
     self.height = 55;
     self.width = 302;
     
-    self.realBlurView.tintColor = [UIColor clearColor];
     self.realBlurView.backgroundColor = [UIColor clearColor];
     self.realBlurView.layer.cornerRadius = 3;
-    
+    self.realBlurView.tintColor = [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:0.1];
     self.blurView.layer.cornerRadius = 3;
+    self.layer.cornerRadius = 3;
+    self.clipsToBounds = NO;
+    
+    self.realBlurView.header = self;
     
     self.backgroundColor = [UIColor clearColor];
-    self.contentView.backgroundColor = [UIColor clearColor];
     
     self.realBlurView.clipsToBounds = NO;
     [self.realBlurView addSubview:self];
     self.realBlurView.dynamic = NO;
-    self.realBlurView.blurRadius = 5;
-//    self.realBlurView.blurEnabled = NO;
-    
+    self.realBlurView.blurRadius = 10;
+}
+
+
+- (void)prepareForReuse
+{
+    [self.realBlurView setNeedsDisplay];
 }
 
 //- (void)awakeFromNib
@@ -104,17 +128,17 @@
 ////    toolbar.dynamic = NO;
 ////    toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 ////    toolbar.backgroundColor = [UIColor clearColor];
-////    toolbar.barTintColor = [UIColor clearColor];
+////    toolb   ar.barTintColor = [UIColor clearColor];
 //    
 ////    [self insertSubview:toolbar atIndex:0];
 //}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
+//- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+//{
+//    [super setSelected:selected animated:animated];
+//
+//    // Configure the view for the selected state
+//}
 
 
 - (IBAction)userImageClicked:(id)sender
