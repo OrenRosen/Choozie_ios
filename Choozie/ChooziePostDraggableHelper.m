@@ -33,10 +33,9 @@
 @end
 
 
-
 @implementation ChooziePostDraggableHelper
 
-
+CGFloat const kMaxSpotLightAlpha = 0.8;
 
 - (instancetype)initInCell:(ChoozieTwoImagesPostCell *)cell withConstraintX:(NSLayoutConstraint *)constraintX constraintY:(NSLayoutConstraint *)constraintY
 {
@@ -72,24 +71,49 @@
 - (void)setDraggingChangedBlock
 {
     [self.viewtoDrag setDraggingChangedBlock:^{
-        [self draggedChanged];
+        [self dragChanged];
     }];
+}
+
+
+- (void)dragChanged
+{
+    [self initPropertiesForDragedChanged];
+    [self rotateDraggedView];
+    [self updateSpotLightAlpha];
 }
 
 
 - (void)setDraggingEndedBlock
 {
     [self.viewtoDrag setDraggingEndedBlock:^{
-        [self rotateWithAnimationToDeg:0];
+        [self dragEnded];
     }];
 }
 
 
-- (void)draggedChanged
+- (void)dragEnded
 {
-    [self initPropertiesForDragedChanged];
-    [self rotateDraggedView];
-    [self updateSpotLightAlpha];
+    [self didSelectAchorView] ? [self animateDraggedViewAfterSelecting] : [self animateDraggedViewAfterCanceling];
+}
+
+
+- (BOOL)didSelectAchorView
+{
+    NSLog(@" *** anchor frame = %@, %@", NSStringFromCGRect(self.anchorViewFrame), NSStringFromCGRect(self.draggedViewFrame));
+    return NO;
+}
+
+
+- (void)animateDraggedViewAfterSelecting
+{
+    
+}
+
+
+- (void)animateDraggedViewAfterCanceling
+{
+    [self rotateWithAnimationToDeg:0];
 }
 
 
@@ -144,8 +168,10 @@
 
 - (CGFloat)getAlphaForSpotLightView
 {
-    CGFloat diff = self.anchorViewFrame.origin.y + self.anchorViewFrame.size.height - (self.draggedViewFrame.origin.y + self.draggedViewFrame.size.height);
-    CGFloat alpha = MIN(0.8,(diff+100)/(self.anchorViewFrame.size.height/4));
+    CGFloat diff = self.anchorViewFrame.origin.y + self.anchorViewFrame.size.height/2 - (self.draggedViewFrame.origin.y + self.draggedViewFrame.size.height/2);
+    
+    CGFloat m = kMaxSpotLightAlpha / self.anchorViewFrame.size.height;
+    CGFloat alpha = kMaxSpotLightAlpha + m*diff;
     return alpha;
 }
 
