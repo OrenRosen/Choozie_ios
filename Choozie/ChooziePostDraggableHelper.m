@@ -19,6 +19,17 @@
 @property (nonatomic, weak) NSLayoutConstraint *constraintY;
 @property (nonatomic, weak) UIView *viewtoDrag;
 
+@property (nonatomic, weak) UIView *anchorView;
+@property (nonatomic, weak) UIView *spotLightview;
+@property (nonatomic, weak) UIView *prevSpotLightView;
+@property (nonatomic) CGRect anchorViewFrame;
+@property (nonatomic) CGRect draggedViewFrame;
+@property (nonatomic) NSInteger currentImageNumber;
+@property (nonatomic) NSInteger prevImageNumber;
+@property (nonatomic) BOOL isDiffAnchorView;
+
+
+
 @end
 
 
@@ -35,7 +46,9 @@
         self.constraintX = constraintX;
         self.constraintY = constraintY;
         self.viewtoDrag = cell.circleRight;
-        [self setDraggableInCell];    }
+        self.prevImageNumber = -1;
+        [self setDraggableInCell];
+    }
     
     return self;
 }
@@ -59,7 +72,7 @@
 - (void)setDraggingChangedBlock
 {
     [self.viewtoDrag setDraggingChangedBlock:^{
-        [self rotateDraggedView];
+        [self draggedChanged];
     }];
 }
 
@@ -69,82 +82,88 @@
     [self.viewtoDrag setDraggingEndedBlock:^{
         [self rotateWithAnimationToDeg:0];
     }];
-    
-
-//    NSTimeInterval duration = 320.0 / velocityX;
-//    CGPoint offScreenCenter = moveView.center;
-//    offScreenCenter.x += xPoints;
-//    [UIView animateWithDuration:duration animations:^{
-//        moveView.center = offScreenCenter;
-//    }];
 }
 
 
 - (void)draggedChanged
 {
+    [self initPropertiesForDragedChanged];
     [self rotateDraggedView];
+    [self updateSpotLightAlpha];
+}
+
+
+- (void)initPropertiesForDragedChanged
+{
+    self.anchorView = [self getViewInRegardToRotateWithGesture];
+    self.currentImageNumber = (self.anchorView == self.chooziePostCell.rightImageView) ? 1 : 2;
+    self.isDiffAnchorView = ((self.prevImageNumber == -1) || (self.currentImageNumber != self.prevImageNumber));
+    self.anchorViewFrame = [self.anchorView convertRect:self.anchorView.bounds toView:self.chooziePostCell.contentView];
+    self.draggedViewFrame = [self.viewtoDrag convertRect:self.viewtoDrag.bounds toView:self.chooziePostCell.contentView];
+    self.spotLightview = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
+    self.prevSpotLightView = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
+    self.prevImageNumber = self.currentImageNumber;
 }
 
 
 - (void)rotateDraggedView
 {
-    static NSInteger prev = -1;
-    UIView *anchorView = [self getViewInRegardToRotateWithGesture];
     CGFloat deg = [self getWantedDegreeForDraggedView];
-    
-    NSInteger current = (anchorView == self.chooziePostCell.rightImageView) ? 1 : 2;
-    BOOL isDiffAnchorView = ((prev == -1) || (current != prev));
-    if (isDiffAnchorView) {
-        [self rotateWithAnimationToDeg:deg];
-    } else {
-        [self rotateWithoutAnimationToDeg:deg];
-    }
-    
-    prev = current;
-    
-    CGRect anchorViewFrame = [anchorView convertRect:anchorView.bounds toView:self.chooziePostCell.contentView];
-    CGRect draggedViewFrame = [self.viewtoDrag convertRect:self.viewtoDrag.bounds toView:self.chooziePostCell.contentView];
-    
-    BOOL isInside = CGRectIntersectsRect(anchorViewFrame, draggedViewFrame);
-    
-    UIView *spotLightview = (anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
-    
-    CGFloat diff = anchorViewFrame.origin.y + anchorViewFrame.size.height - (draggedViewFrame.origin.y + draggedViewFrame.size.height);
-    CGFloat alpha = MIN(0.8,(diff+100)/(anchorViewFrame.size.height/4));
-    
-    if (isDiffAnchorView) {
-       UIView *prevSpotLightView = (anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
+    self.isDiffAnchorView ? [self rotateWithAnimationToDeg:deg] : [self rotateWithoutAnimationToDeg:deg];
+}
+
+
+- (void)updateSpotLightAlpha
+{
+    CGFloat alpha = [self getAlphaForSpotLightView];
+    self.isDiffAnchorView? [self changeSpotLightAlphaWithChangedAnchor:alpha] : [self changeSpotLightAlphaWithoutChangedAnchor:alpha];
+}
+
+
+- (void)changeSpotLightAlphaWithChangedAnchor:(CGFloat)alpha
+{
+    self.spotLightview.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
         
-        spotLightview.hidden = NO;
-        [UIView animateWithDuration:0.3 animations:^{
-            
-            prevSpotLightView.alpha = 0.0;
-            spotLightview.alpha = alpha;
-            
-        } completion:^(BOOL finished) {
-            prevSpotLightView.hidden = YES;
-            prevSpotLightView.opaque = NO;
-        }];
-    } else {
-        spotLightview.alpha = alpha;
-        spotLightview.hidden = (alpha > 0) ? NO : YES;
-    }
+        self.prevSpotLightView.alpha = 0.0;
+        self.spotLightview.alpha = alpha;
+        
+    } completion:^(BOOL finished) {
+        self.prevSpotLightView.hidden = YES;
+        self.prevSpotLightView.opaque = NO;
+    }];
+}
+
+
+- (void)changeSpotLightAlphaWithoutChangedAnchor:(CGFloat)alpha
+{
+    self.spotLightview.alpha = alpha;
+    self.spotLightview.hidden = (alpha > 0) ? NO : YES;
+}
+
+
+- (CGFloat)getAlphaForSpotLightView
+{
+    CGFloat diff = self.anchorViewFrame.origin.y + self.anchorViewFrame.size.height - (self.draggedViewFrame.origin.y + self.draggedViewFrame.size.height);
+    CGFloat alpha = MIN(0.8,(diff+100)/(self.anchorViewFrame.size.height/4));
+    return alpha;
 }
 
 
 - (void)rotateWithAnimationToDeg:(CGFloat)deg
+{
+    [self animatePointerToDegree:deg];
+    [self aniamateShadowOffsetToDeg:deg];
+}
+
+
+- (void)animatePointerToDegree:(CGFloat)deg
 {
     [UIView animateWithDuration:0.2 animations:^{
         self.chooziePostCell.spotlightLeft.alpha = 0;
         self.chooziePostCell.spotlightRight.alpha = 0;
         [self rotatePointerImageViewByDegree:deg];
     }];
-    
-    [self aniamateShadowOffsetToDeg:deg];
-    
-    
-    CGPoint velocity = [self.viewtoDrag.dragGesture velocityInView:self.chooziePostCell];
-    NSLog(@" ***** velo = %@", NSStringFromCGPoint(velocity));
 }
 
 
