@@ -112,7 +112,7 @@
 {
         self.circleRight.layer.shadowColor = [UIColor blackColor].CGColor;
 //        self.circleRight.layer.shadowColor = [UIColor colorWithRed:180/255.0 green:180/255.0 blue:180/255.0 alpha:1.0].CGColor;
-        self.circleRight.layer.shadowOffset = CGSizeMake(0, 5);
+        self.circleRight.layer.shadowOffset = CGSizeMake(0, 3);
         self.circleRight.layer.shadowOpacity = 0.5;
         self.circleRight.layer.shadowRadius = 1;
 }
@@ -165,7 +165,11 @@
     self.choozeDraggedView.transform = CGAffineTransformIdentity;
     self.constraintCenterX.constant = 0;
     self.constraintCenterY.constant = 0;
-    self.choozeDraggedView.alpha = 0.0;
+    self.choozeDraggedView.alpha = 1.0;
+    self.spotlightLeft.alpha = 0.0;
+    self.spotlightLeft.hidden = YES;
+    self.spotlightRight.alpha = 0.0;
+    self.spotlightRight.hidden = YES;
 }
 
 

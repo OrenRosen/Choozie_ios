@@ -35,7 +35,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    NSLog(@" ***************** ");
+//    NSLog(@" ***************** ");
     
     self.backViewforBorder.layer.borderColor = [UIColor colorWithRed:214.0/255 green:214.0/255 blue:214.0/255 alpha:1.0].CGColor;
     self.backViewforBorder.layer.borderWidth = 1;

@@ -178,7 +178,7 @@
     
 //    NSLog(@" *** diff %f", difference);
     
-    CGFloat newConstant = self.constraintTopBarToTop.constant - difference;
+    CGFloat newConstant = self.constraintTopBarToTop.constant - difference/4;
     
     newConstant = MIN(newConstant, 0);
     newConstant = MAX(newConstant, -40);
