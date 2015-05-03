@@ -181,6 +181,31 @@
 }
 
 
+- (void)setShouldStopMovingOnAxisY:(BOOL)shouldStopMovingOnAxisY
+{
+    NSNumber *number = [NSNumber numberWithBool:shouldStopMovingOnAxisY];
+    objc_setAssociatedObject(self, @selector(shouldStopMovingOnAxisY), number , OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)shouldStopMovingOnAxisY
+{
+    NSNumber *number = objc_getAssociatedObject(self, @selector(shouldStopMovingOnAxisY));
+    return [number boolValue];
+}
+
+
+- (void)setShouldStopMovingOnAxisX:(BOOL)shouldStopMovingOnAxisX
+{
+    NSNumber *number = [NSNumber numberWithBool:shouldStopMovingOnAxisX];
+    objc_setAssociatedObject(self, @selector(shouldStopMovingOnAxisX), number , OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)shouldStopMovingOnAxisX
+{
+    NSNumber *number = objc_getAssociatedObject(self, @selector(shouldStopMovingOnAxisX));
+    return [number boolValue];
+}
+
 #pragma mark - iInterface Methods
 
 - (void)setDraggableWithConstraintX:(NSLayoutConstraint *)constraintX constraintY:(NSLayoutConstraint *)constraintY inView:(UIView *)containerView
@@ -222,16 +247,8 @@
 {
     CGPoint current = [self.dragGesture translationInView:self.dragGesture.view];
     
-    CGFloat newX = current.x - self.originalX;// self.lastDraggedPoint.x;
-    CGFloat newY = current.y - self.originalY;
-    
-//    CGFloat newX = (self.constraintForX.constant + diffX)/2;
-//    CGFloat newY = (self.constraintForY.constant + diffY)/2;
-
-    
-//    self.containerView.
-    
-//    NSLog(@" ***** . NEW - %f,%f", newX, newY);
+    CGFloat newX = self.shouldStopMovingOnAxisX ? self.originalX : current.x - self.originalX;
+    CGFloat newY = self.shouldStopMovingOnAxisY ? self.originalY : current.y - self.originalY;
     
     if (newX < -70) {
         newX = -70 - (-70 - newX) * 0.5;

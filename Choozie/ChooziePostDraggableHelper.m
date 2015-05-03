@@ -46,6 +46,7 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
         self.constraintX = constraintX;
         self.constraintY = constraintY;
         self.viewtoDrag = cell.choozeDraggedView;
+        self.viewtoDrag.shouldStopMovingOnAxisY = YES;
         self.prevImageNumber = -1;
         [self setDraggableInCell];
     }

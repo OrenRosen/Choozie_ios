@@ -14,6 +14,8 @@
 @property (nonatomic, weak) NSLayoutConstraint *constraintForY;
 @property (nonatomic, weak) UIView *containerView;
 @property (nonatomic, strong) UIPanGestureRecognizer *dragGesture;
+@property (nonatomic) BOOL shouldStopMovingOnAxisY;
+@property (nonatomic) BOOL shouldStopMovingOnAxisX;
 
 @property (nonatomic, copy) BOOL (^shouldReturnWhenDragEnds)();
 @property (nonatomic, copy) void (^draggingStartedBlock)();
