@@ -16,4 +16,7 @@ FOUNDATION_EXPORT NSString *const kFeedUrl;
 FOUNDATION_EXPORT NSString *const kUserProfileAdditionToFeedUrl;
 FOUNDATION_EXPORT NSString *const kCurserAdditionToFeedUrl;
 FOUNDATION_EXPORT NSString *const kVoteUrl;
+
+FOUNDATION_EXPORT NSString *const kCacheFeed;
+
 @end

@@ -18,6 +18,7 @@ NSString *const kUserProfileAdditionToFeedUrl = @"&fb_uid=%@";
 NSString *const kCurserAdditionToFeedUrl = @"&cursor=%@";
 NSString *const kVoteUrl = @"/votes/new?fb_uid=%@&which_photo=%d&post_key=%@";
 
-
+// Cache keys
+NSString *const kCacheFeed = @"kCacheFeed";
 
 @end

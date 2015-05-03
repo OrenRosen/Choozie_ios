@@ -27,6 +27,7 @@
 @property (nonatomic) NSInteger currentImageNumber;
 @property (nonatomic) NSInteger prevImageNumber;
 @property (nonatomic) BOOL isDiffAnchorView;
+@property (nonatomic) CGFloat alphaForSpotlightView;
 
 
 
@@ -44,7 +45,7 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
         self.chooziePostCell = cell;
         self.constraintX = constraintX;
         self.constraintY = constraintY;
-        self.viewtoDrag = cell.circleRight;
+        self.viewtoDrag = cell.choozeDraggedView;
         self.prevImageNumber = -1;
         [self setDraggableInCell];
     }
@@ -53,20 +54,20 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 }
 
 
-
 - (void)setDraggableInCell
 {
     [self setDraggingChangedBlock];
     [self setDraggingEndedBlock];
     [self.viewtoDrag setDraggableWithConstraintX:self.constraintX constraintY:self.constraintY inView:self.chooziePostCell];
-    self.viewtoDrag.shouldReturnWithBoundWhenDraggingEnds = YES;
     
+    [self.viewtoDrag setShouldReturnWhenDragEnds:^BOOL{
+        return ![self wasAnchorViewSelected];
+    }];
 }
 
 
 
 #pragma mark - Private Methdos
-
 
 - (void)setDraggingChangedBlock
 {
@@ -94,20 +95,55 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 
 - (void)dragEnded
 {
-    [self didSelectAchorView] ? [self animateDraggedViewAfterSelecting] : [self animateDraggedViewAfterCanceling];
+    [self wasAnchorViewSelected] ? [self animateDraggedViewAfterSelecting] : [self animateDraggedViewAfterCanceling];
 }
 
 
-- (BOOL)didSelectAchorView
+- (BOOL)wasAnchorViewSelected
 {
-    NSLog(@" *** anchor frame = %@, %@", NSStringFromCGRect(self.anchorViewFrame), NSStringFromCGRect(self.draggedViewFrame));
-    return NO;
+//    BOOL isInside = CGRectIntersectsRect(anchorViewFrame, draggedViewFrame);
+    return (self.alphaForSpotlightView > kMaxSpotLightAlpha - 0.15);
 }
 
 
 - (void)animateDraggedViewAfterSelecting
 {
+    [UIView animateWithDuration:0.1  delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
+        
+        
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.1 initialSpringVelocity:0.8 options:0 animations:^{
+            self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.01, 0.01);
+            
+        } completion:nil];
+        
+        
+        [UIView animateWithDuration:0.3 delay:0.6 options:0 animations:^{
+            self.viewtoDrag.alpha = 0.0;
+        } completion:nil];
+    }];
     
+    
+
+     
+     
+     
+//     
+//                     animations:^{
+//        
+//        self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.3, 1.3);
+//        
+//        
+//    }
+//     
+//    } completion:^(BOOL finished) {
+//        
+//        [UIView animateWithDuration:0.3 animations:^{
+//            self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+//        }];
+//    }];
 }
 
 
@@ -126,6 +162,8 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
     self.draggedViewFrame = [self.viewtoDrag convertRect:self.viewtoDrag.bounds toView:self.chooziePostCell.contentView];
     self.spotLightview = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
     self.prevSpotLightView = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
+    self.alphaForSpotlightView = [self getAlphaForSpotLightView];
+    NSLog(@" ***** alpah = %f", self.alphaForSpotlightView);
     self.prevImageNumber = self.currentImageNumber;
 }
 
@@ -139,18 +177,17 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 
 - (void)updateSpotLightAlpha
 {
-    CGFloat alpha = [self getAlphaForSpotLightView];
-    self.isDiffAnchorView? [self changeSpotLightAlphaWithChangedAnchor:alpha] : [self changeSpotLightAlphaWithoutChangedAnchor:alpha];
+    self.isDiffAnchorView? [self changeSpotLightAlphaWithChangedAnchor] : [self changeSpotLightAlphaWithoutChangedAnchor];
 }
 
 
-- (void)changeSpotLightAlphaWithChangedAnchor:(CGFloat)alpha
+- (void)changeSpotLightAlphaWithChangedAnchor
 {
     self.spotLightview.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
         
         self.prevSpotLightView.alpha = 0.0;
-        self.spotLightview.alpha = alpha;
+        self.spotLightview.alpha = self.alphaForSpotlightView;
         
     } completion:^(BOOL finished) {
         self.prevSpotLightView.hidden = YES;
@@ -159,10 +196,10 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 }
 
 
-- (void)changeSpotLightAlphaWithoutChangedAnchor:(CGFloat)alpha
+- (void)changeSpotLightAlphaWithoutChangedAnchor
 {
-    self.spotLightview.alpha = alpha;
-    self.spotLightview.hidden = (alpha > 0) ? NO : YES;
+    self.spotLightview.alpha = self.alphaForSpotlightView;
+    self.spotLightview.hidden = (self.alphaForSpotlightView > 0) ? NO : YES;
 }
 
 

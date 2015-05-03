@@ -155,6 +155,18 @@
 }
 
 
+- (void)setShouldReturnWhenDragEnds:(BOOL (^)())shouldReturnWhenDragEnds
+{
+    objc_setAssociatedObject(self, @selector(shouldReturnWhenDragEnds), shouldReturnWhenDragEnds, OBJC_ASSOCIATION_RETAIN);
+}
+
+
+- (BOOL (^)())shouldReturnWhenDragEnds
+{
+    return objc_getAssociatedObject(self, @selector(shouldReturnWhenDragEnds));
+}
+
+
 - (void)setShouldReturnWithBoundWhenDraggingEnds:(BOOL)shouldReturnWithBoundWhenDraggingEnds
 {
     NSNumber *numberVal = [NSNumber numberWithBool:shouldReturnWithBoundWhenDraggingEnds];
@@ -242,6 +254,10 @@
 
 - (void)returnToOriginaPositionlIfNeeded
 {
+    if (self.shouldReturnWhenDragEnds && !self.shouldReturnWhenDragEnds()) {
+        return;
+    }
+    
     self.constraintForX.constant = -self.constraintForX.constant/5;
     self.constraintForY.constant = -self.constraintForY.constant/5;
 

@@ -8,12 +8,18 @@
 
 #import "Utils.h"
 #import "TTTAttributedLabel.h"
+#import "AFHTTPRequestOperation.h"
+#import "ChoozieMantle.h"
 
 @interface Utils()
 
 @property (nonatomic, strong) NSString *imagesDirectoryPath;
 
 @end
+
+
+NSString *const kCacheDirNameDictionaries = @"Dictionaries";
+NSString *const kCacheDirNameImages = @"Images";
 
 
 @implementation Utils
@@ -160,7 +166,135 @@
 }
 
 
+
+
+
+- (void) getImagewithCachedImageFromURL:(NSString *)imageUrl postId:(NSString *)postId withCompletion:(void (^)(UIImage *image))onComplete
+{
+    NSString *imgName = postId ? postId : [[[imageUrl lastPathComponent] componentsSeparatedByString:@"?"] objectAtIndex:0];
+    
+    UIImage *imgFound = [UIImage imageNamed:imgName];
+    
+    if (imgFound) {
+        onComplete(imgFound);
+        return;
+        // NSLog(@"file exists in Bundle: %@", imgName);
+    }
+    NSString *strImgPath = [self.imagesDirectoryPath stringByAppendingString:imgName];
+    
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    if(![fileManger fileExistsAtPath:strImgPath]) //Check wether image exits at Image Folder in Doc Dir
+    {
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:10.0f];
+        
+        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            UIImage *image = responseObject;
+            onComplete(image);
+            
+            NSData *dataImg = UIImagePNGRepresentation(image);
+            if(dataImg){
+                [dataImg writeToFile:strImgPath atomically:YES];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            onComplete([UIImage imageWithData:nil]);
+        }];
+        
+        [requestOperation start];
+        
+        return;
+    } else {
+        //file exists in file-system
+        //        NSLog(@"file exists in file-system: %@", imgName);
+        NSData *imgData = [NSData dataWithContentsOfFile:strImgPath];
+        imgFound = [UIImage imageWithData:imgData];
+        onComplete(imgFound);
+    }
+    
+}
+
+
+- (void)saveJsonObjectToCache:(NSString *)fileName rootObject:(ChoozieMantle *)rootObject
+{
+    NSString *dictionariesPath = [[self class] cacheJsonDirDirectoryPath:kCacheDirNameDictionaries];
+    [self saveFileName:fileName withDictionariesPath:dictionariesPath forRootObject:rootObject];
+}
+
+
+- (void)saveFileName:(NSString *)fileName withDictionariesPath:(NSString *)dictionariesPath forRootObject:(ChoozieMantle *)rootObject
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
+        NSString *filePath = [dictionariesPath stringByAppendingString:fileName];
+        
+        // Serialize dictionary
+        [NSKeyedArchiver archiveRootObject:rootObject toFile:filePath];
+    });
+}
+
+
+- (id) getJsonObjectFromCache:(NSString *)fileName type:(Class)type
+{
+    NSString *dictionariesPath = [[self class] cacheJsonDirDirectoryPath:kCacheDirNameDictionaries];
+    ChoozieMantle *jsonObject = [self getObjectFromCacheWithDictionariesPath:dictionariesPath fileName:fileName forClassType:type];
+    
+    return jsonObject;
+}
+
+
 #pragma mark - Private Methods
+
++ (NSString *)cacheJsonDirDirectoryPath:(NSString *)dirName
+{
+    return [self cacheDirDirectoryForSearchPath:NSCachesDirectory withDirName:dirName];
+}
+
+
++ (NSString *)cacheUserGeneratedDirDirectoryPath:(NSString *)dirName
+{
+    return [self cacheDirDirectoryForSearchPath:NSDocumentDirectory withDirName:dirName];
+}
+
+
++ (NSString *)cacheDirDirectoryForSearchPath:(NSSearchPathDirectory)searchPath withDirName:(NSString *)dirName
+{
+    NSString *basePath = [self basePathForSearchPath:searchPath withDirName:dirName];
+    
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    if(![fileManger fileExistsAtPath:basePath])
+    {
+        NSError *error;
+        [fileManger createDirectoryAtPath:basePath withIntermediateDirectories:NO attributes:nil error:&error];
+    }
+    
+    return basePath;
+}
+
+
++ (NSString *)basePathForSearchPath:(NSSearchPathDirectory)searchPath withDirName:(NSString *)dirName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(searchPath, NSUserDomainMask, YES);  // According to https://developer.apple.com/icloud/documentation/data-storage/
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    basePath = [basePath stringByAppendingFormat:@"/%@/", dirName];
+    
+    return basePath;
+}
+
+
+- (id)getObjectFromCacheWithDictionariesPath:(NSString *)dictionariesPath fileName:(NSString *)fileName forClassType:(Class)type
+{
+    NSString *filePath = [dictionariesPath stringByAppendingString:fileName];
+    
+    ChoozieMantle *jsonObject = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    
+    if ([jsonObject isKindOfClass:[NSDictionary class]]) {
+        NSError *error = nil;
+        jsonObject = [MTLJSONAdapter modelOfClass:type fromJSONDictionary:(NSDictionary *)jsonObject error:&error];
+    }
+    
+    return jsonObject;
+}
+
 
 
 - (NSDictionary *)getLinkAttributes

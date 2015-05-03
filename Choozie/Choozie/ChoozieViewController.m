@@ -13,6 +13,7 @@
 #import "UserProfileViewController.h"
 #import "FXBlurView.h"
 #import "MainFeedDataSource.h"
+#import "Utils.h"
 
 @interface ChoozieViewController () <MainFeedDataSourceDelegate>
 
@@ -54,6 +55,13 @@
     self.feedTableView.delegate = self.mainFeedDataSource;
     self.feedTableView.dataSource = self.mainFeedDataSource;
     
+    self.feedResponse = [[Utils sharedInstance] getJsonObjectFromCache:kCacheFeed type:[FeedResponse class]];
+    if (self.feedResponse) {
+        self.mainFeedDataSource.feed = self.feedResponse.feed;
+        [self.feedTableView reloadData];
+        return;
+    }
+    
     [self getDataFromServer];
 }
 
@@ -70,6 +78,9 @@
         
         NSError *error = nil;
         self.feedResponse = [MTLJSONAdapter modelOfClass:[FeedResponse class] fromJSONDictionary:json error:&error];
+        
+        [[Utils sharedInstance] saveJsonObjectToCache:kCacheFeed rootObject:self.feedResponse];
+        
         self.mainFeedDataSource.feed = self.feedResponse.feed;
         [self.feedTableView reloadData];
     } failureBlock:^(NSError *error) {

@@ -195,6 +195,7 @@
                 <outlet property="backViewForBorder2" destination="PDc-77-B1n" id="BPt-XL-daA"/>
                 <outlet property="backViewForBorder3" destination="433-3A-e29" id="jeW-h3-ddO"/>
                 <outlet property="backViewForBorder4" destination="gA8-Af-0py" id="Gd5-Kh-iR6"/>
+                <outlet property="choozeDraggedView" destination="Nla-P1-9CV" id="oGi-CY-hDV"/>
                 <outlet property="circleRight" destination="OzY-b5-IVw" id="bDD-ml-MJD"/>
                 <outlet property="constraintCenterX" destination="RWb-En-kKG" id="CFd-9g-lbc"/>
                 <outlet property="constraintCenterY" destination="2mY-07-ehs" id="dDo-PA-Bfx"/>

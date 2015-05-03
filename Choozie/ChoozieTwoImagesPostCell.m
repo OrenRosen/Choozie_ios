@@ -161,6 +161,11 @@
     
     self.votesButtonRight.disableTouches = NO;
     self.votesButtonLeft.disableTouches = NO;
+    
+    self.choozeDraggedView.transform = CGAffineTransformIdentity;
+    self.constraintCenterX.constant = 0;
+    self.constraintCenterY.constant = 0;
+    self.choozeDraggedView.alpha = 0.0;
 }
 
 

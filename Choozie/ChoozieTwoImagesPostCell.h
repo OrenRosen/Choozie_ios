@@ -43,6 +43,7 @@
 // For dragging
 @property (nonatomic, weak) IBOutlet UIImageView *pointerImageView;
 @property (weak, nonatomic) IBOutlet HeroButton *circleRight;
+@property (weak, nonatomic) IBOutlet UIView *choozeDraggedView;
 
 
 
