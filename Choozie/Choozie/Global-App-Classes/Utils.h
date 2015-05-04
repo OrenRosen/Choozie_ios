@@ -31,4 +31,26 @@
 
 
 
+
+-(NSArray *)setConstarintsForCenterInParent:(UIView *)view;
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distance underItem:(id)itemOnTop withHeight:(CGFloat)height inView:(UIView *)view;
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distanceFromView fromTopOfItem:(id)fromItem withHeight:(CGFloat)height inView:(UIView *)view;
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distance toBottomOf:(id)itemOnBottom withHeight:(CGFloat)height inView:(UIView *)view;
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distanceFromView ToFillItem:(id)itemToFill inView:(UIView *)view;
+
+// Set constraints for UILabel, i.e - only for x and y position (without width and height)
+- (void)setConstraintsForLabel:(UILabel *)label withDistance:(CGFloat)distanceFromView fromTopOfItem:(id)fromItem inView:(UIView *)view;
+
+-(NSArray *)setConstarintsForCenterInParent:(UIView *)view;
+
+FOUNDATION_EXPORT NSString *const kTopConstraintKey;
+FOUNDATION_EXPORT NSString *const kBottomConstraintKey;
+FOUNDATION_EXPORT NSString *const kLeftConstraintKey;
+FOUNDATION_EXPORT NSString *const kRightConstraintKey;
+FOUNDATION_EXPORT NSString *const kHeightConstraintKey;
+
 @end

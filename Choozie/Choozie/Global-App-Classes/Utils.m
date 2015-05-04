@@ -10,6 +10,7 @@
 #import "TTTAttributedLabel.h"
 #import "AFHTTPRequestOperation.h"
 #import "ChoozieMantle.h"
+#import "UIView+Additions.h"
 
 @interface Utils()
 
@@ -17,6 +18,11 @@
 
 @end
 
+NSString *const kTopConstraintKey = @"kTopConstraintKey";
+NSString *const kBottomConstraintKey = @"kBottomConstraintKey";
+NSString *const kLeftConstraintKey = @"kLeftConstraintKey";
+NSString *const kRightConstraintKey = @"kRightConstraintKey";
+NSString *const kHeightConstraintKey = @"kHeightConstraintKey";
 
 NSString *const kCacheDirNameDictionaries = @"Dictionaries";
 NSString *const kCacheDirNameImages = @"Images";
@@ -329,6 +335,131 @@ NSString *const kCacheDirNameImages = @"Images";
     return [NSDictionary dictionaryWithDictionary: mutableActiveLinkAttributes];
 }
 
+
+
+#pragma mark -
+#pragma mark - Autolayout Methods
+-(NSArray *)setConstarintsForCenterInParent:(UIView *)view
+{
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *centerXconstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:view.superview attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+    
+    
+    NSLayoutConstraint *centerYconstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:view.superview attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+    
+    NSLayoutConstraint *widthConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:view.width];
+    
+    NSLayoutConstraint *heightConstraint = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:0 multiplier:1 constant:view.height];
+    
+    NSArray *constraints = [NSArray arrayWithObjects:centerXconstraint, centerYconstraint, widthConstraint, heightConstraint, nil];
+    [view.superview addConstraints:constraints];
+    
+    return constraints;
+}
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distance underItem:(id)itemOnTop withHeight:(CGFloat)height inView:(UIView *)view
+{
+    item.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:itemOnTop attribute:NSLayoutAttributeBottom multiplier:1.0f constant:distance];
+    
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeLeft multiplier:1.0f constant:0.0];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeRight multiplier:1.0f constant:0.0];
+    
+    NSLayoutConstraint *heightConstraint;
+    if (height > 0) {
+        heightConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:height];
+        
+    } else {
+        heightConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0];
+    }
+    
+    [view addConstraints:@[topConstraint, leftConstraint, rightConstraint, heightConstraint]];
+    
+    NSDictionary *constraintsDictionary = [NSMutableDictionary dictionaryWithObjects:@[topConstraint, leftConstraint, rightConstraint, heightConstraint] forKeys:@[kTopConstraintKey, kLeftConstraintKey, kRightConstraintKey, kHeightConstraintKey]];
+    
+    return constraintsDictionary;
+}
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distanceFromView fromTopOfItem:(id)fromItem withHeight:(CGFloat)height inView:(UIView *)view
+{
+    item.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:fromItem attribute:NSLayoutAttributeTop multiplier:1.0f constant:distanceFromView];
+    
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:fromItem attribute:NSLayoutAttributeLeft multiplier:1.0f constant:0.0f];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeRight  relatedBy:NSLayoutRelationEqual toItem:fromItem attribute:NSLayoutAttributeRight multiplier:1.0f constant:0.0f];
+    
+    NSLayoutConstraint *heightConstraint;
+    
+    if (height > 0) {
+        heightConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0f constant:height];
+    } else {
+        heightConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f];
+    }
+    
+    [view addConstraints:@[topConstraint, leftConstraint, rightConstraint, heightConstraint]];
+    
+    NSDictionary *constraintsDictionary = [NSMutableDictionary dictionaryWithObjects:@[topConstraint, leftConstraint, rightConstraint, heightConstraint] forKeys:@[kTopConstraintKey, kLeftConstraintKey, kRightConstraintKey, kHeightConstraintKey]];
+    
+    return constraintsDictionary;
+}
+
+
+- (NSDictionary *)setConstraintsForItem:(UIView *)item withDistance:(CGFloat)distanceFromView ToFillItem:(id)itemToFill inView:(UIView *)view
+{
+    item.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:item
+                                                                     attribute:NSLayoutAttributeTop
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:itemToFill
+                                                                     attribute:NSLayoutAttributeTop
+                                                                    multiplier:1.0f
+                                                                      constant:distanceFromView];
+    
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:item
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:itemToFill
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                     multiplier:1.0f
+                                                                       constant:distanceFromView];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:item
+                                                                       attribute:NSLayoutAttributeRight
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:itemToFill
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1.0f
+                                                                        constant:distanceFromView];
+    
+    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:item
+                                                                        attribute:NSLayoutAttributeBottom
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:itemToFill
+                                                                        attribute:NSLayoutAttributeBottom
+                                                                       multiplier:1.0f
+                                                                         constant:distanceFromView];
+    
+    [view addConstraints:@[topConstraint, leftConstraint, rightConstraint, bottomConstraint]];
+    
+    NSDictionary *constraintsDictionary = [NSMutableDictionary dictionaryWithObjects:@[topConstraint, leftConstraint, rightConstraint, bottomConstraint] forKeys:@[kTopConstraintKey, kLeftConstraintKey, kRightConstraintKey, kBottomConstraintKey]];
+    
+    return constraintsDictionary;
+}
+
+
+- (void)setConstraintsForLabel:(UILabel *)label withDistance:(CGFloat)distanceFromView fromTopOfItem:(id)fromItem inView:(UIView *)view
+{
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:fromItem attribute:NSLayoutAttributeTop multiplier:1.0f constant:distanceFromView]];
+    
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:fromItem attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
+}
 
 
 

@@ -14,6 +14,8 @@
 #import "HeroButton.h"
 #import "ChooziePostDraggableHelper.h"
 #import "MLPSpotlight.h"
+#import "SlideToVoteView.h"
+#import "Utils.h"
 
 @interface ChoozieTwoImagesPostCell()
 
@@ -25,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet HeroButton *circleLeft;
 @property (weak, nonatomic) IBOutlet FBShimmeringView *shimmeringViewLeft;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowLeft;
+@property (nonatomic, strong) UIView *slideToVoteView;
+@property (nonatomic, weak) IBOutlet UIView *slideToVoteContainer;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterY;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintCenterX;
@@ -99,6 +103,8 @@
 
     [self initTheDragggg];
     
+    [self addSlideToVote];
+    
     CGPoint leftLightPoint = [self.leftImageView convertPoint:self.leftImageView.center toView:self.contentView];
     self.spotlightLeft = [MLPSpotlight addSpotlightImmidiatlyInView:self.contentView atPoint:leftLightPoint withAlpha:0];
     self.spotlightLeft.hidden = YES;
@@ -121,6 +127,22 @@
 - (void)initTheDragggg
 {
     ChooziePostDraggableHelper *draggableHelper = [[ChooziePostDraggableHelper alloc] initInCell:self withConstraintX:self.constraintCenterX constraintY:self.constraintCenterY];
+}
+
+
+- (UIView *)slideToVoteView
+{
+    if (!_slideToVoteView) {
+        _slideToVoteView = [[NSBundle mainBundle] loadNibNamed:@"SlideToVoteView" owner:nil options:nil][0];
+    }
+    return _slideToVoteView;
+}
+
+
+- (void)addSlideToVote
+{
+    [self.slideToVoteContainer addSubview:self.slideToVoteView];
+    [[Utils sharedInstance] setConstarintsForCenterInParent:self.slideToVoteView];
 }
 
 

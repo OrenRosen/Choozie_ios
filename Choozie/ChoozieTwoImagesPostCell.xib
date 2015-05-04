@@ -111,6 +111,13 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-kj-Ljx" userLabel="slide to vote container">
+                                <rect key="frame" x="0.0" y="168" width="321" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="tGB-RY-6zk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -120,11 +127,14 @@
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="5H7-Nu-NM1"/>
                             <constraint firstItem="HHK-PY-rNn" firstAttribute="height" secondItem="RtH-Io-4Zx" secondAttribute="height" constant="-40" id="703-Wb-EWr"/>
                             <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="942-xm-BAr"/>
+                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="top" secondItem="fCP-c4-hGT" secondAttribute="bottom" constant="8" id="GCE-UR-8k6"/>
                             <constraint firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="Jrg-qg-cn9"/>
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="XPu-xx-h7X" secondAttribute="leading" id="LEO-xc-aky"/>
                             <constraint firstItem="OzY-b5-IVw" firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="RWb-En-kKG"/>
+                            <constraint firstAttribute="trailing" secondItem="NdE-kj-Ljx" secondAttribute="trailing" id="Soc-B0-xM4"/>
                             <constraint firstItem="HHK-PY-rNn" firstAttribute="top" secondItem="RtH-Io-4Zx" secondAttribute="bottom" constant="20" id="VgP-pv-JmJ"/>
                             <constraint firstItem="euw-uR-0Rz" firstAttribute="leading" secondItem="RtH-Io-4Zx" secondAttribute="trailing" id="WVC-YZ-QNb"/>
+                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="leading" secondItem="XPu-xx-h7X" secondAttribute="leading" id="WqV-eH-as0"/>
                             <constraint firstItem="RtH-Io-4Zx" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="byF-DO-hbz"/>
                             <constraint firstItem="RtH-Io-4Zx" firstAttribute="bottom" secondItem="euw-uR-0Rz" secondAttribute="bottom" id="hBf-oa-cBx"/>
                             <constraint firstItem="euw-uR-0Rz" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="lBC-A6-jWg"/>
@@ -202,8 +212,9 @@
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
                 <outlet property="pointerImageView" destination="0Sf-My-Yoa" id="yRC-1h-IzJ"/>
                 <outlet property="rightImageView" destination="euw-uR-0Rz" id="1G5-In-NnJ"/>
+                <outlet property="slideToVoteContainer" destination="NdE-kj-Ljx" id="vWV-dO-V30"/>
             </connections>
-            <point key="canvasLocation" x="306.5" y="262.5"/>
+            <point key="canvasLocation" x="306.5" y="258.5"/>
         </tableViewCell>
     </objects>
     <resources>
