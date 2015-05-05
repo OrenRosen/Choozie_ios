@@ -45,8 +45,6 @@
 // Set constraints for UILabel, i.e - only for x and y position (without width and height)
 - (void)setConstraintsForLabel:(UILabel *)label withDistance:(CGFloat)distanceFromView fromTopOfItem:(id)fromItem inView:(UIView *)view;
 
--(NSArray *)setConstarintsForCenterInParent:(UIView *)view;
-
 FOUNDATION_EXPORT NSString *const kTopConstraintKey;
 FOUNDATION_EXPORT NSString *const kBottomConstraintKey;
 FOUNDATION_EXPORT NSString *const kLeftConstraintKey;

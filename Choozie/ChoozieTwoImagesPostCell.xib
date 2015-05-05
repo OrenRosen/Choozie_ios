@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="width" secondItem="euw-uR-0Rz" secondAttribute="height" multiplier="1:1" id="iSL-Q2-Ewo"/>
                                 </constraints>
                             </imageView>
-                            <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-P1-9CV" userLabel="circle shimm -&gt;" customClass="UIButton">
+                            <view hidden="YES" alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-P1-9CV" userLabel="circle shimm -&gt;" customClass="UIButton">
                                 <rect key="frame" x="131" y="211" width="60" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzY-b5-IVw" userLabel="circle button-&gt;" customClass="HeroButton">
@@ -112,14 +112,24 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-kj-Ljx" userLabel="slide to vote container">
-                                <rect key="frame" x="0.0" y="168" width="321" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="140" width="321" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="tGB-RY-6zk"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldg-kq-TGC">
+                                <rect key="frame" x="20" y="192" width="280" height="3"/>
+                                <color key="backgroundColor" red="0.55117582070707072" green="0.55117582070707072" blue="0.55117582070707072" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="Q1X-uh-cfk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="30"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HHK-PY-rNn" firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="0zY-XC-CA5"/>
                             <constraint firstItem="Nla-P1-9CV" firstAttribute="centerY" secondItem="HHK-PY-rNn" secondAttribute="centerY" constant="1" id="2mY-07-ehs"/>
@@ -127,7 +137,9 @@
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="5H7-Nu-NM1"/>
                             <constraint firstItem="HHK-PY-rNn" firstAttribute="height" secondItem="RtH-Io-4Zx" secondAttribute="height" constant="-40" id="703-Wb-EWr"/>
                             <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="942-xm-BAr"/>
-                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="top" secondItem="fCP-c4-hGT" secondAttribute="bottom" constant="8" id="GCE-UR-8k6"/>
+                            <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="ldg-kq-TGC" secondAttribute="leading" constant="-20" id="9VE-Qt-Cih"/>
+                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="centerX" secondItem="ldg-kq-TGC" secondAttribute="centerX" id="DhR-u8-jr5"/>
+                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="top" secondItem="fCP-c4-hGT" secondAttribute="bottom" constant="-20" id="GCE-UR-8k6"/>
                             <constraint firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="Jrg-qg-cn9"/>
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="XPu-xx-h7X" secondAttribute="leading" id="LEO-xc-aky"/>
                             <constraint firstItem="OzY-b5-IVw" firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="RWb-En-kKG"/>
@@ -138,6 +150,7 @@
                             <constraint firstItem="RtH-Io-4Zx" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="byF-DO-hbz"/>
                             <constraint firstItem="RtH-Io-4Zx" firstAttribute="bottom" secondItem="euw-uR-0Rz" secondAttribute="bottom" id="hBf-oa-cBx"/>
                             <constraint firstItem="euw-uR-0Rz" firstAttribute="top" secondItem="XPu-xx-h7X" secondAttribute="top" id="lBC-A6-jWg"/>
+                            <constraint firstItem="ldg-kq-TGC" firstAttribute="top" secondItem="NdE-kj-Ljx" secondAttribute="bottom" constant="10" id="tAc-gy-UlG"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
@@ -205,16 +218,14 @@
                 <outlet property="backViewForBorder2" destination="PDc-77-B1n" id="BPt-XL-daA"/>
                 <outlet property="backViewForBorder3" destination="433-3A-e29" id="jeW-h3-ddO"/>
                 <outlet property="backViewForBorder4" destination="gA8-Af-0py" id="Gd5-Kh-iR6"/>
-                <outlet property="choozeDraggedView" destination="Nla-P1-9CV" id="oGi-CY-hDV"/>
                 <outlet property="circleRight" destination="OzY-b5-IVw" id="bDD-ml-MJD"/>
                 <outlet property="constraintCenterX" destination="RWb-En-kKG" id="CFd-9g-lbc"/>
                 <outlet property="constraintCenterY" destination="2mY-07-ehs" id="dDo-PA-Bfx"/>
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
-                <outlet property="pointerImageView" destination="0Sf-My-Yoa" id="yRC-1h-IzJ"/>
                 <outlet property="rightImageView" destination="euw-uR-0Rz" id="1G5-In-NnJ"/>
                 <outlet property="slideToVoteContainer" destination="NdE-kj-Ljx" id="vWV-dO-V30"/>
             </connections>
-            <point key="canvasLocation" x="306.5" y="258.5"/>
+            <point key="canvasLocation" x="258.5" y="262.5"/>
         </tableViewCell>
     </objects>
     <resources>

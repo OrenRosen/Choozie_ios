@@ -31,6 +31,7 @@
 
 
 
+
 @end
 
 
@@ -161,8 +162,8 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
     self.isDiffAnchorView = ((self.prevImageNumber == -1) || (self.currentImageNumber != self.prevImageNumber));
     self.anchorViewFrame = [self.anchorView convertRect:self.anchorView.bounds toView:self.chooziePostCell.contentView];
     self.draggedViewFrame = [self.viewtoDrag convertRect:self.viewtoDrag.bounds toView:self.chooziePostCell.contentView];
-    self.spotLightview = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
-    self.prevSpotLightView = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
+//    self.spotLightview = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
+//    self.prevSpotLightView = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
     self.alphaForSpotlightView = [self getAlphaForSpotLightView];
     NSLog(@" ***** alpah = %f", self.alphaForSpotlightView);
     self.prevImageNumber = self.currentImageNumber;
@@ -279,8 +280,8 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 - (CGFloat)getWantedDegreeForDraggedView
 {
     UIView *anchorView = [self getViewInRegardToRotateWithGesture];
-    CGFloat diffCeneterX = self.viewtoDrag.superview.center.x - anchorView.center.x;
-    CGFloat diffCeneterY =  self.viewtoDrag.superview.center.y - anchorView.center.y;
+    CGFloat diffCeneterX = self.viewtoDrag.superview.center.x - anchorView.center.x ;
+    CGFloat diffCeneterY = anchorView.center.y - self.viewtoDrag.superview.center.y;
     
     CGFloat x = atan2(diffCeneterY, diffCeneterX);
     CGFloat deg = ((x > 0 ? x : (2*M_PI + x)) * 360 / (2*M_PI)) - 90;
@@ -291,7 +292,7 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 - (void)rotatePointerImageViewByDegree:(CGFloat)deg
 {
     CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
-    self.chooziePostCell.pointerImageView.transform = transform;
+    self.pointerImageView.transform = transform;
 }
 
 

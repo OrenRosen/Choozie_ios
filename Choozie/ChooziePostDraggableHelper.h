@@ -11,6 +11,7 @@
 @class ChoozieTwoImagesPostCell;
 @interface ChooziePostDraggableHelper : NSObject
 
+@property (nonatomic, weak) UIImageView *pointerImageView;
 
 - (instancetype)initInCell:(ChoozieTwoImagesPostCell *)cell withConstraintX:(NSLayoutConstraint *)constraintX constraintY:(NSLayoutConstraint *)constraintY;
 

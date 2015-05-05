@@ -140,6 +140,15 @@
 
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isKindOfClass:[ChoozieTwoImagesPostCell class]]) {
+        ChoozieTwoImagesPostCell *asd = (ChoozieTwoImagesPostCell *)cell;
+//        NSLog(@"****** container = %@, stv = %@", NSStringFromCGRect(asd.slideToVoteContainer.frame), NSStringFromCGRect(asd.slideToVoteView.frame));
+    }
+}
+
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

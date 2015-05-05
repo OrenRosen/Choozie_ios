@@ -15,6 +15,8 @@
 @class ChoozieTwoImagesPostCell;
 @class ChooziePost;
 @class HeroButton;
+@class SlideToVoteView;
+
 @protocol ChoozieTwoImagesPostCellDelegate <NSObject>
 
 - (void)votedLeftInChoozieCell:(ChoozieTwoImagesPostCell *)cell;
@@ -34,6 +36,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *votesLabelRight;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageRight;
 @property (weak, nonatomic) IBOutlet UIImageView *heartImageLeft;
+
+@property (nonatomic, strong) SlideToVoteView *slideToVoteView;
+@property (nonatomic, weak) IBOutlet UIView *slideToVoteContainer;
 
 @property (nonatomic, strong) MLPSpotlight *spotlightLeft;
 @property (nonatomic, strong) MLPSpotlight *spotlightRight;

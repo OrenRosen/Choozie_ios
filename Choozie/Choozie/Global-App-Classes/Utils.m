@@ -412,13 +412,7 @@ NSString *const kCacheDirNameImages = @"Images";
 {
     item.translatesAutoresizingMaskIntoConstraints = NO;
     
-    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:item
-                                                                     attribute:NSLayoutAttributeTop
-                                                                     relatedBy:NSLayoutRelationEqual
-                                                                        toItem:itemToFill
-                                                                     attribute:NSLayoutAttributeTop
-                                                                    multiplier:1.0f
-                                                                      constant:distanceFromView];
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:item attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:itemToFill attribute:NSLayoutAttributeTop multiplier:1.0f constant:distanceFromView];
     
     NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:item
                                                                       attribute:NSLayoutAttributeLeft

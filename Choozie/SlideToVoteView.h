@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+@class ChoozieTwoImagesPostCell;
 @interface SlideToVoteView : UIView
+
+
+- (void)initDragForCell:(ChoozieTwoImagesPostCell *)cell;
+
 
 @end
