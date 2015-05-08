@@ -16,7 +16,6 @@
 #import "MLPSpotlight.h"
 #import "SlideToVoteView.h"
 #import "Utils.h"
-#import "SlideToVoteView.h"
 
 @interface ChoozieTwoImagesPostCell()
 
@@ -111,6 +110,7 @@
     
     CGPoint rightLightPoint = CGPointMake(224, 80); //[self.rightImageView convertPoint:self.rightImageView.center toView:self.contentView];
     self.spotlightRight = [MLPSpotlight addSpotlightImmidiatlyInView:self.contentView atPoint:rightLightPoint withAlpha:0];
+    
     self.spotlightRight.hidden = YES;
 }
 

@@ -11,6 +11,8 @@
 #import "ChoozieTwoImagesPostCell.h"
 #import "HeroButton.h"
 #import "MLPSpotlight.h"
+#import "SlideToVoteView.h"
+#import "UIView+Additions.h"
 
 @interface ChooziePostDraggableHelper()
 
@@ -20,6 +22,7 @@
 @property (nonatomic, weak) UIView *viewtoDrag;
 
 @property (nonatomic, weak) UIView *anchorView;
+@property (nonatomic, weak) UIView *antiAnchorView;
 @property (nonatomic, weak) UIView *spotLightview;
 @property (nonatomic, weak) UIView *prevSpotLightView;
 @property (nonatomic) CGRect anchorViewFrame;
@@ -29,15 +32,22 @@
 @property (nonatomic) BOOL isDiffAnchorView;
 @property (nonatomic) CGFloat alphaForSpotlightView;
 
+@property (nonatomic, weak) SlideToVoteView *slideToVoteView;
+
+@property (nonatomic) CGFloat originalWidthConstant;
+
+@property (nonatomic, copy) CGFloat (^lineEquation)(CGFloat);
+
 
 
 
 @end
 
+typedef CGFloat (^LineEquation)(CGFloat);
 
 @implementation ChooziePostDraggableHelper
 
-CGFloat const kMaxSpotLightAlpha = 0.8;
+CGFloat const kMaxSpotLightAlpha = 1;
 
 - (instancetype)initInCell:(ChoozieTwoImagesPostCell *)cell withConstraintX:(NSLayoutConstraint *)constraintX constraintY:(NSLayoutConstraint *)constraintY
 {
@@ -50,6 +60,10 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
         self.viewtoDrag.shouldStopMovingOnAxisY = YES;
         self.prevImageNumber = -1;
         [self setDraggableInCell];
+        
+        self.slideToVoteView = cell.slideToVoteView;
+        self.slideToVoteView.constraintArrowHeight.constant = 0;
+        self.slideToVoteView.constraintArrowWidth.constant = 0;
     }
     
     return self;
@@ -82,6 +96,9 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 - (void)dragChanged
 {
     [self initPropertiesForDragedChanged];
+    [self setImageForArrow];
+    [self setWidthConstantForArrow];
+    [self updateImagesSizes];
     [self rotateDraggedView];
     [self updateSpotLightAlpha];
 }
@@ -103,71 +120,183 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 
 - (BOOL)wasAnchorViewSelected
 {
-//    BOOL isInside = CGRectIntersectsRect(anchorViewFrame, draggedViewFrame);
-    return (self.alphaForSpotlightView > kMaxSpotLightAlpha - 0.15);
+    return NO;
+    return self.alphaForSpotlightView == 1;
 }
 
 
 - (void)animateDraggedViewAfterSelecting
 {
-    [UIView animateWithDuration:0.1  delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-        self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.2, 1.2);
-        
-        
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1.0 delay:0.0 usingSpringWithDamping:0.1 initialSpringVelocity:0.8 options:0 animations:^{
-            self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.01, 0.01);
-            
-        } completion:nil];
-        
-        
-        [UIView animateWithDuration:0.3 delay:0.6 options:0 animations:^{
-            self.viewtoDrag.alpha = 0.0;
-        } completion:nil];
-    }];
     
-    
-
-     
-     
-     
-//     
-//                     animations:^{
-//        
-//        self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.3, 1.3);
-//        
-//        
-//    }
-//     
-//    } completion:^(BOOL finished) {
-//        
-//        [UIView animateWithDuration:0.3 animations:^{
-//            self.viewtoDrag.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
-//        }];
-//    }];
 }
 
 
 - (void)animateDraggedViewAfterCanceling
 {
     [self rotateWithAnimationToDeg:0];
+    [self animateArrowToOriginalPosition];
+    
+}
+
+
+- (void)animateArrowToOriginalPosition
+{
+    self.chooziePostCell.constraintImageLeftLeft.constant = 0;
+    self.chooziePostCell.constraintImageLeftTop.constant = 0;
+    self.chooziePostCell.constraintImageLeftRight.constant = 0;
+    
+    self.chooziePostCell.constraintImageRightLeft.constant = 0;
+    self.chooziePostCell.constraintImageRightTop.constant = 0;
+    self.chooziePostCell.constraintImageRightRight.constant = 0;
+    
+    self.slideToVoteView.constraintArrowHeight.constant = 0;
+    self.slideToVoteView.constraintArrowWidth.constant = 0;
+    self.slideToVoteView.constraintRightArrow.constant = 0;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.chooziePostCell layoutIfNeeded];
+    }];
 }
 
 
 - (void)initPropertiesForDragedChanged
 {
     self.anchorView = [self getViewInRegardToRotateWithGesture];
+    self.originalWidthConstant = self.anchorView.height;
     self.currentImageNumber = (self.anchorView == self.chooziePostCell.rightImageView) ? 1 : 2;
     self.isDiffAnchorView = ((self.prevImageNumber == -1) || (self.currentImageNumber != self.prevImageNumber));
     self.anchorViewFrame = [self.anchorView convertRect:self.anchorView.bounds toView:self.chooziePostCell.contentView];
     self.draggedViewFrame = [self.viewtoDrag convertRect:self.viewtoDrag.bounds toView:self.chooziePostCell.contentView];
-//    self.spotLightview = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
-//    self.prevSpotLightView = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
+    self.spotLightview = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightRight : self.chooziePostCell.spotlightLeft;
+    self.prevSpotLightView = (self.anchorView == self.chooziePostCell.rightImageView) ? self.chooziePostCell.spotlightLeft : self.chooziePostCell.spotlightRight;
     self.alphaForSpotlightView = [self getAlphaForSpotLightView];
-    NSLog(@" ***** alpah = %f", self.alphaForSpotlightView);
+    
+    NSLog(@" ****** alpha = %f", self.alphaForSpotlightView);
+    
     self.prevImageNumber = self.currentImageNumber;
+    self.antiAnchorView = (self.currentImageNumber == 1) ? self.chooziePostCell.leftImageView : self.chooziePostCell.rightImageView;
 }
+
+
+- (void)setImageForArrow
+{
+    if (self.isDiffAnchorView) {
+        NSString *imageName = (self.currentImageNumber == 1) ? @"arrow-right" : @"arrow-left";
+        self.slideToVoteView.arrow.image = [UIImage imageNamed:imageName];
+    }
+}
+
+
+- (void)setWidthConstantForArrow
+{
+    CGFloat cnstant = [self getConstantForWidth];
+    self.slideToVoteView.constraintArrowWidth.constant = cnstant;
+    self.slideToVoteView.constraintArrowHeight.constant = cnstant;
+    
+    
+    CGPoint p1 = CGPointMake(0,0);
+    CGPoint p2 = (self.currentImageNumber == 1) ? CGPointMake(60, -10) : CGPointMake(60, -50);
+    LineEquation equation = [self getLineEquationWithFirstPoint:p1 second:p2];
+    self.slideToVoteView.constraintRightArrow.constant = equation(cnstant);
+    
+    [self rotateArrow];
+}
+
+
+- (void)rotateArrow
+{
+    CGFloat deg = [self getDegForArrow];
+    CGAffineTransform transform = CGAffineTransformMakeRotation([self degreesToRadians:deg]);
+    self.slideToVoteView.arrow.transform = transform;
+}
+
+
+- (CGFloat)getDegForArrow
+{
+    CGFloat diffX = ABS([self getDiffX]);
+    if (self.currentImageNumber == 1) {
+    
+        
+        CGPoint p1 = CGPointMake(self.anchorView.width/2, 360);
+        CGPoint p2 = CGPointMake(0, 290);
+        
+        LineEquation le = [self getLineEquationWithFirstPoint:p2 second:p1];
+        
+        
+        
+        CGFloat deg = le(diffX);
+    
+        return deg;
+        
+    } else {
+        CGPoint p1 = CGPointMake(self.anchorView.width/2, 0);
+        CGPoint p2 = CGPointMake(0, 70);
+        LineEquation le = [self getLineEquationWithFirstPoint:p2 second:p1];
+        
+        CGFloat deg = le(diffX);
+        
+        return deg;
+    }
+}
+
+
+- (void)updateImagesSizes
+{
+    CGFloat diffX = ABS([self getDiffX]);
+    
+    CGPoint p1 = CGPointMake(0, 4);
+    CGPoint p2 = CGPointMake(self.originalWidthConstant/2, 0);
+    
+    LineEquation widthEquation = [self getLineEquationWithFirstPoint:p1 second:p2];
+    CGFloat width = widthEquation(diffX);
+    
+    width = MAX(MIN(width, 4), 0);
+    
+    NSLayoutConstraint *anchorConstraint = (self.currentImageNumber == 1) ? self.chooziePostCell.constraintImageRightLeft: self.chooziePostCell.constraintImageLeftRight;
+    
+    NSLayoutConstraint *antiConstraintTop = (self.currentImageNumber == 2) ? self.chooziePostCell.constraintImageRightTop: self.chooziePostCell.constraintImageLeftTop;
+    NSLayoutConstraint *antiConstraintRight = (self.currentImageNumber == 2) ? self.chooziePostCell.constraintImageRightRight: self.chooziePostCell.constraintImageLeftRight;
+    NSLayoutConstraint *antiConstraintLeft = (self.currentImageNumber == 2) ? self.chooziePostCell.constraintImageRightLeft: self.chooziePostCell.constraintImageLeftLeft;
+    
+    anchorConstraint.constant = -width;
+    
+    antiConstraintLeft.constant = width;
+    antiConstraintRight.constant = width;
+    antiConstraintTop.constant = width;
+}
+
+
+- (CGFloat)getDiffX
+{
+    CGPoint centerAnchor = [self centerForFrame:self.anchorViewFrame];
+    CGPoint centerDragged = [self centerForFrame:self.draggedViewFrame];
+    CGFloat weirdo = self.originalWidthConstant / 6;
+    
+    centerAnchor.x = (self.currentImageNumber == 1) ? centerAnchor.x + weirdo : centerAnchor.x - weirdo;
+    
+    CGFloat diff_x = centerAnchor.x - centerDragged.x;
+    
+    if ((self.currentImageNumber == 1) && (diff_x<0)) {
+        diff_x = 0;
+    }
+    
+    if ((self.currentImageNumber == 2) && (diff_x>0)) {
+        diff_x = 0;
+    }
+    
+    diff_x = ABS(diff_x);
+    
+    return diff_x;
+}
+
+
+- (CGPoint)centerForFrame:(CGRect)frame
+{
+    CGFloat x = frame.size.width/2 + frame.origin.x;
+    CGFloat y = frame.size.height/2 + frame.origin.y;
+    return CGPointMake(x, y);
+}
+
 
 
 - (void)rotateDraggedView
@@ -208,15 +337,16 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 - (CGFloat)getAlphaForSpotLightView
 {
     CGFloat alpha_x = [self getAlphaForSpotlight_X];
-    CGFloat alpha_y = [self getAlphaForSpotlight_Y];
-    CGFloat alpha = MIN(alpha_x, alpha_y);
-    return alpha;
+//    CGFloat alpha_y = [self getAlphaForSpotlight_Y];
+//    CGFloat alpha = MIN(alpha_x, alpha_y);
+    return alpha_x;
 }
 
 
 - (CGFloat)getAlphaForSpotlight_Y
 {
     CGFloat diff_y = self.anchorViewFrame.origin.y + self.anchorViewFrame.size.height/2 - (self.draggedViewFrame.origin.y + self.draggedViewFrame.size.height/2);
+    
     CGFloat m_y = (diff_y<0) ? kMaxSpotLightAlpha / self.anchorViewFrame.size.height : -kMaxSpotLightAlpha / self.anchorViewFrame.size.height;
     CGFloat alpha_y = MAX(0, MIN(kMaxSpotLightAlpha + m_y*diff_y, kMaxSpotLightAlpha));
     return alpha_y;
@@ -225,12 +355,47 @@ CGFloat const kMaxSpotLightAlpha = 0.8;
 
 - (CGFloat)getAlphaForSpotlight_X
 {
-    CGFloat diff_x = self.anchorViewFrame.origin.x + self.anchorViewFrame.size.width/2 - (self.draggedViewFrame.origin.x + self.draggedViewFrame.size.width/2);
+    CGFloat diff_x = [self getDiffX];
     
-    CGFloat m_x = (diff_x<0) ? kMaxSpotLightAlpha / self.anchorViewFrame.size.width : -kMaxSpotLightAlpha / self.anchorViewFrame.size.width;
+    CGFloat m_x = (diff_x<0) ? kMaxSpotLightAlpha / self.originalWidthConstant : -kMaxSpotLightAlpha / self.originalWidthConstant;
     CGFloat alpha_x = MAX(0, MIN(kMaxSpotLightAlpha + m_x*diff_x, kMaxSpotLightAlpha));
     return alpha_x;
 }
+
+
+- (CGFloat)getConstantForWidth
+{
+    CGFloat diff_x = self.anchorViewFrame.origin.x + self.originalWidthConstant/2 - (self.draggedViewFrame.origin.x + self.draggedViewFrame.size.width/2);
+    
+    if ((self.currentImageNumber == 1) && (diff_x<0)) {
+        diff_x = 0;
+    }
+    
+    if ((self.currentImageNumber == 2) && (diff_x>0)) {
+        diff_x = 0;
+    }
+    
+    diff_x = ABS(diff_x);
+    
+    CGPoint p1 = CGPointMake(0, 60);
+    CGPoint p2 = CGPointMake(self.anchorView.width/2, 0);
+    
+    LineEquation equation = [self getLineEquationWithFirstPoint:p1 second:p2];
+
+    return equation(diff_x);
+}
+
+
+- (LineEquation)getLineEquationWithFirstPoint:(CGPoint)p1 second:(CGPoint)p2;
+{
+    CGFloat m = (p2.y - p1.y) / (p2.x - p1.x);
+    LineEquation equation = ^CGFloat(CGFloat x) {
+        return p1.y + m*x;
+    };
+    
+    return equation;
+}
+
 
 - (void)rotateWithAnimationToDeg:(CGFloat)deg
 {

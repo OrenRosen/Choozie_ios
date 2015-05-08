@@ -43,13 +43,22 @@
 @property (nonatomic, strong) MLPSpotlight *spotlightLeft;
 @property (nonatomic, strong) MLPSpotlight *spotlightRight;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *constraintWidthImageRight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *constraintWidthImageLeft;
+
 @property (nonatomic, weak) id<ChoozieTwoImagesPostCellDelegate> choozieTwoImagesCelldelegate;
 
 // For dragging
 @property (nonatomic, weak) IBOutlet UIImageView *pointerImageView;
 @property (weak, nonatomic) IBOutlet HeroButton *circleRight;
 @property (weak, nonatomic) IBOutlet UIView *choozeDraggedView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageLeftLeft;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageLeftRight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageLeftTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageRightRight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageRightTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintImageRightLeft;
 
 
 - (void)preparePost:(ChooziePost *)post;

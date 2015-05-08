@@ -75,7 +75,7 @@
     self.draggableHelper = [[ChooziePostDraggableHelper alloc] initInCell:cell withConstraintX:self.constraintDragViewCenterX constraintY:self.constraintDragViewCenterY];
     self.draggableHelper.pointerImageView = self.draggedImageView;
 //    [self.draggedView setDraggableWithConstraintX:self.constraintDragViewCenterX constraintY:self.constraintDragViewCenterY inView:self];
-    self.draggedView.shouldStopMovingOnAxisY = YES;
+//    self.draggedView.shouldStopMovingOnAxisY = YES;
 }
 
 @end

@@ -112,14 +112,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdE-kj-Ljx" userLabel="slide to vote container">
-                                <rect key="frame" x="0.0" y="140" width="321" height="42"/>
+                                <rect key="frame" x="0.0" y="170" width="321" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="tGB-RY-6zk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldg-kq-TGC">
-                                <rect key="frame" x="20" y="192" width="280" height="3"/>
+                                <rect key="frame" x="20" y="222" width="280" height="3"/>
                                 <color key="backgroundColor" red="0.55117582070707072" green="0.55117582070707072" blue="0.55117582070707072" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="Q1X-uh-cfk"/>
@@ -139,7 +139,7 @@
                             <constraint firstAttribute="trailing" secondItem="euw-uR-0Rz" secondAttribute="trailing" id="942-xm-BAr"/>
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="ldg-kq-TGC" secondAttribute="leading" constant="-20" id="9VE-Qt-Cih"/>
                             <constraint firstItem="NdE-kj-Ljx" firstAttribute="centerX" secondItem="ldg-kq-TGC" secondAttribute="centerX" id="DhR-u8-jr5"/>
-                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="top" secondItem="fCP-c4-hGT" secondAttribute="bottom" constant="-20" id="GCE-UR-8k6"/>
+                            <constraint firstItem="NdE-kj-Ljx" firstAttribute="top" secondItem="fCP-c4-hGT" secondAttribute="bottom" constant="10" id="GCE-UR-8k6"/>
                             <constraint firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="Jrg-qg-cn9"/>
                             <constraint firstItem="fCP-c4-hGT" firstAttribute="leading" secondItem="XPu-xx-h7X" secondAttribute="leading" id="LEO-xc-aky"/>
                             <constraint firstItem="OzY-b5-IVw" firstAttribute="centerX" secondItem="RtH-Io-4Zx" secondAttribute="centerX" id="RWb-En-kKG"/>
@@ -221,6 +221,12 @@
                 <outlet property="circleRight" destination="OzY-b5-IVw" id="bDD-ml-MJD"/>
                 <outlet property="constraintCenterX" destination="RWb-En-kKG" id="CFd-9g-lbc"/>
                 <outlet property="constraintCenterY" destination="2mY-07-ehs" id="dDo-PA-Bfx"/>
+                <outlet property="constraintImageLeftLeft" destination="LEO-xc-aky" id="HOa-WF-sCv"/>
+                <outlet property="constraintImageLeftRight" destination="2xu-Gu-HpQ" id="GIO-Ip-IdS"/>
+                <outlet property="constraintImageLeftTop" destination="5H7-Nu-NM1" id="TU0-xa-WZg"/>
+                <outlet property="constraintImageRightLeft" destination="WVC-YZ-QNb" id="0mb-9R-rF6"/>
+                <outlet property="constraintImageRightRight" destination="942-xm-BAr" id="ojp-x5-q7I"/>
+                <outlet property="constraintImageRightTop" destination="lBC-A6-jWg" id="h3c-XG-r2G"/>
                 <outlet property="leftImageView" destination="fCP-c4-hGT" id="5XM-Kc-BgN"/>
                 <outlet property="rightImageView" destination="euw-uR-0Rz" id="1G5-In-NnJ"/>
                 <outlet property="slideToVoteContainer" destination="NdE-kj-Ljx" id="vWV-dO-V30"/>
